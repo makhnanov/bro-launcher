@@ -6,16 +6,17 @@ ___
 ![BRO Launcher](https://github.com/makhnanov/bro-launcher/blob/master/src/src/img/FirstRelease.png?raw=true)
 
 
-## Install one of add-ons for your browser
+## Step 1: Install one of add-ons for your browser
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/) \
 [Chrome](https://chrome.google.com/webstore/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia)
 
-## Install app via build
+## Step 2: Select one of the installation options:
+## Option 1: Install app via only html & css & js build (Easiest)
 ```shell
 ToDo...
 ```
 
-## Install server via docker 
+## Option 2: Install server via docker (For advanced users)
 ```shell
 git clone https://github.com/makhnanov/bro-launcher.git
 # or # git clone git@github.com:makhnanov/bro-launcher.git # for add pull request
