@@ -26,25 +26,27 @@ git clone https://github.com/makhnanov/bro-launcher.git
 make
 xdg-open http://localhost:3389/
 # or open in browser http://localhost:3389/ 
+# copy http://localhost:3389/ for paste in browser ext
 ```
 
 ## Step 3: Add app link to extension, keep calm and start use BRO Launcher!
 
-#### For html build use link with your file e.g.:
+#### For html build use link with your file from previous step e.g.:
 ```shell
-
+file:///home/roman/Desktop/bro-launcher-build-main/index.html
 ```
 #### For docker server use link:
 ```shell
 http://localhost:3389/
 ```
 
-#### For Firefox
+#### For Firefox (Allow install only with docker)
 ![Firefox ext](https://github.com/makhnanov/bro-launcher/blob/master/src/src/img/FirefoxExt.png?raw=true)
-
+![Firefox ext](https://github.com/makhnanov/bro-launcher/blob/master/src/src/img/FirefoxExtLink.png?raw=true)
 
 #### For Chrome
 
-
+![Chrome ext](https://github.com/makhnanov/bro-launcher/blob/master/src/src/img/ChromeExt.png?raw=true)
+![Chrome ext link](https://github.com/makhnanov/bro-launcher/blob/master/src/src/img/ChromeExtLink.png?raw=true)
 
 
