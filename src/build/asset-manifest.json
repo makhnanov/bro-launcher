@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "./static/css/main.164de7a8.css",
+    "main.js": "./static/js/main.e9c325e7.js",
+    "static/js/787.98651143.chunk.js": "./static/js/787.98651143.chunk.js",
+    "static/media/BackgroundOfficeMountainsEpic.jpg": "./static/media/BackgroundOfficeMountainsEpic.6f59bd8cf3bffbc13843.jpg",
+    "static/media/Jira.png": "./static/media/Jira.9a53935a35cb6eb110c6.png",
+    "static/media/Firefox.png": "./static/media/Firefox.9116f3f5900fce7df70c.png",
+    "static/media/KeePassXC.png": "./static/media/KeePassXC.8cfeb2eae852527e8efa.png",
+    "static/media/PhpStorm.png": "./static/media/PhpStorm.d16f930766c1211b511d.png",
+    "static/media/WebStorm.png": "./static/media/WebStorm.9cc5ff8e8a88905d827e.png",
+    "static/media/GTranslate.png": "./static/media/GTranslate.c582b1d4f93b335e171e.png",
+    "static/media/Telegram.png": "./static/media/Telegram.04c3d4028b28944f72b9.png",
+    "static/media/Mousepad.png": "./static/media/Mousepad.b6cc76f873cf2011fbe5.png",
+    "static/media/YouTube.png": "./static/media/YouTube.b032eab6f6e0ce8c618a.png",
+    "static/media/Diary.webp": "./static/media/Diary.30c825381dc51a1509fb.webp",
+    "static/media/Calculator.png": "./static/media/Calculator.a177f02ea44a242d2269.png",
+    "static/media/Postman.svg": "./static/media/Postman.c74cd48d00339ba03ff2e6ed3f9d0c4d.svg",
+    "static/media/Bitbucket.svg": "./static/media/Bitbucket.b2765e1d86fe17ef941b1d5e028cf24a.svg",
+    "static/media/Outlook.svg": "./static/media/Outlook.069de29f3773012bd623a9f895e1c0e1.svg",
+    "static/media/Github.svg": "./static/media/Github.c1001a2e7362be60e7464006f8f1aa08.svg",
+    "static/media/Confluence.svg": "./static/media/Confluence.368829a81dacf3834b7f2d9841250315.svg",
+    "static/media/Zoom.svg": "./static/media/Zoom.d9a91a9af8aebbcc1ae682c6ca259514.svg",
+    "static/media/Tinder.svg": "./static/media/Tinder.07f78c0ccf5f440bdcd63c6f2ca78912.svg",
+    "static/media/Plus.svg": "./static/media/Plus.a345d37cca964f3c8a2bb56eb2e88139.svg",
+    "index.html": "./index.html",
+    "main.164de7a8.css.map": "./static/css/main.164de7a8.css.map",
+    "main.e9c325e7.js.map": "./static/js/main.e9c325e7.js.map",
+    "787.98651143.chunk.js.map": "./static/js/787.98651143.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.164de7a8.css",
+    "static/js/main.e9c325e7.js"
+  ]
+}
