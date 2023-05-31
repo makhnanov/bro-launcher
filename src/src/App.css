@@ -297,8 +297,19 @@ button {
   background: #152c5a;
 }
 
-
 .logo-version-text {
   margin-left: 10px;
   font-size: 11px;
+}
+
+.context-menu-nothing {
+  text-align: center;
+}
+
+.item-life__separator {
+  width: 100%;
+  border-bottom: 1px solid red;
+  height: 1px;
+  margin-top: 3px;
+  margin-bottom: 1px;
 }

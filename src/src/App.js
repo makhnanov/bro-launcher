@@ -59,7 +59,7 @@ function App() {
     const [newBookmarkImageStyle, setNewBookmarkImageStyle] = useState('');
     const [newBookmarkText, setNewBookmarkText] = useState('');
 
-    const [file, setFile] = useState();
+    // const [file, setFile] = useState();
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
 
@@ -106,7 +106,7 @@ function App() {
     };
 
     const importData = (event) => {
-        setFile(event.target.files[0])
+        // setFile(event.target.files[0])
 
         event.preventDefault()
 
@@ -148,6 +148,7 @@ function App() {
         } else {
             newBookmarks[indexForEdit].onClick = newBookmarkLink;
             newBookmarks[indexForEdit].text = newBookmarkText;
+            newBookmarks[indexForEdit].img = newBookmarkImage;
         }
 
         localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
@@ -209,6 +210,7 @@ function App() {
         setIndexForEdit(index);
         setNewBookmarkLink(bookmarks[index].onClick);
         setNewBookmarkText(bookmarks[index].text);
+        setNewBookmarkImage(bookmarks[index].img);
         setShowModal(true);
     }
 
@@ -303,9 +305,9 @@ function App() {
                             <input type="text" className="input-style" onChange={handleBookmarkLinkChange}
                                    value={newBookmarkLink}/>
 
-                            {/*<p>Image:</p>*/}
-                            {/*<input type="text" className="input-style" onChange={handleBookmarkImageChange}*/}
-                            {/*       value={newBookmarkImage}/>*/}
+                            <p>Image:</p>
+                            <input type="text" className="input-style" onChange={handleBookmarkImageChange}
+                                   value={newBookmarkImage}/>
 
                             {/*<div className="image-style-selector-block">*/}
                             {/*    <label htmlFor="image-style">ImageStyle:</label>*/}
