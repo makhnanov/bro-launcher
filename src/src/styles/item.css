@@ -12,7 +12,7 @@
     );
     row-gap: var(--gap);
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     grid-auto-flow: dense
 }
 
