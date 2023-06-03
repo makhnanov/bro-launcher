@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.0.0';
+const appVersion = '1.0.4';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -138,17 +138,21 @@ function App() {
 
         const newBookmarks = JSON.parse(localStorage.getItem('bookmarks') ?? '[]');
 
+        let image = newBookmarkImage;
+        if (!newBookmarkImage) {
+            let domain = (new URL(newBookmarkLink)).hostname.replace('www.','');
+            image = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
+        }
+
         if (indexForEdit === null) {
             newBookmarks.unshift({
                 'onClick': newBookmarkLink,
-                'img': Without,
+                'img': image,
                 'imgStyle': newBookmarkImageStyle,
                 'text': newBookmarkText,
             });
         } else {
-            newBookmarks[indexForEdit].onClick = newBookmarkLink;
-            newBookmarks[indexForEdit].text = newBookmarkText;
-            newBookmarks[indexForEdit].img = newBookmarkImage;
+            newBookmarks[indexForEdit].img = image;
         }
 
         localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
@@ -158,6 +162,7 @@ function App() {
 
         setNewBookmarkLink('');
         setNewBookmarkText('');
+        setNewBookmarkImage('');
 
         setDataVersion(dataVersion + 1);
 
@@ -188,7 +193,8 @@ function App() {
         setNewBookmarkImageStyle(e.target.value);
     };
     const handleBookmarkTextChange = (e) => {
-        setNewBookmarkText(e.target.value);
+        const str = e.target.value;
+        setNewBookmarkText(str.charAt(0).toUpperCase() + str.slice(1));
     };
 
     const handleYoutubeKeyDown = (e) => {

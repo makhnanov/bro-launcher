@@ -40,39 +40,36 @@ const ItemContext = ({ bookmarks, showModal, showModalForEdit, dataVersion, setD
     const totalLifeInDays = (Date.parse(estimatedLifeTime) - Date.parse(birthDay)) / 86400000;
     const alreadyLifeInDays = (Date.parse(new Date()) - Date.parse(birthDay)) / 86400000;
 
+    const fixed = 5;
+
     const lifePercent = Math.trunc((alreadyLifeInDays * 100) / totalLifeInDays);
-    const lifeDecimals = ((alreadyLifeInDays * 100) / totalLifeInDays % 1).toFixed(6);
-    const estimateDecimals = (1 - lifeDecimals).toFixed(6);
+    const lifeDecimals = ((alreadyLifeInDays * 100) / totalLifeInDays % 1).toFixed(fixed);
+    const estimateDecimals = (1 - lifeDecimals).toFixed(fixed);
 
     return (
         <div className='grid-container'>
 
-            <div className="item item-life">
-                <h1>
-                    {lifePercent}%
-                </h1>
-                <h4>
-                    {lifeDecimals}
-                </h4>
-                <div className={'item-life__separator'}></div>
-                <h1>
-                    {100 - lifePercent}%
-                </h1>
-                <h4>
-                    {estimateDecimals}
-                </h4>
-            </div>
+            {/*<div className="item item-1-life">*/}
+            {/*    <h1 className={'item-1-life__already_percent'}>*/}
+            {/*        {lifePercent}%*/}
+            {/*    </h1>*/}
+            {/*    <h4 className={'item-1-life__already_decimal'}>*/}
+            {/*        {lifeDecimals}*/}
+            {/*    </h4>*/}
+            {/*    <div className={'item-1-life__separator'}></div>*/}
+            {/*    <h1 className={'item-1-life__estimate_percent'}>*/}
+            {/*        {100 - lifePercent}%*/}
+            {/*    </h1>*/}
+            {/*    <h4 className={'item-1-life__estimate_decimal'}>*/}
+            {/*        {estimateDecimals}*/}
+            {/*    </h4>*/}
+            {/*</div>*/}
 
-            <div className="item plus-container" onClick={() => showModal()}>
-                <div>
-                    <div>
-                        <img src={Plus} alt="Plus" className={`item-image-icon`}></img>
-                    </div>
-                </div>
+            <div className="item item-plus" onClick={() => showModal()}>
+                <img src={Plus} alt="Plus" className={`item-image-icon`}></img>
             </div>
 
             {bookmarks.map((item, index) => (
-
                 <div
                     className="item"
                     onClick={handleClick(item.onClick)}
@@ -86,7 +83,6 @@ const ItemContext = ({ bookmarks, showModal, showModalForEdit, dataVersion, setD
                 >
                     <Item item={item} />
                 </div>
-
             ))}
 
             {clicked && (
