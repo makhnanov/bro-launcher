@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.3';
+const appVersion = '1.4.5';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
