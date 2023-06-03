@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.0.4';
+const appVersion = '1.4.3';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -140,8 +140,12 @@ function App() {
 
         let image = newBookmarkImage;
         if (!newBookmarkImage) {
-            let domain = (new URL(newBookmarkLink)).hostname.replace('www.','');
-            image = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
+            try {
+                let domain = (new URL(newBookmarkLink)).hostname.replace('www.','');
+                image = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
+            } catch (error) {
+                image = Without;
+            }
         }
 
         if (indexForEdit === null) {
@@ -152,6 +156,8 @@ function App() {
                 'text': newBookmarkText,
             });
         } else {
+            newBookmarks[indexForEdit].onClick = newBookmarkLink;
+            newBookmarks[indexForEdit].text = newBookmarkText;
             newBookmarks[indexForEdit].img = image;
         }
 

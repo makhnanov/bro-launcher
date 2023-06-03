@@ -10,3 +10,5 @@ ps:
 	docker compose ps
 down:
 	docker compose down
+build:
+	docker compose run node bash -c "npm run build"
