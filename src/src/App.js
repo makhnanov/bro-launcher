@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.7';
+const appVersion = '1.4.8';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -159,6 +159,7 @@ function App() {
             newBookmarks[indexForEdit].onClick = newBookmarkLink;
             newBookmarks[indexForEdit].text = newBookmarkText;
             newBookmarks[indexForEdit].img = image;
+            newBookmarks[indexForEdit].imgStyle = newBookmarkImageStyle;
         }
 
         localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
@@ -223,6 +224,7 @@ function App() {
         setNewBookmarkLink(bookmarks[index].onClick);
         setNewBookmarkText(bookmarks[index].text);
         setNewBookmarkImage(bookmarks[index].img);
+        setNewBookmarkImageStyle(bookmarks[index].imgStyle);
         setShowModal(true);
     }
 
@@ -321,17 +323,23 @@ function App() {
                             <input type="text" className="input-style" onChange={handleBookmarkImageChange}
                                    value={newBookmarkImage}/>
 
-                            {/*<div className="image-style-selector-block">*/}
-                            {/*    <label htmlFor="image-style">ImageStyle:</label>*/}
-                            {/*    <div className="input-style">*/}
-                            {/*        <select name="image-style" id="image-style-id" className="input-style"*/}
-                            {/*                onChange={handleBookmarkImageStyleChange} value={newBookmarkImageStyle}>*/}
-                            {/*            <option value="round-image-50">Round 50</option>*/}
-                            {/*            <option value="round-image-20">Round 20</option>*/}
-                            {/*            <option value="none">None</option>*/}
-                            {/*        </select>*/}
-                            {/*    </div>*/}
-                            {/*</div>*/}
+                            <div className="image-style-selector-block">
+                                <label htmlFor="image-style">Round Image:</label>
+                                <div className="input-style">
+                                    <select name="image-style" id="image-style-id" className="input-style"
+                                            onChange={handleBookmarkImageStyleChange} value={newBookmarkImageStyle}>
+                                        <option value="none">None</option>
+                                        <option value="round-image-5">5%</option>
+                                        <option value="round-image-10">10%</option>
+                                        <option value="round-image-15">15%</option>
+                                        <option value="round-image-20">20%</option>
+                                        <option value="round-image-25">25%</option>
+                                        <option value="round-image-30">30%</option>
+                                        <option value="round-image-40">40%</option>
+                                        <option value="round-image-50">50%</option>
+                                    </select>
+                                </div>
+                            </div>
 
                         </div>
 

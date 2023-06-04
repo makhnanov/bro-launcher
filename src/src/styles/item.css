@@ -7,7 +7,7 @@
             var(--columns-count),
             calc(
                     ((100vw - var(--container-left-right-padding)) / var(--columns-count))
-                    - ((var(--columns-count) - 1) * var(--gap)) / var(--columns-count)
+                    - (((var(--columns-count) - 1) * var(--gap)) / var(--columns-count))
             )
     );
     row-gap: var(--gap);
@@ -45,6 +45,7 @@
 .item:hover .text-description {
     position: relative;
     text-align: center;
+    overflow: visible;
 }
 
 .item-content {
@@ -61,19 +62,27 @@
 }
 
 .item-image-container {
-    padding-left: 9px;
-    padding-right: 9px;
-    display: block;
-    align-items: center;
-    /*width: 55px;*/
-    align-self: center;
-    margin-left: auto;
-    margin-right: auto;
+    aspect-ratio: 1 / 0.71;
+    overflow: hidden;
+}
+
+.item-img-wrapper {
+    width: 65%;
+    margin: auto;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    display: flex;
+    align-items: baseline;
+}
+
+.item-img-wrapper-again {
+    /*height: 100%;*/
 }
 
 .item-image-icon {
     width: 100%;
-    /*height: 55px;*/
+    /*max-height: 55px;*/
+    overflow: hidden;
     object-fit: contain;
 }
 
@@ -92,8 +101,32 @@
     height: 100%;
 }
 
-.round-image {
+.round-image-5 {
+    border-radius: 5%;
+}
+
+.round-image-10 {
+    border-radius: 10%;
+}
+
+.round-image-15 {
     border-radius: 15%;
+}
+
+.round-image-20 {
+    border-radius: 20%;
+}
+
+.round-image-25 {
+    border-radius: 25%;
+}
+
+.round-image-30 {
+    border-radius: 30%;
+}
+
+.round-image-40 {
+    border-radius: 40%;
 }
 
 .round-image-50 {
@@ -101,9 +134,10 @@
 }
 
 .text-description {
-    max-height: 1em;
+    max-height: calc(1em + 2px);
     text-shadow: #000 2px -2px 2px;
     font-size: 80%;
+    overflow: hidden;
 }
 
 /* First Lifetime Widget Start */
@@ -138,7 +172,7 @@
 
 .item-1-life__separator {
     width: 100%;
-    border-bottom: 3px solid rgba(255, 0 ,0 , 0.7);
+    border-bottom: 3px solid rgba(255, 0, 0, 0.7);
     height: 0;
     margin-top: 3px;
     margin-bottom: 1px;
