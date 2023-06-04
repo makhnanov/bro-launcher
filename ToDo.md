@@ -3,3 +3,4 @@
 - Add image
 - Select Image
 - Do a barrel roll
+- Remake tg link for on the fly resolve rewrite
