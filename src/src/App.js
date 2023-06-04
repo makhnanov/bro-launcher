@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.8';
+const appVersion = '1.4.9';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -106,7 +106,6 @@ function App() {
     };
 
     const importData = (event) => {
-        // setFile(event.target.files[0])
 
         event.preventDefault()
 
@@ -147,17 +146,23 @@ function App() {
                 image = Without;
             }
         }
-
+        let text = newBookmarkText;
         if (indexForEdit === null) {
+            // if (!text) {
+            //     if () {
+            //
+            //     }
+            //     newBookmarkText = 'a'
+            // }
             newBookmarks.unshift({
                 'onClick': newBookmarkLink,
                 'img': image,
                 'imgStyle': newBookmarkImageStyle,
-                'text': newBookmarkText,
+                'text': text,
             });
         } else {
             newBookmarks[indexForEdit].onClick = newBookmarkLink;
-            newBookmarks[indexForEdit].text = newBookmarkText;
+            newBookmarks[indexForEdit].text = text;
             newBookmarks[indexForEdit].img = image;
             newBookmarks[indexForEdit].imgStyle = newBookmarkImageStyle;
         }
@@ -191,14 +196,25 @@ function App() {
     };
 
     const handleBookmarkLinkChange = (e) => {
-        setNewBookmarkLink(e.target.value);
+        let newLink = e.target.value.trim();
+        if (!newBookmarkText && newLink) {
+            try {
+                let domain = (new URL(newLink)).hostname.replace('www.','').split('.')[0];
+                setNewBookmarkText(domain.charAt(0).toUpperCase() + domain.slice(1));
+            } catch (error) {
+            }
+        }
+        setNewBookmarkLink(newLink);
     };
+
     const handleBookmarkImageChange = (e) => {
         setNewBookmarkImage(e.target.value);
     };
+
     const handleBookmarkImageStyleChange = (e) => {
         setNewBookmarkImageStyle(e.target.value);
     };
+
     const handleBookmarkTextChange = (e) => {
         const str = e.target.value;
         setNewBookmarkText(str.charAt(0).toUpperCase() + str.slice(1));

@@ -20,6 +20,7 @@ code {
     background-attachment: fixed;
     background-position: 25% 40%;
     background-size: cover;
+    overflow: hidden;
 }
 
 .App:hover {
