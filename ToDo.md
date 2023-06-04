@@ -4,3 +4,7 @@
 - Select Image
 - Do a barrel roll
 - Remake tg link for on the fly resolve rewrite
+- Add sleep time to show background
+- Add checker for different tabs in one of them is new
+- Add double click for unlock
+- 
