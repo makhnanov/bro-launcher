@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.5';
+const appVersion = '1.4.7';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -59,7 +59,7 @@ function App() {
     const [newBookmarkImageStyle, setNewBookmarkImageStyle] = useState('');
     const [newBookmarkText, setNewBookmarkText] = useState('');
 
-    // const [file, setFile] = useState();
+    const localProjectPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher/&line=95";
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
 
@@ -241,7 +241,7 @@ function App() {
                         BRO Launcher
                         <span className="logo-version-text"
                               onClick={() => {
-                                  window.open('webstorm://open?url=file:///var/www/bookmarks/&line=95')
+                                  window.open(localProjectPathForWebStorm)
                               }}>
                             v.{appVersion}
                         </span>
