@@ -7,4 +7,5 @@
 - Add sleep time to show background
 - Add checker for different tabs in one of them is new
 - Add double click for unlock
-- 
+- Add gh icon left on title
+- Title editor in settings
