@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.9';
+const appVersion = '1.4.10';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -148,13 +148,8 @@ function App() {
         }
         let text = newBookmarkText;
         if (indexForEdit === null) {
-            // if (!text) {
-            //     if () {
-            //
-            //     }
-            //     newBookmarkText = 'a'
-            // }
-            newBookmarks.unshift({
+            // newBookmarks.unshift({
+            newBookmarks.push({
                 'onClick': newBookmarkLink,
                 'img': image,
                 'imgStyle': newBookmarkImageStyle,

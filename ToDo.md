@@ -9,3 +9,4 @@
 - Add double click for unlock
 - Add gh icon left on title
 - Title editor in settings
+- Unshift or push
