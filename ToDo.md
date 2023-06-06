@@ -11,3 +11,5 @@
 - Title editor in settings
 - Unshift or push
 - Add dynamic search
+- Fast add bookmark by pass link into input
+- In ext - override "Ctrl + D"
