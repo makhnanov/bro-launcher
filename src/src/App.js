@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.10';
+const appVersion = '1.4.11';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -345,7 +345,7 @@ function App() {
                                         <option value="round-image-15">15%</option>
                                         <option value="round-image-20">20%</option>
                                         <option value="round-image-25">25%</option>
-                                        <option value="round-image-30">30%</option>
+                                        <option value="round-image-30" selected="selected">30%</option>
                                         <option value="round-image-40">40%</option>
                                         <option value="round-image-50">50%</option>
                                     </select>

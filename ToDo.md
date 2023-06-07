@@ -13,3 +13,5 @@
 - Add dynamic search
 - Fast add bookmark by pass link into input
 - In ext - override "Ctrl + D"
+- Add fast copy url button
+- Set default round in memory (local storage)
