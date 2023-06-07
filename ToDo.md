@@ -16,3 +16,5 @@
 - Add fast copy url button
 - Set default round in memory (local storage)
 - JS <script> for add widget or functionality into foreign site 
+- Middle mouse open in new tab
+- Settings for middle mouse
