@@ -15,3 +15,4 @@
 - In ext - override "Ctrl + D"
 - Add fast copy url button
 - Set default round in memory (local storage)
+- JS <script> for add widget or functionality into foreign site 
