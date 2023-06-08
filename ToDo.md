@@ -18,3 +18,4 @@
 - JS <script> for add widget or functionality into foreign site 
 - Middle mouse open in new tab
 - Settings for middle mouse
+- Open pages for other connected users for some time in minutes
