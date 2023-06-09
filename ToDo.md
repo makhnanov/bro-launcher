@@ -19,3 +19,5 @@
 - Middle mouse open in new tab
 - Settings for middle mouse
 - Open pages for other connected users for some time in minutes
+- YouTube search to bottom
+- Water drink widget
