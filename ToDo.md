@@ -24,3 +24,4 @@
 - Always set IMG for link mask
 - Fix first open lock bug
 - Add lock img if menu hidden
+- Change link tg preview
