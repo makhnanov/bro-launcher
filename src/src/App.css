@@ -282,3 +282,18 @@ button {
 .context-menu-nothing {
     text-align: center;
 }
+
+.close-menu-button {
+    position: absolute;
+    margin-left: -21px;
+    margin-top: -13px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-size: 66%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+    transform: rotate(354deg);
+    border: 1px solid #888;
+}

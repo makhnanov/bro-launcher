@@ -19,6 +19,7 @@ import Github from './img/Github.svg';
 import Plus from './img/Plus.svg';
 import GTranslate from './img/GTranslate.png';
 import Telegram from './img/Telegram.png';
+import Cross from './img/cross-mark-svgrepo-com.svg';
 
 import './App.css';
 
@@ -30,7 +31,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.1';
+const appVersion = '1.5.2';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -254,6 +255,9 @@ function App() {
 
                 <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
 
+                    <div className={'menu-item close-menu-button'} style={{backgroundImage: `url(${Cross})`}} onClick={toggleHideMenu}>
+                    </div>
+
                     <div className="launcher">
                         <span className={'bro-three-letters'} onClick={toggleHideMenu}>
                             BRO
@@ -267,10 +271,6 @@ function App() {
                               }}>
                             v.{appVersion}
                         </span>
-                    </div>
-
-                    <div className={'menu-item'} onClick={toggleHideMenu}>
-                        Hide
                     </div>
 
                     <div className={'menu-item'} onClick={exportData}>
