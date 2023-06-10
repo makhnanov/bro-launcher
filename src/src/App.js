@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.0';
+const appVersion = '1.5.1';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -59,7 +59,7 @@ function App() {
     const [newBookmarkImageStyle, setNewBookmarkImageStyle] = useState('');
     const [newBookmarkText, setNewBookmarkText] = useState('');
 
-    const [menuHidden, setMenuHidden] = useState(false);
+    const [menuHidden, setMenuHidden] = useState(localStorage.getItem('menuHidden') === 'true');
 
     const localProjectPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher/&line=95";
 
@@ -73,6 +73,7 @@ function App() {
     }
 
     const toggleHideMenu = () => {
+        localStorage.setItem('menuHidden', (!menuHidden).toString());
         setMenuHidden(!menuHidden);
     };
 
