@@ -22,3 +22,5 @@
 - YouTube search to bottom
 - Water drink widget
 - Always set IMG for link mask
+- Fix first open lock bug
+- Add lock img if menu hidden
