@@ -31,7 +31,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.4';
+const appVersion = '1.5.5';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -46,6 +46,9 @@ function App() {
 
     const [dataVersion, setDataVersion] = useState(parseInt(localStorage.getItem('dataVersion') ?? '0'));
 
+    if (localStorage.getItem('isActive') === null) {
+        localStorage.setItem('isActive', 'true');
+    }
     const [isActive, setIsActive] = useState(localStorage.getItem('isActive') === 'true');
 
     const [showModal, setShowModal] = useState(false);
