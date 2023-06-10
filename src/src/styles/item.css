@@ -1,3 +1,12 @@
+.grid-container-wrapper {
+    min-height: calc(100vh - 171px);
+    transition: all 500ms ease-in-out;
+}
+
+.grid-container-wrapper.grid-container-wrapper_menu-hidden {
+    min-height: calc(100vh - (171px - 41px));
+}
+
 .grid-container {
     display: grid;
     --columns-count: 21;
@@ -13,7 +22,6 @@
     row-gap: var(--gap);
     justify-content: space-between;
     margin-bottom: 5px;
-    grid-auto-flow: dense
 }
 
 .item-plus {
@@ -21,17 +29,15 @@
     border: 3px dashed #CCC !important;
     box-sizing: border-box;
     justify-content: center;
-    padding: 10px;
+    padding: 17px;
 }
 
 .item {
     background-color: rgba(0, 0, 0, 50%);
     width: 100%;
     height: auto;
-    /*height: 150px;*/
     display: flex;
     border-radius: 20px 20px 5px 5px;
-    /*justify-content: space-between;*/
     flex-direction: column;
     border: 1px solid #444;
     box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.2);

@@ -21,3 +21,4 @@
 - Open pages for other connected users for some time in minutes
 - YouTube search to bottom
 - Water drink widget
+- Always set IMG for link mask

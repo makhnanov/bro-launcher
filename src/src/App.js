@@ -30,7 +30,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.4.11';
+const appVersion = '1.5.0';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -59,6 +59,8 @@ function App() {
     const [newBookmarkImageStyle, setNewBookmarkImageStyle] = useState('');
     const [newBookmarkText, setNewBookmarkText] = useState('');
 
+    const [menuHidden, setMenuHidden] = useState(false);
+
     const localProjectPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher/&line=95";
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
@@ -69,6 +71,10 @@ function App() {
         setNewBookmarkLink('');
         setNewBookmarkText('');
     }
+
+    const toggleHideMenu = () => {
+        setMenuHidden(!menuHidden);
+    };
 
     const exportData = () => {
         const date = new Date();
@@ -140,7 +146,7 @@ function App() {
         let image = newBookmarkImage;
         if (!newBookmarkImage) {
             try {
-                let domain = (new URL(newBookmarkLink)).hostname.replace('www.','');
+                let domain = (new URL(newBookmarkLink)).hostname.replace('www.', '');
                 image = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
             } catch (error) {
                 image = Without;
@@ -194,7 +200,7 @@ function App() {
         let newLink = e.target.value.trim();
         if (!newBookmarkText && newLink) {
             try {
-                let domain = (new URL(newLink)).hostname.replace('www.','').split('.')[0];
+                let domain = (new URL(newLink)).hostname.replace('www.', '').split('.')[0];
                 setNewBookmarkText(domain.charAt(0).toUpperCase() + domain.slice(1));
             } catch (error) {
             }
@@ -248,11 +254,16 @@ function App() {
         >
             <div className="App-header" style={{visibility: !isActive ? 'hidden' : ''}}>
 
-                <div className="item-max-header">
+                <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
 
                     <div className="launcher">
-                        BRO Launcher
-                        <span className="logo-version-text"
+                        <span className={'bro-three-letters'} onClick={toggleHideMenu}>
+                            BRO
+                        </span>
+                        <span className={'launcher-text menu-item'}>
+                            Launcher
+                        </span>
+                        <span className="logo-version-text menu-item"
                               onClick={() => {
                                   window.open(localProjectPathForWebStorm)
                               }}>
@@ -260,22 +271,22 @@ function App() {
                         </span>
                     </div>
 
-                    {/*<div className="">*/}
-                    {/*    Editor*/}
-                    {/*</div>*/}
+                    <div className={'menu-item'} onClick={toggleHideMenu}>
+                        Hide
+                    </div>
 
-                    <div className="" onClick={exportData}>
+                    <div className={'menu-item'} onClick={exportData}>
                         Backup
                     </div>
 
-                    <div className="">
+                    <div className={'menu-item'}>
                         <label className="custom-file-upload">
                             <input type="file" className="import-button" onChange={importData}/>
                             Import
                         </label>
                     </div>
 
-                    <div className="" onClick={lockScreen}>
+                    <div className={'menu-item'} onClick={lockScreen}>
                         Lock
                     </div>
 
@@ -294,7 +305,8 @@ function App() {
                              showModalForEdit={needShowModalForEdit}
                              dataVersion={dataVersion}
                              setDataVersion={setDataVersion}
-                             exportData={exportData}/>
+                             exportData={exportData}
+                             isMenuHidden={menuHidden}/>
 
                 <div className="item-max">
                     <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>

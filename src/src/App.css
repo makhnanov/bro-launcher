@@ -52,11 +52,6 @@ code {
 }
 
 .App-header {
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*display: flex;*/
-    /*justify-content: space-between;*/
     font-size: 19px;
     color: white;
     padding: 15px 10px 15px 10px;
@@ -66,18 +61,9 @@ code {
     min-height: calc(100vh - 30px);
 }
 
-/*.b-filter {*/
-/*  filter: blur(0.5) grayscale(0.5);*/
-/*  min-height: 100%;*/
-/*  min-width: 100%;*/
-/*  height: 100%;*/
-/*  width: 100%;*/
-/*  position: static;*/
-/*}*/
-
 .item-max-header {
     background-color: rgba(0, 0, 0, 0.5);
-    /*width: 100%;*/
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -85,14 +71,50 @@ code {
     flex-direction: row;
     padding: 7px 15px 7px 15px;
     margin-bottom: 4px;
+    max-height: 23px;
+    transition: all 500ms ease-in-out;
+}
+
+.menu-hidden {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.menu-item {
+    transition: all 500ms ease-in-out;
+    user-select: none;
+}
+
+.menu-hidden .menu-item {
+    opacity: 0;
+}
+
+.bro-three-letters {
+    position: absolute;
+    border: 2px solid white;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+    transition: all 500ms ease-in-out;
+    margin-top: -4px;
+    user-select: none;
+}
+
+.menu-hidden .bro-three-letters {
+    margin-top: -2px;
+    margin-left: -21px;
+    transform: rotate(-35deg);
+    background-color: #000;
+}
+
+.launcher-text {
+    padding-left: 57px;
 }
 
 .filter-gray {
     filter: grayscale(80%);
-}
-
-.modal {
-    /*font-family: arial;*/
 }
 
 .modal {
@@ -188,7 +210,6 @@ button {
 .input-style {
     width: 97%;
 }
-
 
 .import-button {
     display: none;
