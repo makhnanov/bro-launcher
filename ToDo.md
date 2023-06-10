@@ -25,3 +25,4 @@
 - Fix first open lock bug
 - Add lock img if menu hidden
 - Change link tg preview
+- Change favicon. Check it via google url
