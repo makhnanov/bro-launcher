@@ -45,9 +45,6 @@ function App() {
 
     const [dataVersion, setDataVersion] = useState(parseInt(localStorage.getItem('dataVersion') ?? '0'));
 
-    // console.log('dataVersion');
-    // console.log(localStorage.getItem('dataVersion'));
-
     const [isActive, setIsActive] = useState(localStorage.getItem('isActive') === 'true');
 
     const [showModal, setShowModal] = useState(false);
