@@ -28,3 +28,4 @@
 - Change favicon. Check it via google url
 - Fix auto-click after unlock screen
 - Add multi language support
+- Add youtube music loader for many peoples in party
