@@ -31,7 +31,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.2';
+const appVersion = '1.5.4';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -251,7 +251,7 @@ function App() {
              }}
              style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}
         >
-            <div className="App-header" style={{visibility: !isActive ? 'hidden' : ''}}>
+            <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
                 <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
 

@@ -59,6 +59,7 @@ code {
     align-content: flex-start;
     gap: 1vh;
     min-height: calc(100vh - 30px);
+    transition: all 500ms ease-in-out;
 }
 
 .item-max-header {
