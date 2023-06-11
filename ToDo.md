@@ -29,3 +29,5 @@
 - Fix auto-click after unlock screen
 - Add multi language support
 - Add youtube music loader for many peoples in party
+- Don't remove fields if editor modal close
+- Allow many editor modals
