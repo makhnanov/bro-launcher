@@ -32,3 +32,4 @@
 - Don't remove fields if editor modal close
 - Allow many editor modals
 - Fix "add new bookmark title" if edit
+- Add fast edit bookmark text as in trello
