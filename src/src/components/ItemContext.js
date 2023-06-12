@@ -18,8 +18,8 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
         };
     }, []);
 
-    const handleClick = (myLink) => () => {
-        window.open(myLink, '_parent');
+    const handleClick = (myLink, aux = false) => () => {
+        window.open(myLink, aux ? '_blank' : '_parent');
     }
 
     const deleteItem = () => {
@@ -73,7 +73,8 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
                 {bookmarks.map((item, index) => (
                     <div
                         className="item"
-                        onClick={handleClick(item.onClick)}
+                        onDoubleClick={handleClick(item.onClick)}
+                        onAuxClick={handleClick(item.onClick, true)}
                         key={index}
                         onContextMenu={(e) => {
                             e.preventDefault();
