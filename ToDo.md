@@ -37,6 +37,7 @@
 - Overwrite Ctrl + S for add notification for save backup 
 - Change v.x.x.x to GH repo only in prod build
 - Add auto deploy script
+- Parser for steal bookmarks from other services
 
 - Add settings for all
 - Turn on / off youtube
