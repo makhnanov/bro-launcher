@@ -34,6 +34,7 @@
 - Fix "add new bookmark title" if edit
 - Add fast edit bookmark text as in trello
 - Check diff when you import, not overwrite 
+- Overwrite Ctrl + S for add notification for save backup 
 
 - Add settings for all
 - Turn on / off youtube

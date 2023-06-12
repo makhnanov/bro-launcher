@@ -98,7 +98,7 @@ code {
     border: 2px solid #fff;
     border-radius: 8px;
     margin-top: 0;
-    padding: 0 2px;
+    padding: 0 2px 0 3px;
     position: absolute;
     transition: all .5s ease-in-out;
     user-select: none;
