@@ -38,6 +38,7 @@
 - Change v.x.x.x to GH repo only in prod build
 - Add auto deploy script
 - Parser for steal bookmarks from other services
+- Add changelog autogen readme from x.x.x. Commit messages
 
 - Add settings for all
 - Turn on / off youtube
