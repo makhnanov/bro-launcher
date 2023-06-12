@@ -33,3 +33,17 @@
 - Allow many editor modals
 - Fix "add new bookmark title" if edit
 - Add fast edit bookmark text as in trello
+- Check diff when you import, not overwrite 
+
+- Add settings for all
+- Turn on / off youtube
+- Change or add search to google or ya or etc.
+- Add folders
+- Add sort by filter
+- Customize background 
+- Add dark mode
+- Add sync settings
+- Add api ajax requests extension, e.g. with local servers or devices
+- Some themes with customization
+- Google drive sync for backup
+- GoogleDrive or DropBox extension for open, group and sort files

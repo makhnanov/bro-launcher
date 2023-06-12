@@ -95,13 +95,14 @@ code {
 }
 
 .bro-three-letters {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    margin-top: 0;
+    padding: 0 2px;
     position: absolute;
-    border: 2px solid white;
-    padding: 2px 4px 2px 4px;
-    border-radius: 10px;
-    transition: all 500ms ease-in-out;
-    margin-top: -4px;
+    transition: all .5s ease-in-out;
     user-select: none;
+    line-height: 1em;
 }
 
 .menu-hidden .bro-three-letters {
@@ -112,7 +113,7 @@ code {
 }
 
 .launcher-text {
-    padding-left: 57px;
+    padding-left: 52px;
 }
 
 .filter-gray {
@@ -277,7 +278,7 @@ button {
 }
 
 .logo-version-text {
-    margin-left: 10px;
+    margin-left: 6px;
     font-size: 11px;
 }
 
