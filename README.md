@@ -1,5 +1,6 @@
 # BRO Launcher 
-# Public Community Edition Beta: [http://bro-launcher.com/](http://bro-launcher.com/)
+# Public Community Edition Beta: 
+# [http://bro-launcher.com/](http://bro-launcher.com/)
 ___
 
 ## BRO Launcher is useful tool for save bookmarks and launch app in your new tab in browser.
