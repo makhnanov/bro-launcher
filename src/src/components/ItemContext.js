@@ -18,8 +18,15 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
         };
     }, []);
 
-    const handleClick = (myLink, aux = false) => () => {
-        window.open(myLink, aux ? '_blank' : '_parent');
+    const handleClick = (myLink, aux = false) => (e) => {
+        if (e.button === 2) {
+            return;
+        }
+        if (e.button === 1 && aux) {
+            window.open(myLink, '_blank');
+        } else {
+            window.open(myLink, '_parent');
+        }
     }
 
     const deleteItem = () => {

@@ -80,10 +80,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-}
-
-.item-img-wrapper-again {
-    /*height: 100%;*/
+    user-select: none;
 }
 
 .item-image-icon {
@@ -91,6 +88,7 @@
     /*max-height: 55px;*/
     overflow: hidden;
     object-fit: contain;
+    user-select: none;
 }
 
 .item-max {
