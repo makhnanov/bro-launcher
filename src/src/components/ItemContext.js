@@ -73,10 +73,6 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
                 {/*    </h4>*/}
                 {/*</div>*/}
 
-                <div className="item item-plus" onClick={() => showModal()}>
-                    <img src={Plus} alt="Plus" className={`item-image-icon`}></img>
-                </div>
-
                 {bookmarks.map((item, index) => (
                     <div
                         className="item"
@@ -93,6 +89,10 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
                         <Item item={item}/>
                     </div>
                 ))}
+
+                <div className="item item-plus" onClick={() => showModal()}>
+                    <img src={Plus} alt="Plus" className={`item-image-icon`}></img>
+                </div>
 
                 {clicked && (
                     <ContextMenu top={points.y} left={points.x}>
