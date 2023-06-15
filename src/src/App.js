@@ -22,16 +22,13 @@ import Telegram from './img/Telegram.png';
 import Cross from './img/cross-mark-svgrepo-com.svg';
 
 import './App.css';
-
 import Modal from "react-overlays/Modal";
-
-import React, {useState, useEffect} from "react";
-
+import React, {useState, useRef, useEffect} from "react";
 import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.13';
+const appVersion = '1.5.18';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -131,15 +128,36 @@ function App() {
         reader.readAsText(fileObj);
     };
 
-    // useEffect(() => {
-    //     // console.log('useEffect')
-    //     // console.log(parseInt(localStorage.getItem('dataVersion') ?? '0'))
-    //     // console.log(dataVersion)
-    //     // if (parseInt(localStorage.getItem('dataVersion') ?? '0') !== dataVersion) {
-    //     //     localStorage.setItem('dataVersion', dataVersion.toString());
-    //     //     exportData();
-    //     // }
-    // }, [dataVersion]);
+    const [state, setState] = useState('');
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            const code = event.which || event.keyCode;
+            let charCode = String.fromCharCode(code).toLowerCase();
+            if ((event.ctrlKey || event.metaKey) && charCode === 's') {
+                setState('CTRL+S');
+                exportData();
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        const handlePasteAnywhere = event => {
+            // setNewBookmarkText('');
+            // setNewBookmarkLink(event.clipboardData.getData('text'));
+            setShowModal(true);
+            // console.log(event.clipboardData.items[0].getAsFile())
+            // https://stackoverflow.com/questions/73659207/react-js-upload-image-when-user-pastes-an-image
+        };
+
+        window.addEventListener('paste', handlePasteAnywhere);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('paste', handlePasteAnywhere);
+        };
+    }, []);
 
     let handleSuccess = () => {
 
@@ -175,8 +193,8 @@ function App() {
 
         setShowModal(false);
 
-        setNewBookmarkLink('');
         setNewBookmarkText('');
+        setNewBookmarkLink('');
         setNewBookmarkImage('');
 
         setDataVersion(dataVersion + 1);
@@ -233,17 +251,26 @@ function App() {
         }
     };
 
-    function needShowModal() {
-        setIndexForEdit(null);
-        setShowModal(true);
-    }
-
     function needShowModalForEdit(index) {
         setIndexForEdit(index);
         setNewBookmarkLink(bookmarks[index].onClick);
         setNewBookmarkText(bookmarks[index].text);
         setNewBookmarkImage(bookmarks[index].img);
         setNewBookmarkImageStyle(bookmarks[index].imgStyle);
+        setShowModal(true);
+    }
+
+    const useFocus = () => {
+        const htmlElRef = useRef(null)
+        const setFocus = () => {htmlElRef.current && htmlElRef.current.focus()}
+        return [ htmlElRef, setFocus ]
+    }
+
+    const [inputLinkRef, setInputFocus] = useFocus();
+    const [inputTextRef, setTextFocus] = useFocus();
+
+    function needShowModal() {
+        setIndexForEdit(null);
         setShowModal(true);
     }
 
@@ -325,6 +352,8 @@ function App() {
                     show={showModal}
                     onHide={handleClose}
                     renderBackdrop={renderBackdrop}
+                    onShow={() => !newBookmarkText ? inputLinkRef.current.focus() : inputTextRef.current.focus()}
+                    onEnter={handleSuccess}
                 >
                     <div>
 
@@ -335,13 +364,24 @@ function App() {
                         <div className="modal-desc">
 
                             <p>Text:</p>
-                            <input type="text" className="input-style" onChange={handleBookmarkTextChange}
-                                   value={newBookmarkText}/>
+                            <input type="text"
+                                   className="input-style"
+                                   ref={inputTextRef}
+                                   onChange={handleBookmarkTextChange}
+                                   onFocus={(e) => e.target.select()}
+                                   value={newBookmarkText}
+                                   onKeyUp={ (e) => e.keyCode === 13 ? handleSuccess() : null}
+                            />
 
                             <p>Link:</p>
                             {/*or AnyProgram executor*/}
-                            <input type="text" className="input-style" onChange={handleBookmarkLinkChange}
-                                   value={newBookmarkLink}/>
+                            <input type="text"
+                                   className="input-style"
+                                   ref={inputLinkRef}
+                                   onChange={handleBookmarkLinkChange}
+                                   onKeyUp={ (e) => e.keyCode === 13 ? handleSuccess() : null}
+                                   value={newBookmarkLink}
+                            />
 
                             <p>Image:</p>
                             <input type="text" className="input-style" onChange={handleBookmarkImageChange}
@@ -351,14 +391,14 @@ function App() {
                                 <label htmlFor="image-style">Round Image:</label>
                                 <div className="input-style">
                                     <select name="image-style" id="image-style-id" className="input-style"
-                                            onChange={handleBookmarkImageStyleChange} value={newBookmarkImageStyle}>
+                                            onChange={handleBookmarkImageStyleChange} value={newBookmarkImageStyle ?? "round-image-30"}>
                                         <option value="none">None</option>
                                         <option value="round-image-5">5%</option>
                                         <option value="round-image-10">10%</option>
                                         <option value="round-image-15">15%</option>
                                         <option value="round-image-20">20%</option>
                                         <option value="round-image-25">25%</option>
-                                        <option value="round-image-30" selected="selected">30%</option>
+                                        <option value="round-image-30">30%</option>
                                         <option value="round-image-40">40%</option>
                                         <option value="round-image-50">50%</option>
                                     </select>
