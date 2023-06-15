@@ -15,7 +15,7 @@
 - In ext - override "Ctrl + D"
 - Add fast copy url button
 - Set default round in memory (local storage)
-- JS <script> for add widget or functionality into foreign site 
+- JS <script> for add widget or functionality into foreign site
 - Middle mouse open in new tab
 - Settings for middle mouse
 - Open pages for other connected users for some time in minutes
@@ -33,8 +33,8 @@
 - Allow many editor modals
 - Fix "add new bookmark title" if edit
 - Add fast edit bookmark text as in trello
-- Check diff when you import, not overwrite 
-- Overwrite Ctrl + S for add notification for save backup 
+- Check diff when you import, not overwrite
+- Overwrite Ctrl + S for add notification for save backup
 - Change v.x.x.x to GH repo only in prod build
 - Add auto deploy script
 - Parser for steal bookmarks from other services
@@ -45,7 +45,7 @@
 - Change or add search to google or ya or etc.
 - Add folders
 - Add sort by filter
-- Customize background 
+- Customize background
 - Add dark mode
 - Add sync settings
 - Add api ajax requests extension, e.g. with local servers or devices
