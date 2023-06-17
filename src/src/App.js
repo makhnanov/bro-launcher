@@ -4,10 +4,10 @@ import "./description.css";
 import Modal from "react-overlays/Modal";
 import React, {useState, useRef, useEffect} from "react";
 import ItemContext from "./components/ItemContext";
-
 import Voice1 from "./voice/1.ogg";
 import Voice2 from "./voice/2.ogg";
 import Voice3 from "./voice/3.ogg";
+import './ttf/KeepCalm-Medium.woff2';
 
 document.title = 'BRO Launcher';
 
@@ -292,12 +292,26 @@ function App() {
         <div>
             <audio src={Voice1}></audio>
             <div className={"site-description"}>
-                <div className={"site-description__bro-launcher"}>
-                    <span className={"site-description__bro"}>BRO</span> Launcher
+                <div className={"site-description__headings"}>
+                    <div className={"site-description__bro-launcher"}>
+                        <span className={"site-description__bro"}>BRO</span> Launcher
+                    </div>
+                    <div className={"site-description__tagline"}>
+                        <div className={"description__tagline-text"}>One tap instead of three</div>
+                        <img className={"voice-fff"} src={img.Voice} alt={"Voice"} onClick={playTagline}/>
+                    </div>
                 </div>
-                <div className={"site-description__tagline"}>
-                    <div className={"description__tagline-text"}>One tap instead of three</div>
-                    <img className={"voice-fff"} src={img.Voice} alt={"Voice"} onClick={playTagline}/>
+                <div className={"keep-calm-container"}>
+                    <img className={"crown-img"} src={img.Crown} alt={"Crown"}/>
+                    <div className={"keep-calm"}>
+                        Keep calm
+                    </div>
+                    <div className={"keep-calm-and"}>
+                        and
+                    </div>
+                    <button className={"keep-calm-button"}>
+                        Start use Bro launcher now
+                    </button>
                 </div>
             </div>
             <div className="App"

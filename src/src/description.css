@@ -1,8 +1,13 @@
 .site-description {
     background-color: #000000;
     background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
-    height: 100vh;
-    max-height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-description__headings {
+    margin-left: 10%;
 }
 
 .site-description__bro {
@@ -13,14 +18,12 @@
 
 .site-description__bro-launcher {
     color: #FFF;
-    margin-left: 10%;
     font-size: 54px;
     padding-top: calc(20vh - 54px);
 }
 
 .site-description__tagline {
     color: #FFF;
-    margin-left: 10%;
     padding-top: 20px;
     font-size: 20px;
     display: flex;
@@ -44,4 +47,55 @@
 
 .voice-fff_on {
     margin-left: 15px;
+}
+
+.keep-calm-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 10%;
+    align-self: flex-start;
+    padding-top: calc(20vh - 54px);
+}
+
+.crown-img {
+    width: 100px;
+    align-self: center;
+}
+
+@font-face {
+    font-family: KeepCalmFont;
+    src: url(ttf/KeepCalm-Medium.woff2);
+}
+
+.keep-calm {
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: "KeepCalmFont", serif;
+    font-size: 45px;
+    padding-top: 30px;
+}
+
+.keep-calm-and {
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: "KeepCalmFont", serif;
+    padding-top: 25px;
+    font-size: 23px;
+}
+
+.keep-calm-button {
+    line-height: 65px;
+    margin-top: 28px;
+    padding: 20px;
+    font-size: 45px;
+    width: 320px;
+    font-family: "KeepCalmFont", serif;
+    text-transform: uppercase;
+    background-color: #157347;
+    color: #FFF;
+    align-self: center;
+    text-align: center;
+    border: 1px solid white;
 }
