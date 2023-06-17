@@ -28,7 +28,7 @@ import ItemContext from "./components/ItemContext";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.18';
+const appVersion = '1.5.19';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -173,12 +173,13 @@ function App() {
             }
         }
         let text = newBookmarkText;
+
         if (indexForEdit === null) {
             // newBookmarks.unshift({
             newBookmarks.push({
                 'onClick': newBookmarkLink,
                 'img': image,
-                'imgStyle': newBookmarkImageStyle,
+                'imgStyle': newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle,
                 'text': text,
             });
         } else {
@@ -196,6 +197,7 @@ function App() {
         setNewBookmarkText('');
         setNewBookmarkLink('');
         setNewBookmarkImage('');
+        setNewBookmarkImageStyle('');
 
         setDataVersion(dataVersion + 1);
 
@@ -390,8 +392,11 @@ function App() {
                             <div className="image-style-selector-block">
                                 <label htmlFor="image-style">Round Image:</label>
                                 <div className="input-style">
-                                    <select name="image-style" id="image-style-id" className="input-style"
-                                            onChange={handleBookmarkImageStyleChange} value={newBookmarkImageStyle ?? "round-image-30"}>
+                                    <select name="image-style"
+                                            id="image-style-id"
+                                            className="input-style"
+                                            onChange={handleBookmarkImageStyleChange}
+                                            value={!indexForEdit && newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle}>
                                         <option value="none">None</option>
                                         <option value="round-image-5">5%</option>
                                         <option value="round-image-10">10%</option>
