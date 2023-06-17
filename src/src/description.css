@@ -1,0 +1,47 @@
+.site-description {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.site-description__bro {
+    border: 3px solid #fff;
+    border-radius: 8px;
+    padding: 0 9px 1px 9px;
+}
+
+.site-description__bro-launcher {
+    color: #FFF;
+    margin-left: 10%;
+    font-size: 54px;
+    padding-top: calc(20vh - 54px);
+}
+
+.site-description__tagline {
+    color: #FFF;
+    margin-left: 10%;
+    padding-top: 20px;
+    font-size: 20px;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.description__tagline-text {
+    align-self: center;
+}
+
+.voice-fff {
+    filter: brightness(0) invert(1);
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    user-select: none;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.voice-fff_on {
+    margin-left: 15px;
+}
