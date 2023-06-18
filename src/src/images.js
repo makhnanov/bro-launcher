@@ -22,6 +22,7 @@ import Telegram from './img/Telegram.png';
 import Cross from './img/CrossMarkSvgRepoCom.svg';
 import Voice from './img/speaker-wave-2-svgrepo-com.svg';
 import Crown from './img/KeepCalmCrown.svg';
+import GCTrouble from './img/GoogleChromeTrouble.png';
 
 export {
     Outlook,
@@ -48,4 +49,5 @@ export {
     Cross,
     Voice,
     Crown,
+    GCTrouble,
 };

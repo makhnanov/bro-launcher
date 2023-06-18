@@ -4,6 +4,7 @@
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 64px;
 }
 
 .site-description__headings {
@@ -49,14 +50,80 @@
     margin-left: 15px;
 }
 
+.keep-calm-container-wrapper {
+    margin-right: 10%;
+    height: auto;
+}
+
 .keep-calm-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin-right: 10%;
     align-self: flex-start;
     padding-top: calc(20vh - 54px);
+    position: sticky;
+    top: 0;
+}
+
+.site-description__description {
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.site-description__problem {
+    padding-top: 80px;
+    color: #FFF;
+}
+
+.site-description__problem-text {
+    font-size: 34px;
+    border: 2px solid white;
+    border-radius: 8px;
+    width: fit-content;
+    padding-left: 7px;
+    padding-right: 8px;
+    padding-bottom: 3px;
+}
+
+.site-description__description_problem {
+}
+
+.site-description__solution {
+    padding-top: 64px;
+    color: #FFF;
+}
+
+.site-description__solution-text {
+    font-size: 34px;
+    border: 2px solid white;
+    border-radius: 8px;
+    width: fit-content;
+    padding-left: 7px;
+    padding-right: 8px;
+    padding-bottom: 3px;
+}
+
+.site-description__description_solution {
+}
+
+.site-description__description-ul {
+    margin: 0;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 45px;
+}
+.site-description__description-ul li {
+    line-height: 1.5;
+    padding-top: 20px;
+}
+
+.site-description__description-ul li:first-child {
+    padding-top: 10px;
+}
+
+.google-chrome-trouble-img {
+    padding-top: 15px;
 }
 
 .crown-img {
@@ -88,7 +155,7 @@
 .keep-calm-button {
     line-height: 65px;
     margin-top: 28px;
-    padding: 20px;
+    padding: 32px 20px 20px 20px;
     font-size: 45px;
     width: 320px;
     font-family: "KeepCalmFont", serif;

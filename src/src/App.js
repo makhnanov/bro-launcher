@@ -300,18 +300,58 @@ function App() {
                         <div className={"description__tagline-text"}>One tap instead of three</div>
                         <img className={"voice-fff"} src={img.Voice} alt={"Voice"} onClick={playTagline}/>
                     </div>
+                    <div className={"site-description__problem"}>
+                        <div className={"site-description__problem-text"}>
+                            Problem
+                        </div>
+                        <div className={"site-description__description site-description__description_problem"}>
+                            <img src={img.GCTrouble} className={"google-chrome-trouble-img"} alt="Google Chrome Trouble"/>
+                            <ul className={"site-description__description-ul"}>
+                                <li>
+                                    Google Chrome out of the box does not allow you to add more than 10 bookmarks on the new tab page.
+                                </li>
+                                <li>
+                                    There is too much unused space on the new tab page.
+                                </li>
+                                <li>
+                                    On the new page, you cannot add anything other than bookmarks.
+                                    For example, you want to add a weather widget or an exchange rate.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className={"site-description__solution"}>
+                        <div className={"site-description__solution-text"}>
+                            Solution
+                        </div>
+                        <div className={"site-description__description site-description__description_solution"}>
+                            <ul className={"site-description__description-ul"}>
+                                <li>
+                                    Using the BRO Launcher, you can add an unlimited number of bookmarks.
+                                </li>
+                                <li>
+                                    Using the BRO Launcher, you can add any Widget!
+                                </li>
+                                <li>
+                                    Also you can use other 100500 features!
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div className={"keep-calm-container"}>
-                    <img className={"crown-img"} src={img.Crown} alt={"Crown"}/>
-                    <div className={"keep-calm"}>
-                        Keep calm
+                <div className={"keep-calm-container-wrapper"}>
+                    <div className={"keep-calm-container"}>
+                        <img className={"crown-img"} src={img.Crown} alt={"Crown"}/>
+                        <div className={"keep-calm"}>
+                            Keep calm
+                        </div>
+                        <div className={"keep-calm-and"}>
+                            and
+                        </div>
+                        <button className={"keep-calm-button"}>
+                            Start use Bro launcher now
+                        </button>
                     </div>
-                    <div className={"keep-calm-and"}>
-                        and
-                    </div>
-                    <button className={"keep-calm-button"}>
-                        Start use Bro launcher now
-                    </button>
                 </div>
             </div>
             <div className="App"
@@ -339,7 +379,6 @@ function App() {
                             v.{appVersion}
                         </span>
                         </div>
-
                         <div className={'menu-item'} onClick={exportData}>
                             Backup
                         </div>
