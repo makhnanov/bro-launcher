@@ -288,11 +288,15 @@ function App() {
         audio.play();
     }
 
+    const [isSiteDescriptionExpanded, setIsSiteDescriptionExpanded] = useState(true);
+    const toggleSiteDescription = (e) => {
+        setIsSiteDescriptionExpanded(!isSiteDescriptionExpanded)
+    };
+
     return (
         <div>
-            <audio src={Voice1}></audio>
-            <div className={"site-description"}>
-                <div className={"site-description__headings"}>
+            <div className={`site-description ${isSiteDescriptionExpanded ? "" : "site-description_closed"}`}>
+                <div className={`site-description__headings ${isSiteDescriptionExpanded ? "" : "site-description_closed-opacity"}`}>
                     <div className={"site-description__bro-launcher"}>
                         <span className={"site-description__bro"}>BRO</span> Launcher
                     </div>
@@ -348,7 +352,7 @@ function App() {
                         <div className={"keep-calm-and"}>
                             and
                         </div>
-                        <button className={"keep-calm-button"}>
+                        <button className={"keep-calm-button"} onClick={toggleSiteDescription}>
                             Start use Bro launcher now
                         </button>
                     </div>
@@ -381,6 +385,10 @@ function App() {
                         </div>
                         <div className={'menu-item'} onClick={exportData}>
                             Backup
+                        </div>
+
+                        <div className={'menu-item'} onClick={toggleSiteDescription}>
+                            Preview
                         </div>
 
                         <div className={'menu-item'}>
