@@ -25,10 +25,11 @@ import './App.css';
 import Modal from "react-overlays/Modal";
 import React, {useState, useRef, useEffect} from "react";
 import ItemContext from "./components/ItemContext";
+import Settings from "./components/Settings";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.5.19';
+const appVersion = '1.6.0';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -179,7 +180,9 @@ function App() {
             newBookmarks.push({
                 'onClick': newBookmarkLink,
                 'img': image,
-                'imgStyle': newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle,
+                'imgStyle': newBookmarkImageStyle === ''
+                    ? "round-image-30"
+                    : newBookmarkImageStyle,
                 'text': text,
             });
         } else {
@@ -204,17 +207,22 @@ function App() {
         exportData();
     };
 
-    const unLockScreen = () => {
-        if (!isActive) {
-            localStorage.setItem('isActive', true.toString());
-            setIsActive(true);
-        }
-    };
+    const [settingsModal, setSettingsModal] = useState(false)
+    const toggleSettings = () => {
+        setSettingsModal(!settingsModal)
+    }
 
     const lockScreen = () => {
         if (isActive) {
             localStorage.setItem('isActive', false.toString());
             setIsActive(false);
+        }
+    };
+
+    const unLockScreen = () => {
+        if (!isActive) {
+            localStorage.setItem('isActive', true.toString());
+            setIsActive(true);
         }
     };
 
@@ -264,12 +272,22 @@ function App() {
 
     const useFocus = () => {
         const htmlElRef = useRef(null)
-        const setFocus = () => {htmlElRef.current && htmlElRef.current.focus()}
-        return [ htmlElRef, setFocus ]
+        const setFocus = () => {
+            htmlElRef.current && htmlElRef.current.focus()
+        }
+        return [htmlElRef, setFocus]
     }
 
     const [inputLinkRef, setInputFocus] = useFocus();
     const [inputTextRef, setTextFocus] = useFocus();
+
+    const [settingsOneClick, setSettingsOneClick]
+        = useState(localStorage.getItem("settingsOneClick") === "true");
+
+    const toggleSettingsOneClick = () => {
+        setSettingsOneClick(!settingsOneClick)
+        localStorage.setItem("settingsOneClick", (!settingsOneClick).toString())
+    }
 
     function needShowModal() {
         setIndexForEdit(null);
@@ -287,7 +305,8 @@ function App() {
 
                 <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
 
-                    <div className={'menu-item close-menu-button'} style={{backgroundImage: `url(${Cross})`}} onClick={toggleHideMenu}>
+                    <div className={'menu-item close-menu-button'} style={{backgroundImage: `url(${Cross})`}}
+                         onClick={toggleHideMenu}>
                     </div>
 
                     <div className="launcher">
@@ -316,13 +335,13 @@ function App() {
                         </label>
                     </div>
 
+                    <div className={"menu-item"} onClick={toggleSettings}>
+                        Settings
+                    </div>
+
                     <div className={'menu-item'} onClick={lockScreen}>
                         Lock
                     </div>
-
-                    {/*<div className="">*/}
-                    {/*    Settings*/}
-                    {/*</div>*/}
 
                     {/*<div className="">*/}
                     {/*    Login*/}
@@ -336,7 +355,8 @@ function App() {
                              dataVersion={dataVersion}
                              setDataVersion={setDataVersion}
                              exportData={exportData}
-                             isMenuHidden={menuHidden}/>
+                             isMenuHidden={menuHidden}
+                             settingsOneClick={settingsOneClick}/>
 
                 <div className="item-max">
                     <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>
@@ -349,14 +369,22 @@ function App() {
                     </div>
                 </div>
 
+                <Settings
+                    className="modal"
+                    show={settingsModal}
+                    onHide={toggleSettings}
+                    renderBackdrop={renderBackdrop}
+                    settingsOneClick={settingsOneClick}
+                    toggleSettingsOneClick={toggleSettingsOneClick}>
+                </Settings>
+
                 <Modal
                     className="modal"
                     show={showModal}
                     onHide={handleClose}
                     renderBackdrop={renderBackdrop}
                     onShow={() => !newBookmarkText ? inputLinkRef.current.focus() : inputTextRef.current.focus()}
-                    onEnter={handleSuccess}
-                >
+                    onEnter={handleSuccess}>
                     <div>
 
                         <div className="modal-header">
@@ -372,7 +400,7 @@ function App() {
                                    onChange={handleBookmarkTextChange}
                                    onFocus={(e) => e.target.select()}
                                    value={newBookmarkText}
-                                   onKeyUp={ (e) => e.keyCode === 13 ? handleSuccess() : null}
+                                   onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
                             />
 
                             <p>Link:</p>
@@ -381,7 +409,7 @@ function App() {
                                    className="input-style"
                                    ref={inputLinkRef}
                                    onChange={handleBookmarkLinkChange}
-                                   onKeyUp={ (e) => e.keyCode === 13 ? handleSuccess() : null}
+                                   onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
                                    value={newBookmarkLink}
                             />
 

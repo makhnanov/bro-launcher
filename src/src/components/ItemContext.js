@@ -4,7 +4,7 @@ import {ContextMenu} from "../styles/styles";
 import "../styles/item.css";
 import Plus from "../img/Plus.svg";
 
-const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDataVersion, exportData, isMenuHidden}) => {
+const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDataVersion, exportData, isMenuHidden, settingsOneClick}) => {
 
     const [clicked, setClicked] = useState(false);
     const [points, setPoints] = useState({x: 0, y: 0});
@@ -76,7 +76,8 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
                 {bookmarks.map((item, index) => (
                     <div
                         className="item"
-                        onDoubleClick={handleClick(item.onClick)}
+                        onClick={settingsOneClick ? handleClick(item.onClick) : null}
+                        onDoubleClick={!settingsOneClick ? handleClick(item.onClick) : null}
                         onAuxClick={handleClick(item.onClick, true)}
                         key={index}
                         onContextMenu={(e) => {

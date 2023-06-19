@@ -1,0 +1,12 @@
+.settings__content {
+    padding-bottom: 15px;
+}
+
+.settings__open-bookmark {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.settings__open-bookmark-label {
+    padding-left: 6px;
+}
