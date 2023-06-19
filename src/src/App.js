@@ -29,7 +29,7 @@ import Settings from "./components/Settings";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.0';
+const appVersion = '1.6.1';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
