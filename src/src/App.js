@@ -20,6 +20,9 @@ import Plus from './img/Plus.svg';
 import GTranslate from './img/GTranslate.png';
 import Telegram from './img/Telegram.png';
 import Cross from './img/cross-mark-svgrepo-com.svg';
+import GoogleLogo from './img/GoogleLogo.svg';
+import DuckDuckGo from './img/DuckDuckGo.svg';
+import YandexLogo from './img/YandexLogo.svg';
 
 import './App.css';
 import Modal from "react-overlays/Modal";
@@ -29,7 +32,7 @@ import Settings from "./components/Settings";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.1';
+const appVersion = '1.6.3';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -261,6 +264,36 @@ function App() {
         }
     };
 
+    const handleGoogleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            window.open(
+                'https://www.google.com/search?q=' + e.target.value.replace(/\s+/g, '+'),
+                '_parent'
+            );
+            e.target.value = '';
+        }
+    };
+
+    const handleDuckDuckGoKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            window.open(
+                'https://duckduckgo.com/?q=' + e.target.value.replace(/\s+/g, '+'),
+                '_parent'
+            );
+            e.target.value = '';
+        }
+    };
+
+    const handleYandexKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            window.open(
+                'https://yandex.kz/search/?text=' + e.target.value.replace(/\s+/g, '+'),
+                '_parent'
+            );
+            e.target.value = '';
+        }
+    };
+
     function needShowModalForEdit(index) {
         setIndexForEdit(index);
         setNewBookmarkLink(bookmarks[index].onClick);
@@ -318,7 +351,9 @@ function App() {
                         </span>
                         <span className="logo-version-text menu-item"
                               onClick={() => {
-                                  window.open(localProjectPathForWebStorm)
+                                  window.open(process.env.NODE_ENV === "production"
+                                      ? "https://github.com/makhnanov/bro-launcher"
+                                      : localProjectPathForWebStorm)
                               }}>
                             v.{appVersion}
                         </span>
@@ -358,14 +393,46 @@ function App() {
                              isMenuHidden={menuHidden}
                              settingsOneClick={settingsOneClick}/>
 
-                <div className="item-max">
-                    <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>
-                        <img src={YouTube} className="y-img" alt="YouTube" width="200" height="50"></img>
+                <div className={"search-engines"}>
+                    <div className="item-max">
+                        <div className="g-wrapper" onClick={() => window.open('https://www.google.com/', '_parent')}>
+                            <img src={GoogleLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
+                        </div>
+                        <div className="youtube-search-container">
+                            <input type="text"
+                                   className="youtube-search"
+                                   onKeyDown={handleGoogleKeyDown}/>
+                        </div>
                     </div>
-                    <div className="youtube-search-container">
-                        <input type="text"
-                               className="youtube-search"
-                               onKeyDown={handleYoutubeKeyDown}/>
+                    <div className="item-max">
+                        <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>
+                            <img src={YouTube} className="y-img" alt="YouTube" width="200" height="50"></img>
+                        </div>
+                        <div className="youtube-search-container">
+                            <input type="text"
+                                   className="youtube-search"
+                                   onKeyDown={handleYoutubeKeyDown}/>
+                        </div>
+                    </div>
+                    <div className="item-max">
+                        <div className="g-wrapper" onClick={() => window.open('https://duckduckgo.com/', '_parent')}>
+                            <img src={DuckDuckGo} className="y-img" alt="YouTube" width="200" height="50"></img>
+                        </div>
+                        <div className="youtube-search-container">
+                            <input type="text"
+                                   className="youtube-search"
+                                   onKeyDown={handleDuckDuckGoKeyDown}/>
+                        </div>
+                    </div>
+                    <div className="item-max">
+                        <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
+                            <img src={YandexLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
+                        </div>
+                        <div className="youtube-search-container">
+                            <input type="text"
+                                   className="youtube-search"
+                                   onKeyDown={handleYandexKeyDown}/>
+                        </div>
                     </div>
                 </div>
 

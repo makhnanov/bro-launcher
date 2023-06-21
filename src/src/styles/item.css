@@ -91,11 +91,18 @@
     user-select: none;
 }
 
+.search-engines {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
 .item-max {
     background-color: rgba(0, 0, 0, 0.5);
 
     height: 100px;
-    width: 100%;
+    width: calc(50% - 5px);
 
     display: flex;
     align-items: center;

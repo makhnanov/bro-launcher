@@ -226,6 +226,15 @@ button {
     margin-left: 20px;
 }
 
+.g-wrapper {
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 20px;
+    align-self: center;
+}
+
+
 .y-img {
     height: auto;
     width: 100%;
