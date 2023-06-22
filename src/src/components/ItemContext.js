@@ -3,12 +3,14 @@ import Item from "./Item";
 import {ContextMenu} from "../styles/styles";
 import "../styles/item.css";
 import Plus from "../img/Plus.svg";
+import { useCopyToClipboard } from 'usehooks-ts';
 
 const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDataVersion, exportData, isMenuHidden, settingsOneClick}) => {
 
     const [clicked, setClicked] = useState(false);
     const [points, setPoints] = useState({x: 0, y: 0});
     const [contextMenuItemIndex, setContextMenuItemIndex] = useState(0);
+    const [value, copy] = useCopyToClipboard();
 
     useEffect(() => {
         const handleClick = () => setClicked(false);
@@ -99,10 +101,12 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
                     <ContextMenu top={points.y} left={points.x}>
                         <ul className={'context-menu'}>
                             <li onClick={editItem}>Edit</li>
-                            {/*<li>Copy</li>*/}
+                            {/*<li onClick={() => copy(bookmarks[contextMenuItemIndex].img)}>Copy Image</li>*/}
+                            {/*<li onClick={() => copy(bookmarks[contextMenuItemIndex].link)}>Copy Link</li>*/}
                             <li className={'context-menu-nothing'}>Nothing</li>
                             {/*<li>Duplicate</li>*/}
-                            {/*<li>Move To Trash</li>*/}
+                            {/*<li>To Archive</li>*/}
+                            {/*<li>Trash</li>*/}
                             <li onClick={deleteItem}>Delete</li>
                         </ul>
                     </ContextMenu>
@@ -112,4 +116,5 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
         </div>
     );
 };
+
 export default ItemContext;

@@ -32,7 +32,7 @@ import Settings from "./components/Settings";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.3';
+const appVersion = '1.6.9';
 
 const addNewBookmark = () => () => {
     alert('add new modal window here');
@@ -64,6 +64,7 @@ function App() {
     const [menuHidden, setMenuHidden] = useState(localStorage.getItem('menuHidden') === 'true');
 
     const localProjectPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher/&line=95";
+    const publicRepo = "https://github.com/makhnanov/bro-launcher";
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
 
@@ -168,18 +169,27 @@ function App() {
         const newBookmarks = JSON.parse(localStorage.getItem('bookmarks') ?? '[]');
 
         let image = newBookmarkImage;
+
         if (!newBookmarkImage) {
-            try {
-                let domain = (new URL(newBookmarkLink)).hostname.replace('www.', '');
-                image = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
-            } catch (error) {
-                image = Without;
+            if (newBookmarkLink.includes('github')) {
+                image = Github
+            } else if (newBookmarkLink.includes('jira')) {
+                image = Jira
+            } else if (newBookmarkLink.includes('confluence')) {
+                image = Confluence
+            } else {
+                try {
+                    let domain = (new URL(newBookmarkLink)).hostname.replace('www.', '');
+                    image = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
+                } catch (error) {
+                    image = Without;
+                }
             }
         }
+
         let text = newBookmarkText;
 
         if (indexForEdit === null) {
-            // newBookmarks.unshift({
             newBookmarks.push({
                 'onClick': newBookmarkLink,
                 'img': image,
@@ -352,7 +362,7 @@ function App() {
                         <span className="logo-version-text menu-item"
                               onClick={() => {
                                   window.open(process.env.NODE_ENV === "production"
-                                      ? "https://github.com/makhnanov/bro-launcher"
+                                      ? publicRepo
                                       : localProjectPathForWebStorm)
                               }}>
                             v.{appVersion}

@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const ContextMenu = styled.div`
   position: absolute;
-  width: 120px;
+  width: 144px;
   background-color: #383838;
   border-radius: 5px;
   box-sizing: border-box;
