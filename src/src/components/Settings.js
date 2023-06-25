@@ -91,48 +91,66 @@ const Settings = ({
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsDuckDuckGo} onChange={toggleSettingsDuckDuckGo}/>
-                                <label className={"settings__open-bookmark-label"}>
+                                       checked={settingsDuckDuckGo}
+                                       onChange={toggleSettingsDuckDuckGo}
+                                       id={"setting-duck"}
+                                />
+                                <label for={"setting-duck"} className={"settings__open-bookmark-label"}>
                                     DuckDuckGo
                                 </label>
                             </div>
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsYandex} onChange={toggleSettingsYandex}/>
-                                <label className={"settings__open-bookmark-label"}>
+                                       checked={settingsYandex}
+                                       onChange={toggleSettingsYandex}
+                                       id={"settings-yandex"}
+                                />
+                                <label for={"settings-yandex"} className={"settings__open-bookmark-label"}>
                                     Yandex
                                 </label>
                             </div>
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsGoogleTranslate} onChange={toggleSettingsGoogleTranslate}/>
-                                <label className={"settings__open-bookmark-label"}>
+                                       checked={settingsGoogleTranslate}
+                                       onChange={toggleSettingsGoogleTranslate}
+                                       id={"settings-g-translate"}
+                                />
+                                <label for={"settings-g-translate"} className={"settings__open-bookmark-label"}>
                                     Google Translate
                                 </label>
                             </div>
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsDeepl} onChange={toggleSettingsDeepl}/>
-                                <label className={"settings__open-bookmark-label"}>
+                                       checked={settingsDeepl}
+                                       onChange={toggleSettingsDeepl}
+                                       id={"settings-deepl"}
+                                />
+                                <label for={"settings-deepl"} className={"settings__open-bookmark-label"}>
                                     Deepl
                                 </label>
                             </div>
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsLifetime} onChange={toggleSettingsLifetime}/>
-                                <label className={"settings__open-bookmark-label"}>
+                                       checked={settingsLifetime}
+                                       onChange={toggleSettingsLifetime}
+                                       id={"settings-lifetime"}
+                                />
+                                <label for={"settings-lifetime"} className={"settings__open-bookmark-label"}>
                                     Lifetime
                                 </label>
                             </div>
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsTabex} onChange={toggleSettingsTabex}/>
-                                <label className={"settings__open-bookmark-label"}>
+                                       checked={settingsTabex}
+                                       onChange={toggleSettingsTabex}
+                                       id={"settings-tabex"}
+                                />
+                                <label for={"settings-tabex"} className={"settings__open-bookmark-label"}>
                                     Tabex
                                 </label>
                             </div>

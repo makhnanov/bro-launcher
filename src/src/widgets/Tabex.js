@@ -1,74 +1,143 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
-const schedule = {
-    1: {perDay: 6, delay: 2},
-    2: {perDay: 6, delay: 2},
-    3: {perDay: 6, delay: 2},
-    4: {perDay: 5, delay: 2.5},
-    5: {perDay: 5, delay: 2.5},
-    6: {perDay: 5, delay: 2.5},
-    7: {perDay: 5, delay: 2.5},
-    8: {perDay: 5, delay: 2.5},
-    9: {perDay: 5, delay: 2.5},
-    10: {perDay: 5, delay: 2.5},
-    11: {perDay: 5, delay: 2.5},
-    12: {perDay: 5, delay: 2.5},
-    13: {perDay: 4, delay: 3},
-    14: {perDay: 4, delay: 3},
-    15: {perDay: 4, delay: 3},
-    16: {perDay: 4, delay: 3},
-    17: {perDay: 3, delay: 5},
-    18: {perDay: 3, delay: 5},
-    19: {perDay: 3, delay: 5},
-    20: {perDay: 3, delay: 5},
-    21: {perDay: 2, delay: 8},
-    22: {perDay: 2, delay: 8},
-    23: {perDay: 2, delay: 8},
-    24: {perDay: 1, delay: 20},
-    25: {perDay: 1, delay: 20},
-    "already": {}
-};
+let oncePills = false;
 
 const Tabex = ({settingsTabex}) => {
 
-    if (!localStorage.getItem("tabexOnMemory")) {
-        localStorage.setItem("tabexOnMemory", JSON.stringify(schedule))
+    const toDate = () => {
+        const monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        let date = new Date(schedule.lastTimestamp);
+        return monthNames[date.getUTCMonth()]
+            + " " + date.getUTCDate() + " " + date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds()
     }
 
-    const [tabexOnMemory, setTabexOnMemory] = useState(
-        JSON.parse(localStorage.getItem("tabexOnMemory")) ?? schedule
-    );
+    const [schedule, setSchedule] = useState(
+        localStorage.getItem('pillsTabex') === null
+            ? {
+                days: [
+                    {day: 1, perDay: 6, delay: 2, checked: []},
+                    {day: 2, perDay: 6, delay: 2, checked: []},
+                    {day: 3, perDay: 6, delay: 2, checked: []},
+                    {day: 4, perDay: 5, delay: 2.5, checked: []},
+                    {day: 5, perDay: 5, delay: 2.5, checked: []},
+                    {day: 6, perDay: 5, delay: 2.5, checked: []},
+                    {day: 7, perDay: 5, delay: 2.5, checked: []},
+                    {day: 8, perDay: 5, delay: 2.5, checked: []},
+                    {day: 9, perDay: 5, delay: 2.5, checked: []},
+                    {day: 10, perDay: 5, delay: 2.5, checked: []},
+                    {day: 11, perDay: 5, delay: 2.5, checked: []},
+                    {day: 12, perDay: 5, delay: 2.5, checked: []},
+                    {day: 13, perDay: 4, delay: 3, checked: []},
+                    {day: 14, perDay: 4, delay: 3, checked: []},
+                    {day: 15, perDay: 4, delay: 3, checked: []},
+                    {day: 16, perDay: 4, delay: 3, checked: []},
+                    {day: 17, perDay: 3, delay: 5, checked: []},
+                    {day: 18, perDay: 3, delay: 5, checked: []},
+                    {day: 19, perDay: 3, delay: 5, checked: []},
+                    {day: 20, perDay: 3, delay: 5, checked: []},
+                    {day: 21, perDay: 2, delay: 8, checked: []},
+                    {day: 22, perDay: 2, delay: 8, checked: []},
+                    {day: 23, perDay: 2, delay: 8, checked: []},
+                    {day: 24, perDay: 1, delay: 20, checked: []},
+                    {day: 25, perDay: 1, delay: 20, checked: []},
+                ],
+                lastTimestamp: null
+            }
+            : JSON.parse(localStorage.getItem("pillsTabex"))
+    )
+
+    const [lastTimestamp, setLastTimestamp] = useState(toDate(schedule.lastTimestamp))
+
+
+    useEffect(() => {
+        const checkPills = event => {
+            let list = document.getElementsByClassName('tabex-checkbox');
+            let latestChecked = null;
+            for (let item of list) {
+                if (item.checked) {
+                    latestChecked = item;
+                }
+            }
+            // if (latestChecked) {
+            //     console.log(latestChecked)
+            // }
+        }
+        if (!oncePills) {
+            oncePills = true;
+            setInterval(checkPills, 1000)
+        }
+        return () => {
+        };
+    }, []);
+
+    const getPill = (event) => {
+        let day = parseInt(event.target.id.split("-")[1]);
+        let perDay = parseInt(event.target.id.split("-")[2]);
+        if (event.target.checked) {
+            schedule.days[day].checked.push(perDay)
+        } else {
+            let index = schedule.days[day].checked.indexOf(perDay);
+            if (index !== -1) {
+                schedule.days[day].checked.splice(index, 1);
+            }
+        }
+        schedule.lastTimestamp = Date.now()
+        setLastTimestamp(toDate(schedule.lastTimestamp))
+        setSchedule(schedule)
+        localStorage.setItem("pillsTabex", JSON.stringify(schedule))
+    };
 
     return (
-        <div className={"tabex w-2-tabex-container"} style={{ display: settingsTabex ? "" : "none"}}>
+        <div className={"tabex w-2-tabex-container"} style={{display: settingsTabex ? "" : "none"}}>
+
             <div>
                 <h1>
                     Tabex
                 </h1>
             </div>
+
             <div className={"tabex-grid"}>
-                {Array.from({length: 25}, (_, day) => (
-                    <div className={"tabex-day-container"}>
-                        <div className={"tabex-day"}>
-                            <h3>Day {day + 1}</h3>
+                {schedule.days.map((day, dayIndex) => {
+                    return (
+                        <div key={dayIndex} className={"tabex-day-container"}>
+                            <div className={"tabex-day"}>
+                                <h3>Day {dayIndex + 1}</h3>
+                            </div>
+                            <div>
+                                {Array.from({length: day.perDay}, (_, perDayCounter) => (
+                                    <input
+                                        id={"tabex-" + dayIndex + "-" + perDayCounter}
+                                        className={"tabex-checkbox"}
+                                        key={perDayCounter}
+                                        type={"checkbox"}
+                                        onChange={getPill}
+                                        defaultChecked={day.checked.includes(perDayCounter)}
+                                    >
+                                    </input>
+                                ))}
+                            </div>
                         </div>
-                        <div>
-                            {Array.from({length: tabexOnMemory[day + 1].perDay}, (_, perDayCounter) => (
-                                <input
-                                    day={day + 1}
-                                    perDay={perDayCounter}
-                                    type={"checkbox"}
-                                    defaultChecked={
-                                        (day + 1) in tabexOnMemory.already
-                                        && typeof tabexOnMemory.already[day + 1].contain(perDayCounter) !== "undefined"
-                                    }
-                                >
-                                </input>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
+
+            <div>
+                Last pill: {lastTimestamp}
+            </div>
+
         </div>
     );
 };

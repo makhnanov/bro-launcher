@@ -131,8 +131,6 @@ function App() {
 
     const [state, setState] = useState('');
 
-    // co
-
     useEffect(() => {
         const handleKeyDown = (event) => {
             const code = event.which || event.keyCode;
@@ -153,7 +151,6 @@ function App() {
             // console.log(event.clipboardData.items[0].getAsFile())
             // https://stackoverflow.com/questions/73659207/react-js-upload-image-when-user-pastes-an-image
         };
-
         // window.addEventListener('paste', handlePasteAnywhere);
 
         return () => {
