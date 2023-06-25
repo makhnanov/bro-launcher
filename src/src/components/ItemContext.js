@@ -5,7 +5,7 @@ import "../styles/item.css";
 import Plus from "../img/Plus.svg";
 import { useCopyToClipboard } from 'usehooks-ts';
 
-const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDataVersion, exportData, isMenuHidden, settingsOneClick}) => {
+const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDataVersion, exportData, isMenuHidden, settingsOneClick, settingsLifetime}) => {
 
     const [clicked, setClicked] = useState(false);
     const [points, setPoints] = useState({x: 0, y: 0});
@@ -59,21 +59,21 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
         <div className={`grid-container-wrapper ${isMenuHidden ? 'grid-container-wrapper_menu-hidden' : ''}`}>
             <div className='grid-container'>
 
-                {/*<div className="item item-1-life">*/}
-                {/*    <h1 className={'item-1-life__already_percent'}>*/}
-                {/*        {lifePercent}%*/}
-                {/*    </h1>*/}
-                {/*    <h4 className={'item-1-life__already_decimal'}>*/}
-                {/*        {lifeDecimals}*/}
-                {/*    </h4>*/}
-                {/*    <div className={'item-1-life__separator'}></div>*/}
-                {/*    <h1 className={'item-1-life__estimate_percent'}>*/}
-                {/*        {100 - lifePercent}%*/}
-                {/*    </h1>*/}
-                {/*    <h4 className={'item-1-life__estimate_decimal'}>*/}
-                {/*        {estimateDecimals}*/}
-                {/*    </h4>*/}
-                {/*</div>*/}
+                <div className="item item-1-life" style={{ display: settingsLifetime ? "" : "none"}}>
+                    <h1 className={'item-1-life__already_percent'}>
+                        {lifePercent}%
+                    </h1>
+                    <h4 className={'item-1-life__already_decimal'}>
+                        {lifeDecimals}
+                    </h4>
+                    <div className={'item-1-life__separator'}></div>
+                    <h1 className={'item-1-life__estimate_percent'}>
+                        {100 - lifePercent}%
+                    </h1>
+                    <h4 className={'item-1-life__estimate_decimal'}>
+                        {estimateDecimals}
+                    </h4>
+                </div>
 
                 {bookmarks.map((item, index) => (
                     <div

@@ -163,11 +163,11 @@
 }
 
 .item-1-life h1 {
-    font-size: 25px;
+    font-size: 19px;
 }
 
 .item-1-life h4 {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .item-1-life:hover {
@@ -179,22 +179,56 @@
 }
 
 .item-1-life__already_decimal {
-    padding-bottom: 5px;
 }
 
 .item-1-life__separator {
+    padding-top: 2px;
     width: 100%;
-    border-bottom: 3px solid rgba(255, 0, 0, 0.7);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.7);
     height: 0;
-    margin-top: 3px;
-    margin-bottom: 1px;
 }
 
 .item-1-life__estimate_percent {
-    padding-top: 3px;
+
 }
 
 .item-1-life__estimate_decimal {
 
 }
 /* First Lifetime Widget End */
+
+.w-2-tabex-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: auto;
+    width: calc(50% - 5px);
+    display: flex;
+    border-radius: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.tabex-day-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.tabex-day {
+    width: 100px;
+}
+
+.tabex-day h3 {
+    margin: 0;
+    text-align: left;
+}
+
+.tabex-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    width: 100%;
+}

@@ -19,6 +19,8 @@ import Github from './img/Github.svg';
 import Plus from './img/Plus.svg';
 import GTranslate from './img/GTranslate.png';
 import Telegram from './img/Telegram.png';
+import GoogleTranslate from './img/Icons8GoogleTranslate.svg';
+import Deepl from './img/DeepLLogo.svg';
 import Cross from './img/cross-mark-svgrepo-com.svg';
 import GoogleLogo from './img/GoogleLogo.svg';
 import DuckDuckGo from './img/DuckDuckGo.svg';
@@ -30,17 +32,11 @@ import React, {useState, useRef, useEffect} from "react";
 import ItemContext from "./components/ItemContext";
 import Settings from "./components/Settings";
 
+import Tabex from "./widgets/Tabex";
+
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.9';
-
-const addNewBookmark = () => () => {
-    alert('add new modal window here');
-}
-
-const handleAlertClick = (text) => () => {
-    alert(text)
-}
+const appVersion = '1.6.13';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -135,6 +131,8 @@ function App() {
 
     const [state, setState] = useState('');
 
+    // co
+
     useEffect(() => {
         const handleKeyDown = (event) => {
             const code = event.which || event.keyCode;
@@ -156,11 +154,11 @@ function App() {
             // https://stackoverflow.com/questions/73659207/react-js-upload-image-when-user-pastes-an-image
         };
 
-        window.addEventListener('paste', handlePasteAnywhere);
+        // window.addEventListener('paste', handlePasteAnywhere);
 
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
-            window.removeEventListener('paste', handlePasteAnywhere);
+            // window.removeEventListener('paste', handlePasteAnywhere);
         };
     }, []);
 
@@ -267,7 +265,7 @@ function App() {
     const handleYoutubeKeyDown = (e) => {
         if (e.key === 'Enter') {
             window.open(
-                'https://www.youtube.com/results?search_query=' + e.target.value.replace(/\s+/g, '+'),
+                encodeURI('https://www.youtube.com/results?search_query=' + e.target.value),
                 '_parent'
             );
             e.target.value = '';
@@ -277,7 +275,7 @@ function App() {
     const handleGoogleKeyDown = (e) => {
         if (e.key === 'Enter') {
             window.open(
-                'https://www.google.com/search?q=' + e.target.value.replace(/\s+/g, '+'),
+                encodeURI('https://www.google.com/search?q=' + e.target.value),
                 '_parent'
             );
             e.target.value = '';
@@ -287,7 +285,7 @@ function App() {
     const handleDuckDuckGoKeyDown = (e) => {
         if (e.key === 'Enter') {
             window.open(
-                'https://duckduckgo.com/?q=' + e.target.value.replace(/\s+/g, '+'),
+                encodeURI('https://duckduckgo.com/?q=' + e.target.value),
                 '_parent'
             );
             e.target.value = '';
@@ -297,7 +295,52 @@ function App() {
     const handleYandexKeyDown = (e) => {
         if (e.key === 'Enter') {
             window.open(
-                'https://yandex.kz/search/?text=' + e.target.value.replace(/\s+/g, '+'),
+                encodeURI('https://yandex.kz/search/?text=' + e.target.value),
+                '_parent'
+            );
+            e.target.value = '';
+        }
+    };
+
+    const EN = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    ];
+    const RU = [
+        'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я',
+        'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я'
+    ];
+
+    function detectLang(str){
+        let arrFromStr = [...str];
+        let ru, en = "";
+        en = arrFromStr.filter(i => EN.includes(i));
+        ru = arrFromStr.filter(i => RU.includes(i));
+        return en.length > ru.length;
+    }
+
+    const handleGoogleTranslateDown = (e) => {
+        if (e.key === 'Enter') {
+            window.open(
+                encodeURI((
+                    detectLang(e.target.value)
+                        ? "https://translate.google.com/?sl=en&tl=ru&text="
+                        : "https://translate.google.com/?sl=ru&tl=en&text="
+                ) + e.target.value),
+                '_parent'
+            );
+            e.target.value = '';
+        }
+    };
+
+    const handleDeeplDown = (e) => {
+        if (e.key === 'Enter') {
+            window.open(
+                encodeURI((
+                    detectLang(e.target.value)
+                        ? "https://www.deepl.com/translator#en/ru/"
+                        : "https://www.deepl.com/translator#ru/en/"
+                ) + e.target.value),
                 '_parent'
             );
             e.target.value = '';
@@ -337,13 +380,70 @@ function App() {
         setShowModal(true);
     }
 
+    function getOrSetSetting(setting, defaultBool) {
+        if (localStorage.getItem(setting) === null) {
+            localStorage.setItem(setting, defaultBool ? "true" : "false");
+            return defaultBool;
+        } else {
+            return localStorage.getItem(setting) === "true"
+        }
+    }
+
+    const [settingsGoogle, setSettingsGoogle] = useState(getOrSetSetting("settingsGoogle", true))
+    const toggleSettingsGoogle = () => {
+        setSettingsGoogle(!settingsGoogle)
+        localStorage.setItem("settingsGoogle", (!settingsGoogle).toString())
+    }
+
+    const [settingsYoutube, setSettingsYoutube] = useState(getOrSetSetting("settingsYoutube", true))
+    const toggleSettingsYoutube = () => {
+        setSettingsYoutube(!settingsYoutube)
+        localStorage.setItem("settingsYoutube", (!settingsYoutube).toString())
+    }
+
+    const [settingsDuckDuckGo, setSettingsDuckDuckGo] = useState(getOrSetSetting("settingsDuckDuckGo", false))
+    const toggleSettingsDuckDuckGo = () => {
+        setSettingsDuckDuckGo(!settingsDuckDuckGo)
+        localStorage.setItem("settingsDuckDuckGo", (!settingsDuckDuckGo).toString())
+    }
+
+    const [settingsYandex, setSettingsYandex] = useState(getOrSetSetting("settingsYandex", false))
+    const toggleSettingsYandex = () => {
+        setSettingsYandex(!settingsYandex)
+        localStorage.setItem("settingsYandex", (!settingsYandex).toString())
+    }
+
+    const [settingsGoogleTranslate, setSettingsGoogleTranslate] = useState(getOrSetSetting("settingsGoogleTranslate", false))
+    const toggleSettingsGoogleTranslate = () => {
+        setSettingsGoogleTranslate(!settingsGoogleTranslate)
+        localStorage.setItem("settingsGoogleTranslate", (!settingsGoogleTranslate).toString())
+    }
+
+    const [settingsDeepl, setSettingsDeepl] = useState(getOrSetSetting("settingsDeepl", false))
+    const toggleSettingsDeepl = () => {
+        setSettingsDeepl(!settingsDeepl)
+        localStorage.setItem("settingsDeepl", (!settingsDeepl).toString())
+    }
+
+    const [settingsLifetime, setSettingsLifetime] = useState(getOrSetSetting("settingsLifetime", false))
+    const toggleSettingsLifetime = () => {
+        setSettingsLifetime(!settingsLifetime)
+        localStorage.setItem("settingsLifetime", (!settingsLifetime).toString())
+    }
+
+
+    const [settingsTabex, setSettingsTabex] = useState(getOrSetSetting("settingsTabex", false))
+    const toggleSettingsTabex = () => {
+        setSettingsTabex(!settingsTabex)
+        localStorage.setItem("settingsTabex", (!settingsTabex).toString())
+    }
+
     return (
         <div className="App"
              onClick={(e) => {
                  unLockScreen(e)
              }}
-             style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}
-        >
+             style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
             <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
                 <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
@@ -401,10 +501,14 @@ function App() {
                              setDataVersion={setDataVersion}
                              exportData={exportData}
                              isMenuHidden={menuHidden}
-                             settingsOneClick={settingsOneClick}/>
+                             settingsOneClick={settingsOneClick}
+                             settingsLifetime={settingsLifetime}
+                />
 
                 <div className={"search-engines"}>
-                    <div className="item-max">
+
+
+                    <div className="item-max" style={{display: settingsGoogle ? "" : "none"}}>
                         <div className="g-wrapper" onClick={() => window.open('https://www.google.com/', '_parent')}>
                             <img src={GoogleLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
                         </div>
@@ -414,7 +518,8 @@ function App() {
                                    onKeyDown={handleGoogleKeyDown}/>
                         </div>
                     </div>
-                    <div className="item-max">
+
+                    <div className="item-max" style={{display: settingsYoutube ? "" : "none"}}>
                         <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>
                             <img src={YouTube} className="y-img" alt="YouTube" width="200" height="50"></img>
                         </div>
@@ -424,7 +529,8 @@ function App() {
                                    onKeyDown={handleYoutubeKeyDown}/>
                         </div>
                     </div>
-                    <div className="item-max">
+
+                    <div className="item-max" style={{display: settingsDuckDuckGo ? "" : "none"}}>
                         <div className="g-wrapper" onClick={() => window.open('https://duckduckgo.com/', '_parent')}>
                             <img src={DuckDuckGo} className="y-img" alt="YouTube" width="200" height="50"></img>
                         </div>
@@ -434,7 +540,8 @@ function App() {
                                    onKeyDown={handleDuckDuckGoKeyDown}/>
                         </div>
                     </div>
-                    <div className="item-max">
+
+                    <div className="item-max" style={{display: settingsYandex ? "" : "none"}}>
                         <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
                             <img src={YandexLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
                         </div>
@@ -444,7 +551,32 @@ function App() {
                                    onKeyDown={handleYandexKeyDown}/>
                         </div>
                     </div>
+
+                    <div className="item-max" style={{display: settingsGoogleTranslate ? "" : "none"}}>
+                        <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
+                            <img src={GoogleTranslate} className="y-img gt-img" alt="YouTube" width="200" height="50"></img>
+                        </div>
+                        <div className="youtube-search-container">
+                            <input type="text"
+                                   className="youtube-search"
+                                   onKeyDown={handleGoogleTranslateDown}/>
+                        </div>
+                    </div>
+
+                    <div className="item-max" style={{display: settingsDeepl ? "" : "none"}}>
+                        <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
+                            <img src={Deepl} className="y-img" alt="YouTube" width="200" height="50"></img>
+                        </div>
+                        <div className="youtube-search-container">
+                            <input type="text"
+                                   className="youtube-search"
+                                   onKeyDown={handleDeeplDown}/>
+                        </div>
+                    </div>
+
                 </div>
+
+                <Tabex settingsTabex={settingsTabex}></Tabex>
 
                 <Settings
                     className="modal"
@@ -452,7 +584,24 @@ function App() {
                     onHide={toggleSettings}
                     renderBackdrop={renderBackdrop}
                     settingsOneClick={settingsOneClick}
-                    toggleSettingsOneClick={toggleSettingsOneClick}>
+                    toggleSettingsOneClick={toggleSettingsOneClick}
+                    settingsGoogle={settingsGoogle}
+                    toggleSettingsGoogle={toggleSettingsGoogle}
+                    settingsYoutube={settingsYoutube}
+                    toggleSettingsYoutube={toggleSettingsYoutube}
+                    settingsDuckDuckGo={settingsDuckDuckGo}
+                    toggleSettingsDuckDuckGo={toggleSettingsDuckDuckGo}
+                    settingsYandex={settingsYandex}
+                    toggleSettingsYandex={toggleSettingsYandex}
+                    settingsGoogleTranslate={settingsGoogleTranslate}
+                    toggleSettingsGoogleTranslate={toggleSettingsGoogleTranslate}
+                    settingsDeepl={settingsDeepl}
+                    toggleSettingsDeepl={toggleSettingsDeepl}
+                    settingsLifetime={settingsLifetime}
+                    toggleSettingsLifetime={toggleSettingsLifetime}
+                    settingsTabex={settingsTabex}
+                    toggleSettingsTabex={toggleSettingsTabex}
+                >
                 </Settings>
 
                 <Modal

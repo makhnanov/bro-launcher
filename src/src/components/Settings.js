@@ -2,7 +2,29 @@ import React from "react";
 import Modal from "react-overlays/Modal";
 import "../styles/settings.css"
 
-const Settings = ({show, onHide, renderBackdrop, settingsOneClick, toggleSettingsOneClick}) => {
+const Settings = ({
+                      show,
+                      onHide,
+                      renderBackdrop,
+                      settingsOneClick,
+                      toggleSettingsOneClick,
+                      settingsGoogle,
+                      toggleSettingsGoogle,
+                      settingsYoutube,
+                      toggleSettingsYoutube,
+                      settingsDuckDuckGo,
+                      toggleSettingsDuckDuckGo,
+                      settingsYandex,
+                      toggleSettingsYandex,
+                      settingsGoogleTranslate,
+                      toggleSettingsGoogleTranslate,
+                      settingsDeepl,
+                      toggleSettingsDeepl,
+                      settingsLifetime,
+                      toggleSettingsLifetime,
+                      settingsTabex,
+                      toggleSettingsTabex,
+                  }) => {
     return (
         <div className={'settings'}>
             <Modal className={"modal"} show={show} onHide={onHide} renderBackdrop={renderBackdrop}>
@@ -19,16 +41,99 @@ const Settings = ({show, onHide, renderBackdrop, settingsOneClick, toggleSetting
                         <div className={"settings__open-bookmark"}>
 
                             <div>
-                                <input type="radio" id="contactChoice1" name="contact" value="email" checked={settingsOneClick} onChange={toggleSettingsOneClick} />
-                                <label className={"settings__open-bookmark-label"} htmlFor="contactChoice1">
+                                <input type="radio"
+                                       checked={settingsOneClick} onChange={toggleSettingsOneClick}
+                                       id={"setting-one-click"}
+                                />
+                                <label for="setting-one-click"  className={"settings__open-bookmark-label"}>
                                     One Click
                                 </label>
                             </div>
 
                             <div>
-                                <input type="radio" id="contactChoice2" name="contact" value="phone" checked={!settingsOneClick} onChange={toggleSettingsOneClick}/>
-                                <label className={"settings__open-bookmark-label"} htmlFor="contactChoice2">
+                                <input type="radio"
+                                       checked={!settingsOneClick} onChange={toggleSettingsOneClick}
+                                       id={"setting-two-clicks"}
+                                />
+                                <label for="setting-two-clicks" className={"settings__open-bookmark-label"}>
                                     Two Clicks
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <hr></hr>
+
+                        <p>Enable / Disable widgets:</p>
+
+                        <div className={"settings__widgets-visibility"}>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsGoogle}
+                                       onChange={toggleSettingsGoogle}
+                                       id={"setting-google"}
+                                />
+                                <label for={"setting-google"} className={"settings__open-bookmark-label"}>
+                                    Google
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsYoutube} onChange={toggleSettingsYoutube}
+                                       id={"setting-youtube"}
+                                />
+                                <label for={"setting-youtube"} className={"settings__open-bookmark-label"}>
+                                    Youtube
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsDuckDuckGo} onChange={toggleSettingsDuckDuckGo}/>
+                                <label className={"settings__open-bookmark-label"}>
+                                    DuckDuckGo
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsYandex} onChange={toggleSettingsYandex}/>
+                                <label className={"settings__open-bookmark-label"}>
+                                    Yandex
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsGoogleTranslate} onChange={toggleSettingsGoogleTranslate}/>
+                                <label className={"settings__open-bookmark-label"}>
+                                    Google Translate
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsDeepl} onChange={toggleSettingsDeepl}/>
+                                <label className={"settings__open-bookmark-label"}>
+                                    Deepl
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsLifetime} onChange={toggleSettingsLifetime}/>
+                                <label className={"settings__open-bookmark-label"}>
+                                    Lifetime
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsTabex} onChange={toggleSettingsTabex}/>
+                                <label className={"settings__open-bookmark-label"}>
+                                    Tabex
                                 </label>
                             </div>
 
@@ -39,7 +144,7 @@ const Settings = ({show, onHide, renderBackdrop, settingsOneClick, toggleSetting
                 </div>
             </Modal>
         </div>
-);
+    );
 };
 
 export default Settings;
