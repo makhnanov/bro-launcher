@@ -7,7 +7,19 @@ const Tabex = ({settingsTabex}) => {
     const toDate = () => {
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let date = new Date(schedule.lastTimestamp);
-        return monthNames[date.getUTCMonth()] + " " + date.getUTCDate() + " " + date.getHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds()
+        let hours = date.getHours()
+        if (hours.toString().length === 1) {
+            hours = "0" + hours
+        }
+        let minutes = date.getUTCMinutes()
+        if (minutes.toString().length === 1) {
+            minutes = "0" + minutes
+        }
+        let seconds = date.getUTCSeconds()
+        if (seconds.toString().length === 1) {
+            seconds = "0" + seconds
+        }
+        return date.getUTCDate() + " " + monthNames[date.getUTCMonth()] + " " + hours + ":" + minutes + ":" + seconds
     }
 
     const [schedule, setSchedule] = useState(localStorage.getItem('pillsTabex') === null ? {
