@@ -69,6 +69,8 @@ const Tabex = ({settingsTabex}) => {
 
     const [lastTimestamp, setLastTimestamp] = useState(toDate(schedule.lastTimestamp))
 
+    const [forNextPill, setForNextPill] = useState('')
+
     useEffect(() => {
         const checkPills = event => {
             let list = document.getElementsByClassName('tabex-checkbox');
@@ -87,10 +89,12 @@ const Tabex = ({settingsTabex}) => {
             }
             if (latestChecked) {
                 let delay = schedule.days[day].delay;
-                if (Date.now() > (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */))) {
-                    // Detect is it last pill per day
-                    let nextPerDayPillElement = latestCheckbox.nextElementSibling;
-                    console.log(nextPerDayPillElement)
+                let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
+
+                // Detect is it last pill per day
+                let nextPerDayPillElement = latestCheckbox.nextElementSibling;
+
+                if (Date.now() > nextWithDelay) {
                     if (nextPerDayPillElement) {
                         console.log(nextPerDayPillElement.style.outline)
                         if (nextPerDayPillElement.style.outline === "red solid 6px") {
@@ -113,6 +117,19 @@ const Tabex = ({settingsTabex}) => {
                             }
                         }
                     }
+                } else {
+                    let dateObj = Math.floor(((new Date(nextWithDelay)).getTime() - (new Date(Date.now())).getTime()) / 1000);
+                    if (dateObj > 0) {
+                        let hours = Math.floor(dateObj / 3600)
+                        let seconds = dateObj - (hours * 3600)
+                        let minutes = Math.floor(seconds / 60)
+                        seconds = seconds - (minutes * 60)
+                        setForNextPill( hours + ":" + minutes + ":" + seconds)
+                    } else if (!nextPerDayPillElement) {
+                        setForNextPill("Wait new day!")
+                    } else {
+                        setForNextPill("Take it now!")
+                    }
                 }
             }
         }
@@ -123,6 +140,7 @@ const Tabex = ({settingsTabex}) => {
         return () => {
         };
     }, []);
+
 
     const getPill = (event) => {
         let day = parseInt(event.target.id.split("-")[1]);
@@ -142,6 +160,7 @@ const Tabex = ({settingsTabex}) => {
                 schedule.days[day].checked.splice(index, 1);
             }
         }
+
         schedule.lastTimestamp = Date.now();
         if (!schedule.firstTimestamp) {
             schedule.firstTimestamp = Date.now();
@@ -157,10 +176,16 @@ const Tabex = ({settingsTabex}) => {
 
     return (<div className={"tabex w-2-tabex-container"} style={{display: settingsTabex ? "" : "none"}}>
 
-        <div>
+        <div className={"tabex-header"}>
             <h1>
                 Tabex
             </h1>
+            <h3>
+                Last pill: {lastTimestamp}
+            </h3>
+            <h3>
+                Next pill need take after: {forNextPill}
+            </h3>
         </div>
 
         <div className={"tabex-grid"}>
@@ -170,24 +195,26 @@ const Tabex = ({settingsTabex}) => {
                         <h3>Day {dayIndex + 1}</h3>
                         <div className={"tabex-date-counter"}>({getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000))})</div>
                     </div>
-                    <div>
-                        {Array.from({length: day.perDay}, (_, perDayCounter) => (<input
-                            id={"tabex-" + dayIndex + "-" + perDayCounter}
-                            className={"tabex-checkbox"}
-                            key={perDayCounter}
-                            type={"checkbox"}
-                            onChange={getPill}
-                            defaultChecked={day.checked.includes(perDayCounter)}
-                        >
-                        </input>))}
+                    <div className={"tabex-checkboxes-list"}>
+                        <div className={"tabex-checkboxes-per-day"}>
+                            {Array.from({length: day.perDay}, (_, perDayCounter) => (<input
+                                id={"tabex-" + dayIndex + "-" + perDayCounter}
+                                className={"tabex-checkbox"}
+                                key={perDayCounter}
+                                type={"checkbox"}
+                                onChange={getPill}
+                                defaultChecked={day.checked.includes(perDayCounter)}
+                            >
+                            </input>))}
+                        </div>
+                        <div className={"tabex-checkboxes-description"}>
+                            (1 pill every {day.delay} hours)
+                        </div>
                     </div>
                 </div>);
             })}
         </div>
 
-        <div>
-            Last pill: {lastTimestamp}
-        </div>
 
     </div>);
 };

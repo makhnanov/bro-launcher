@@ -236,5 +236,25 @@
 
 .tabex-date-counter {
     text-align: left;
+    font-size: 16px;
+}
+
+.tabex-checkboxes-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabex-checkboxes-per-day {
+    align-self: flex-start;
+}
+
+.tabex-checkboxes-description {
     font-size: 12px;
+}
+
+.tabex-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
