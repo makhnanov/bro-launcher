@@ -4,8 +4,9 @@ let oncePills = false;
 
 const Tabex = ({settingsTabex}) => {
 
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
     const toDate = () => {
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let date = new Date(schedule.lastTimestamp);
         let hours = date.getHours()
         if (hours.toString().length === 1) {
@@ -63,11 +64,10 @@ const Tabex = ({settingsTabex}) => {
             perDay: 1,
             delay: 20,
             checked: []
-        }, {day: 25, perDay: 1, delay: 20, checked: []},], lastTimestamp: null
+        }, {day: 25, perDay: 1, delay: 20, checked: []},], lastTimestamp: null, firstTimestamp: null
     } : JSON.parse(localStorage.getItem("pillsTabex")))
 
     const [lastTimestamp, setLastTimestamp] = useState(toDate(schedule.lastTimestamp))
-
 
     useEffect(() => {
         const checkPills = event => {
@@ -142,11 +142,18 @@ const Tabex = ({settingsTabex}) => {
                 schedule.days[day].checked.splice(index, 1);
             }
         }
-        schedule.lastTimestamp = Date.now()
+        schedule.lastTimestamp = Date.now();
+        if (!schedule.firstTimestamp) {
+            schedule.firstTimestamp = Date.now();
+        }
         setLastTimestamp(toDate(schedule.lastTimestamp))
         setSchedule(schedule)
         localStorage.setItem("pillsTabex", JSON.stringify(schedule))
     };
+
+    const getDate = (timestamp) => {
+        return monthNames[(new Date(timestamp)).getMonth()] + " " + (new Date(timestamp)).getUTCDate();
+    }
 
     return (<div className={"tabex w-2-tabex-container"} style={{display: settingsTabex ? "" : "none"}}>
 
@@ -161,6 +168,7 @@ const Tabex = ({settingsTabex}) => {
                 return (<div key={dayIndex} className={"tabex-day-container"}>
                     <div className={"tabex-day"}>
                         <h3>Day {dayIndex + 1}</h3>
+                        <div className={"tabex-date-counter"}>({getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000))})</div>
                     </div>
                     <div>
                         {Array.from({length: day.perDay}, (_, perDayCounter) => (<input
