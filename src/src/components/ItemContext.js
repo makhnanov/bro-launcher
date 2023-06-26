@@ -3,9 +3,19 @@ import Item from "./Item";
 import {ContextMenu} from "../styles/styles";
 import "../styles/item.css";
 import Plus from "../img/Plus.svg";
-import { useCopyToClipboard } from 'usehooks-ts';
+import {useCopyToClipboard} from 'usehooks-ts';
 
-const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDataVersion, exportData, isMenuHidden, settingsOneClick, settingsLifetime}) => {
+const ItemContext = ({
+                         bookmarks,
+                         showModal,
+                         showModalForEdit,
+                         dataVersion,
+                         setDataVersion,
+                         exportData,
+                         isMenuHidden,
+                         settingsOneClick,
+                         settingsLifetime,
+                     }) => {
 
     const [clicked, setClicked] = useState(false);
     const [points, setPoints] = useState({x: 0, y: 0});
@@ -59,7 +69,7 @@ const ItemContext = ({bookmarks, showModal, showModalForEdit, dataVersion, setDa
         <div className={`grid-container-wrapper ${isMenuHidden ? 'grid-container-wrapper_menu-hidden' : ''}`}>
             <div className='grid-container'>
 
-                <div className="item item-1-life" style={{ display: settingsLifetime ? "" : "none"}}>
+                <div className="item item-1-life" style={{display: settingsLifetime ? "" : "none"}}>
                     <h1 className={'item-1-life__already_percent'}>
                         {lifePercent}%
                     </h1>

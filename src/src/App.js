@@ -308,7 +308,7 @@ function App() {
         'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я'
     ];
 
-    function detectLang(str){
+    function detectLang(str) {
         let arrFromStr = [...str];
         let ru, en = "";
         en = arrFromStr.filter(i => EN.includes(i));
@@ -504,7 +504,6 @@ function App() {
 
                 <div className={"search-engines"}>
 
-
                     <div className="item-max" style={{display: settingsGoogle ? "" : "none"}}>
                         <div className="g-wrapper" onClick={() => window.open('https://www.google.com/', '_parent')}>
                             <img src={GoogleLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
@@ -551,7 +550,8 @@ function App() {
 
                     <div className="item-max" style={{display: settingsGoogleTranslate ? "" : "none"}}>
                         <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
-                            <img src={GoogleTranslate} className="y-img gt-img" alt="YouTube" width="200" height="50"></img>
+                            <img src={GoogleTranslate} className="y-img gt-img" alt="YouTube" width="200"
+                                 height="50"></img>
                         </div>
                         <div className="youtube-search-container">
                             <input type="text"

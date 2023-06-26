@@ -45,7 +45,7 @@ const Settings = ({
                                        checked={settingsOneClick} onChange={toggleSettingsOneClick}
                                        id={"setting-one-click"}
                                 />
-                                <label for="setting-one-click"  className={"settings__open-bookmark-label"}>
+                                <label for="setting-one-click" className={"settings__open-bookmark-label"}>
                                     One Click
                                 </label>
                             </div>
