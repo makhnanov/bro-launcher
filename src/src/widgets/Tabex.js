@@ -94,10 +94,10 @@ const Tabex = ({settingsTabex}) => {
 
                 // Detect is it last pill per day
                 let nextPerDayPillElement = latestCheckbox.nextElementSibling;
+                let nextDayFirst = document.getElementById("tabex-" + (day + 1) + "-0")
 
                 // If need drink now!
                 if (Date.now() >= nextWithDelay) {
-                    let nextDayFirst = document.getElementById("tabex-" + (day + 1) + "-0")
 
                     // Not last of the day
                     if (nextPerDayPillElement) {
@@ -108,9 +108,7 @@ const Tabex = ({settingsTabex}) => {
                             nextPerDayPillElement.style.outline = "6px solid red";
                             nextPerDayPillElement.style.transform = "scale(2)";
                         }
-                        setForNextPill( "Next pill need take now !!!");
-                    } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() === (new Date()).getUTCDate())) {
-                        setForNextPill( "Wait new day for take next pill !");
+                        setForNextPill( "Next pill need take now !");
                     } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() !== (new Date()).getUTCDate())) {
                         // Find next day and signal only if now new day
                         if (nextDayFirst.style.outline === "red solid 6px") {
@@ -120,6 +118,8 @@ const Tabex = ({settingsTabex}) => {
                             nextDayFirst.style.outline = "6px solid red";
                             nextDayFirst.style.transform = "scale(2)";
                         }
+                    } else if (!nextDayFirst) {
+                        setForNextPill( "Congratulations!");
                     }
 
                 } else {
@@ -131,6 +131,10 @@ const Tabex = ({settingsTabex}) => {
                         let minutes = Math.floor(seconds / 60)
                         seconds = seconds - (minutes * 60)
                         setForNextPill( "Next pill need take after: " + hours + ":" + minutes + ":" + seconds)
+                    } else if (!nextDayFirst) {
+                        setForNextPill( "Congratulations!");
+                    } else {
+                        setForNextPill( "Wait new day for take next pill !");
                     }
                 }
             }
