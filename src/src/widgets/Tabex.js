@@ -4,7 +4,20 @@ let oncePills = false;
 
 const Tabex = ({settingsTabex}) => {
 
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
 
     const toDate = () => {
         let date = new Date(schedule.lastTimestamp);
@@ -108,7 +121,7 @@ const Tabex = ({settingsTabex}) => {
                             nextPerDayPillElement.style.outline = "6px solid red";
                             nextPerDayPillElement.style.transform = "scale(2)";
                         }
-                        setForNextPill( "Next pill need take now !");
+                        setForNextPill("Next pill need take now !");
                     } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() !== (new Date()).getUTCDate())) {
                         // Find next day and signal only if now new day
                         if (nextDayFirst.style.outline === "red solid 6px") {
@@ -119,7 +132,7 @@ const Tabex = ({settingsTabex}) => {
                             nextDayFirst.style.transform = "scale(2)";
                         }
                     } else if (!nextDayFirst) {
-                        setForNextPill( "Congratulations!");
+                        setForNextPill("Congratulations!");
                     }
 
                 } else {
@@ -130,11 +143,11 @@ const Tabex = ({settingsTabex}) => {
                         let seconds = dateObj - (hours * 3600)
                         let minutes = Math.floor(seconds / 60)
                         seconds = seconds - (minutes * 60)
-                        setForNextPill( "Next pill need take after: " + hours + ":" + minutes + ":" + seconds)
+                        setForNextPill("Next pill need take after: " + hours + ":" + minutes + ":" + seconds)
                     } else if (!nextDayFirst) {
-                        setForNextPill( "Congratulations!");
+                        setForNextPill("Congratulations!");
                     } else {
-                        setForNextPill( "Wait new day for take next pill !");
+                        setForNextPill("Wait new day for take next pill !");
                     }
                 }
             }
@@ -176,22 +189,33 @@ const Tabex = ({settingsTabex}) => {
         localStorage.setItem("pillsTabex", JSON.stringify(schedule))
     };
 
+    const [tabexTitle, setTabexTitle] = useState(localStorage.getItem("tabexTitle") ?? "Tabex")
+
     const getDate = (timestamp) => {
         return monthNames[(new Date(timestamp)).getMonth()] + " " + (new Date(timestamp)).getUTCDate();
     }
 
+    const updateTabexTitle = (e) => {
+        localStorage.setItem("tabexTitle", e.target.value);
+        setTabexTitle(e.target.value);
+    };
+
     return (<div className={"tabex w-2-tabex-container"} style={{display: settingsTabex ? "" : "none"}}>
 
         <div className={"tabex-header"}>
-            <h1>
-                Tabex
-            </h1>
-            <h3>
-                Last pill: {lastTimestamp}
-            </h3>
-            <h3>
-                {forNextPill}
-            </h3>
+            <div>
+                <input className={"tabex-pill-title-editable"} value={tabexTitle} onChange={updateTabexTitle}/>
+            </div>
+            <div>
+                <h3>
+                    Last pill: {lastTimestamp}
+                </h3>
+            </div>
+            <div>
+                <h3>
+                    {forNextPill}
+                </h3>
+            </div>
         </div>
 
         <div className={"tabex-grid"}>
@@ -199,7 +223,9 @@ const Tabex = ({settingsTabex}) => {
                 return (<div key={dayIndex} className={"tabex-day-container"}>
                     <div className={"tabex-day"}>
                         <h3>Day {dayIndex + 1}</h3>
-                        <div className={"tabex-date-counter"}>({getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000))})</div>
+                        <div
+                            className={"tabex-date-counter"}>({getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000))})
+                        </div>
                     </div>
                     <div className={"tabex-checkboxes-list"}>
                         <div className={"tabex-checkboxes-per-day"}>
@@ -220,7 +246,6 @@ const Tabex = ({settingsTabex}) => {
                 </div>);
             })}
         </div>
-
 
     </div>);
 };
