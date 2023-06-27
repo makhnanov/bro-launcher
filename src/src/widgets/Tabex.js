@@ -89,14 +89,18 @@ const Tabex = ({settingsTabex}) => {
             }
             if (latestChecked) {
                 let delay = schedule.days[day].delay;
-                let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
+                // let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
+                let nextWithDelay = schedule.lastTimestamp + 10000;
 
                 // Detect is it last pill per day
                 let nextPerDayPillElement = latestCheckbox.nextElementSibling;
 
-                if (Date.now() > nextWithDelay) {
+                // If need drink now!
+                if (Date.now() >= nextWithDelay) {
+                    let nextDayFirst = document.getElementById("tabex-" + (day + 1) + "-0")
+
+                    // Not last of the day
                     if (nextPerDayPillElement) {
-                        console.log(nextPerDayPillElement.style.outline)
                         if (nextPerDayPillElement.style.outline === "red solid 6px") {
                             nextPerDayPillElement.style.outline = "0px solid red";
                             nextPerDayPillElement.style.transform = "scale(1)";
@@ -104,31 +108,29 @@ const Tabex = ({settingsTabex}) => {
                             nextPerDayPillElement.style.outline = "6px solid red";
                             nextPerDayPillElement.style.transform = "scale(2)";
                         }
-                    } else {
+                        setForNextPill( "Next pill need take now !!!");
+                    } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() === (new Date()).getUTCDate())) {
+                        setForNextPill( "Wait new day for take next pill !");
+                    } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() !== (new Date()).getUTCDate())) {
                         // Find next day and signal only if now new day
-                        let nextDayFirst = document.getElementById("tabex-" + (day + 1) + "-0")
-                        if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() !== (new Date()).getUTCDate())) {
-                            if (nextDayFirst.style.outline === "red solid 6px") {
-                                nextDayFirst.style.outline = "0px solid red";
-                                nextDayFirst.style.transform = "scale(1)";
-                            } else {
-                                nextDayFirst.style.outline = "6px solid red";
-                                nextDayFirst.style.transform = "scale(2)";
-                            }
+                        if (nextDayFirst.style.outline === "red solid 6px") {
+                            nextDayFirst.style.outline = "0px solid red";
+                            nextDayFirst.style.transform = "scale(1)";
+                        } else {
+                            nextDayFirst.style.outline = "6px solid red";
+                            nextDayFirst.style.transform = "scale(2)";
                         }
                     }
+
                 } else {
+                    // If need wait
                     let dateObj = Math.floor(((new Date(nextWithDelay)).getTime() - (new Date(Date.now())).getTime()) / 1000);
-                    if (dateObj > 0) {
+                    if (nextPerDayPillElement && dateObj > 0) {
                         let hours = Math.floor(dateObj / 3600)
                         let seconds = dateObj - (hours * 3600)
                         let minutes = Math.floor(seconds / 60)
                         seconds = seconds - (minutes * 60)
-                        setForNextPill( hours + ":" + minutes + ":" + seconds)
-                    } else if (!nextPerDayPillElement) {
-                        setForNextPill("Wait new day!")
-                    } else {
-                        setForNextPill("Take it now!")
+                        setForNextPill( "Next pill need take after: " + hours + ":" + minutes + ":" + seconds)
                     }
                 }
             }
@@ -184,7 +186,7 @@ const Tabex = ({settingsTabex}) => {
                 Last pill: {lastTimestamp}
             </h3>
             <h3>
-                Next pill need take after: {forNextPill}
+                {forNextPill}
             </h3>
         </div>
 
@@ -208,7 +210,7 @@ const Tabex = ({settingsTabex}) => {
                             </input>))}
                         </div>
                         <div className={"tabex-checkboxes-description"}>
-                            (1 pill every {day.delay} hours)
+                            (one pill every {day.delay} hours)
                         </div>
                     </div>
                 </div>);
