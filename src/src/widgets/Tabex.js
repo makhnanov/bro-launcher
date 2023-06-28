@@ -102,8 +102,8 @@ const Tabex = ({settingsTabex}) => {
             }
             if (latestChecked) {
                 let delay = schedule.days[day].delay;
-                // let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
-                let nextWithDelay = schedule.lastTimestamp + 10000;
+                let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
+                // let nextWithDelay = schedule.lastTimestamp + 10000;
 
                 // Detect is it last pill per day
                 let nextPerDayPillElement = latestCheckbox.nextElementSibling;
