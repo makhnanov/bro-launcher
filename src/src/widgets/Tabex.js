@@ -102,14 +102,14 @@ const Tabex = ({settingsTabex}) => {
             }
             if (latestChecked) {
                 let delay = schedule.days[day].delay;
-                let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
-                // let nextWithDelay = schedule.lastTimestamp + 10000;
+                // let nextWithDelay = (schedule.lastTimestamp + (/* delay in hours */ delay * 60 /* min */ * 60 /* sec */ * 1000 /* millisecond */));
+                let nextWithDelay = schedule.lastTimestamp + 10000;
 
                 // Detect is it last pill per day
                 let nextPerDayPillElement = latestCheckbox.nextElementSibling;
                 let nextDayFirst = document.getElementById("tabex-" + (day + 1) + "-0")
 
-                // If need drink now!
+                // Need drink now!
                 if (Date.now() >= nextWithDelay) {
 
                     // Not last of the day
@@ -122,6 +122,8 @@ const Tabex = ({settingsTabex}) => {
                             nextPerDayPillElement.style.transform = "scale(2)";
                         }
                         setForNextPill("Next pill need take now !");
+                    } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() === (new Date()).getUTCDate())) {
+                        setForNextPill("Wait new day for take next pill !");
                     } else if (nextDayFirst && ((new Date(schedule.lastTimestamp)).getUTCDate() !== (new Date()).getUTCDate())) {
                         // Find next day and signal only if now new day
                         if (nextDayFirst.style.outline === "red solid 6px") {
@@ -136,7 +138,7 @@ const Tabex = ({settingsTabex}) => {
                     }
 
                 } else {
-                    // If need wait
+                    // Need wait
                     let dateObj = Math.floor(((new Date(nextWithDelay)).getTime() - (new Date(Date.now())).getTime()) / 1000);
                     if (nextPerDayPillElement && dateObj > 0) {
                         let hours = Math.floor(dateObj / 3600)
@@ -224,7 +226,7 @@ const Tabex = ({settingsTabex}) => {
                     <div className={"tabex-day"}>
                         <h3>Day {dayIndex + 1}</h3>
                         <div
-                            className={"tabex-date-counter"}>({getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000))})
+                            className={"tabex-date-counter"}>({schedule.firstTimestamp ? getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000)) : ""})
                         </div>
                     </div>
                     <div className={"tabex-checkboxes-list"}>
