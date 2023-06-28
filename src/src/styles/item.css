@@ -176,6 +176,8 @@
 
 .item-1-life__already_percent {
     padding-top: 3px;
+    text-align: right;
+    padding-right: 7px;
 }
 
 .item-1-life__already_decimal {
