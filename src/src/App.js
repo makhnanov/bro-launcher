@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.17';
+const appVersion = '1.6.18';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -514,6 +514,7 @@ function App() {
                              isMenuHidden={menuHidden}
                              settingsOneClick={settingsOneClick}
                              settingsLifetime={settingsLifetime}
+                             suggestBackup={suggestBackup}
                 />
 
                 <div className={"search-engines"}>

@@ -15,6 +15,7 @@ const ItemContext = ({
                          isMenuHidden,
                          settingsOneClick,
                          settingsLifetime,
+                         suggestBackup,
                      }) => {
 
     const [clicked, setClicked] = useState(false);
@@ -45,7 +46,9 @@ const ItemContext = ({
         bookmarks.splice(contextMenuItemIndex, 1);
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
         setDataVersion(dataVersion + 1);
-        exportData();
+        if (suggestBackup) {
+            exportData();
+        }
     };
 
     const editItem = () => {
