@@ -24,6 +24,8 @@ const Settings = ({
                       toggleSettingsLifetime,
                       settingsTabex,
                       toggleSettingsTabex,
+                      suggestBackup,
+                      toggleSuggestBackup,
                   }) => {
     return (
         <div className={'settings'}>
@@ -60,6 +62,23 @@ const Settings = ({
                                 </label>
                             </div>
 
+                        </div>
+
+                        <hr></hr>
+
+                        <p>Suggest a backup:</p>
+
+                        <div className={"settings__widgets-visibility"}>
+                            <div>
+                                <input type="checkbox"
+                                       checked={suggestBackup}
+                                       onChange={toggleSuggestBackup}
+                                       id={"setting-backup"}
+                                />
+                                <label htmlFor={"setting-backup"} className={"settings__open-bookmark-label"}>
+                                    Yes
+                                </label>
+                            </div>
                         </div>
 
                         <hr></hr>

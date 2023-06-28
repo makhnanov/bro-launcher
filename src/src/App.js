@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.16';
+const appVersion = '1.6.17';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -56,6 +56,18 @@ function App() {
     const [newBookmarkImage, setNewBookmarkImage] = useState('');
     const [newBookmarkImageStyle, setNewBookmarkImageStyle] = useState('');
     const [newBookmarkText, setNewBookmarkText] = useState('');
+
+    if (localStorage.getItem("suggestBackup") === null) {
+        localStorage.setItem("suggestBackup", "true")
+    }
+    const [suggestBackup, setSuggestBackup] = useState(
+        localStorage.getItem("suggestBackup") === "true"
+    );
+    const toggleSuggestBackup = () => {
+        localStorage.setItem("suggestBackup", (!suggestBackup).toString())
+        setSuggestBackup(!suggestBackup)
+    }
+
 
     const [menuHidden, setMenuHidden] = useState(localStorage.getItem('menuHidden') === 'true');
 
@@ -212,7 +224,9 @@ function App() {
 
         setDataVersion(dataVersion + 1);
 
-        exportData();
+        if (suggestBackup) {
+            exportData();
+        }
     };
 
     const [settingsModal, setSettingsModal] = useState(false)
@@ -598,6 +612,8 @@ function App() {
                     toggleSettingsLifetime={toggleSettingsLifetime}
                     settingsTabex={settingsTabex}
                     toggleSettingsTabex={toggleSettingsTabex}
+                    suggestBackup={suggestBackup}
+                    toggleSuggestBackup={toggleSuggestBackup}
                 >
                 </Settings>
 
