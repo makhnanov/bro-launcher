@@ -42,9 +42,9 @@
 - Add changelog autogen readme from x.x.x. Commit messages
 - Add / replace std image to images after document ready (because google dark api cool but can be slowly)
 
-- Add settings for all
-- Turn on / off youtube
-- Change or add search to google or ya or etc.
++ Add settings for all
++ Turn on / off youtube
++ Change or add search to google or ya or etc.
 - Add folders
 - Add sort by filter
 - Customize background
