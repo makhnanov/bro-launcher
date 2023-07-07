@@ -36,48 +36,52 @@ const Tabex = ({settingsTabex}) => {
         return date.getUTCDate() + " " + monthNames[date.getUTCMonth()] + " " + hours + ":" + minutes + ":" + seconds
     }
 
+
     const [schedule, setSchedule] = useState(localStorage.getItem('pillsTabex') === null ? {
-        days: [{day: 1, perDay: 6, delay: 2, checked: []}, {day: 2, perDay: 6, delay: 2, checked: []}, {
-            day: 3,
-            perDay: 6,
-            delay: 2,
-            checked: []
-        }, {day: 4, perDay: 5, delay: 2.5, checked: []}, {day: 5, perDay: 5, delay: 2.5, checked: []}, {
-            day: 6,
-            perDay: 5,
-            delay: 2.5,
-            checked: []
-        }, {day: 7, perDay: 5, delay: 2.5, checked: []}, {day: 8, perDay: 5, delay: 2.5, checked: []}, {
-            day: 9,
-            perDay: 5,
-            delay: 2.5,
-            checked: []
-        }, {day: 10, perDay: 5, delay: 2.5, checked: []}, {day: 11, perDay: 5, delay: 2.5, checked: []}, {
-            day: 12,
-            perDay: 5,
-            delay: 2.5,
-            checked: []
-        }, {day: 13, perDay: 4, delay: 3, checked: []}, {day: 14, perDay: 4, delay: 3, checked: []}, {
-            day: 15,
-            perDay: 4,
-            delay: 3,
-            checked: []
-        }, {day: 16, perDay: 4, delay: 3, checked: []}, {day: 17, perDay: 3, delay: 5, checked: []}, {
-            day: 18,
-            perDay: 3,
-            delay: 5,
-            checked: []
-        }, {day: 19, perDay: 3, delay: 5, checked: []}, {day: 20, perDay: 3, delay: 5, checked: []}, {
-            day: 21,
-            perDay: 2,
-            delay: 8,
-            checked: []
-        }, {day: 22, perDay: 2, delay: 8, checked: []}, {day: 23, perDay: 2, delay: 8, checked: []}, {
-            day: 24,
-            perDay: 1,
-            delay: 20,
-            checked: []
-        }, {day: 25, perDay: 1, delay: 20, checked: []},], lastTimestamp: null, firstTimestamp: null
+        days: [
+            {day: 1, perDay: 6, delay: 2, checked: []},
+            {day: 2, perDay: 6, delay: 2, checked: []},
+            {
+                day: 3,
+                perDay: 6,
+                delay: 2,
+                checked: []
+            }, {day: 4, perDay: 5, delay: 2.5, checked: []}, {day: 5, perDay: 5, delay: 2.5, checked: []}, {
+                day: 6,
+                perDay: 5,
+                delay: 2.5,
+                checked: []
+            }, {day: 7, perDay: 5, delay: 2.5, checked: []}, {day: 8, perDay: 5, delay: 2.5, checked: []}, {
+                day: 9,
+                perDay: 5,
+                delay: 2.5,
+                checked: []
+            }, {day: 10, perDay: 5, delay: 2.5, checked: []}, {day: 11, perDay: 5, delay: 2.5, checked: []}, {
+                day: 12,
+                perDay: 5,
+                delay: 2.5,
+                checked: []
+            }, {day: 13, perDay: 4, delay: 3, checked: []}, {day: 14, perDay: 4, delay: 3, checked: []}, {
+                day: 15,
+                perDay: 4,
+                delay: 3,
+                checked: []
+            }, {day: 16, perDay: 4, delay: 3, checked: []}, {day: 17, perDay: 3, delay: 5, checked: []}, {
+                day: 18,
+                perDay: 3,
+                delay: 5,
+                checked: []
+            }, {day: 19, perDay: 3, delay: 5, checked: []}, {day: 20, perDay: 3, delay: 5, checked: []}, {
+                day: 21,
+                perDay: 2,
+                delay: 8,
+                checked: []
+            }, {day: 22, perDay: 2, delay: 8, checked: []}, {day: 23, perDay: 2, delay: 8, checked: []}, {
+                day: 24,
+                perDay: 1,
+                delay: 20,
+                checked: []
+            }, {day: 25, perDay: 1, delay: 20, checked: []},], lastTimestamp: null, firstTimestamp: null
     } : JSON.parse(localStorage.getItem("pillsTabex")))
 
     const [lastTimestamp, setLastTimestamp] = useState(toDate(schedule.lastTimestamp))
@@ -133,6 +137,7 @@ const Tabex = ({settingsTabex}) => {
                             nextDayFirst.style.outline = "6px solid red";
                             nextDayFirst.style.transform = "scale(2)";
                         }
+                        setForNextPill("Next pill need take now !");
                     } else if (!nextDayFirst) {
                         setForNextPill("Congratulations!");
                     }
@@ -175,6 +180,7 @@ const Tabex = ({settingsTabex}) => {
 
         if (event.target.checked) {
             schedule.days[day].checked.push(perDay)
+            schedule.days[day].realDayGetPill = (new Date()).getTime();
         } else {
             let index = schedule.days[day].checked.indexOf(perDay);
             if (index !== -1) {
@@ -193,8 +199,58 @@ const Tabex = ({settingsTabex}) => {
 
     const [tabexTitle, setTabexTitle] = useState(localStorage.getItem("tabexTitle") ?? "Tabex")
 
-    const getDate = (timestamp) => {
+    function everyDayDateFormat(timestamp) {
         return monthNames[(new Date(timestamp)).getMonth()] + " " + (new Date(timestamp)).getUTCDate();
+    }
+
+    // schedule.firstTimestamp = (new Date(2023, 5, 27, 2, 3, 4, 567)).getTime();
+    // schedule.lastTimestamp = (new Date(2023, 5, 29, 2, 3, 4, 567)).getTime();
+    // setSchedule(schedule)
+    // localStorage.setItem("pillsTabex", JSON.stringify(schedule))
+
+    const getDate = (probablyTimestampIfFromStart, dayIndex) => {
+
+        // let dateByDefault = everyDayDateFormat(probablyTimestampIfFromStart);
+
+        // console.log(schedule.days[dayIndex].realDayGetPill)
+
+        // delete schedule.days[dayIndex].realDayGetPill;
+        // setSchedule(schedule)
+        // localStorage.setItem("pillsTabex", JSON.stringify(schedule))
+
+        if (typeof schedule.days[dayIndex].realDayGetPill !== "undefined") {
+            return "(" + everyDayDateFormat(schedule.days[dayIndex].realDayGetPill) + ")";
+        }
+
+        return ""
+
+        // let dateLatestRealPill = everyDayDateFormat(schedule.days[dayIndex].realDayGetPill);
+        //
+        // // console.log(fromInitial)
+        // // console.log(fromLatestRealPill)
+        //
+        // // console.log(probablyTimestampIfFromStart)
+        // // console.log(everyDayDateFormat(probablyTimestampIfFromStart))
+        //
+        // // console.log(schedule.days[dayIndex].realDayGetPill)
+        // // console.log(everyDayDateFormat(schedule.days[dayIndex].realDayGetPill))
+        //
+        // // console.log(schedule.lastTimestamp)
+        // // console.log(everyDayDateFormat(schedule.lastTimestamp))
+        //
+        // if (
+        //     probablyTimestampIfFromStart
+        //     // dateIfDrinkFromStart !== dateLatestRealPill
+        //     // && timestamp > schedule.days[dayIndex].realDayGetPill
+        //     // && timestamp > schedule.lastTimestamp
+        //     // && (new Date(timestamp)).getMonth() === (new Date(schedule.days[dayIndex].realDayGetPill)).getMonth()
+        //     // && (new Date(timestamp)).getUTCDate() < (new Date(schedule.days[dayIndex].realDayGetPill)).getUTCDate()
+        // ) {
+        //     // return dateLatestRealPill;
+        // }
+
+        // return "()";
+        // return dateByDefault;
     }
 
     const updateTabexTitle = (e) => {
@@ -226,7 +282,12 @@ const Tabex = ({settingsTabex}) => {
                     <div className={"tabex-day"}>
                         <h3>Day {dayIndex + 1}</h3>
                         <div
-                            className={"tabex-date-counter"}>({schedule.firstTimestamp ? getDate(schedule.firstTimestamp + (dayIndex * 86400 * 1000)) : ""})
+                            className={"tabex-date-counter"}>
+                            {
+                                schedule.firstTimestamp
+                                    ? getDate((schedule.firstTimestamp) + (dayIndex * 86400 * 1000), dayIndex)
+                                    : ""
+                            }
                         </div>
                     </div>
                     <div className={"tabex-checkboxes-list"}>
