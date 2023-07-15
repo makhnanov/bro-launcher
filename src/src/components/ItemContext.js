@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Item from "./Item";
 import {ContextMenu} from "../styles/styles";
 import "../styles/item.css";
-import Plus from "../img/Plus.svg";
+import {ReactComponent as PlusImage} from '../img/Plus.svg';
 import {useCopyToClipboard} from 'usehooks-ts';
 
 const ItemContext = ({
@@ -107,7 +107,7 @@ const ItemContext = ({
                 ))}
 
                 <div className="item item-plus" onClick={() => showModal()}>
-                    <img src={Plus} alt="Plus" className={`item-image-icon`}></img>
+                    <PlusImage className={"item-image-icon"} alt={"Add"} />
                 </div>
 
                 {clicked && (

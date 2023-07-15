@@ -29,6 +29,7 @@ import YandexLogo from './img/YandexLogo.svg';
 import './App.css';
 import Modal from "react-overlays/Modal";
 import React, {useState, useRef, useEffect} from "react";
+import Notes from "./components/Notes";
 import ItemContext from "./components/ItemContext";
 import Settings from "./components/Settings";
 
@@ -36,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.6.20';
+const appVersion = '1.7.0';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -60,14 +61,11 @@ function App() {
     if (localStorage.getItem("suggestBackup") === null) {
         localStorage.setItem("suggestBackup", "true")
     }
-    const [suggestBackup, setSuggestBackup] = useState(
-        localStorage.getItem("suggestBackup") === "true"
-    );
+    const [suggestBackup, setSuggestBackup] = useState(localStorage.getItem("suggestBackup") === "true");
     const toggleSuggestBackup = () => {
         localStorage.setItem("suggestBackup", (!suggestBackup).toString())
         setSuggestBackup(!suggestBackup)
     }
-
 
     const [menuHidden, setMenuHidden] = useState(localStorage.getItem('menuHidden') === 'true');
 
@@ -110,9 +108,7 @@ function App() {
         }
 
         const fileName = `BroLauncher_Backup_App_Version_${appVersion}_Data_Version_${dataVersion}_Date_${year}-${month}-${day}_${hours}_${minutes}-${seconds}_${gmt}.json`;
-        const data = new Blob([
-            JSON.stringify(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'), null, 4)
-        ], {type: 'text/json'});
+        const data = new Blob([JSON.stringify(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'), null, 4)], {type: 'text/json'});
         const jsonURL = window.URL.createObjectURL(data);
         const link = document.createElement('a');
         document.body.appendChild(link);
@@ -200,9 +196,7 @@ function App() {
             newBookmarks.push({
                 'onClick': newBookmarkLink,
                 'img': image,
-                'imgStyle': newBookmarkImageStyle === ''
-                    ? "round-image-30"
-                    : newBookmarkImageStyle,
+                'imgStyle': newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle,
                 'text': text,
             });
         } else {
@@ -275,52 +269,34 @@ function App() {
 
     const handleYoutubeKeyDown = (e) => {
         if (e.key === 'Enter') {
-            window.open(
-                encodeURI('https://www.youtube.com/results?search_query=' + e.target.value),
-                '_parent'
-            );
+            window.open(encodeURI('https://www.youtube.com/results?search_query=' + e.target.value), '_parent');
             e.target.value = '';
         }
     };
 
     const handleGoogleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            window.open(
-                encodeURI('https://www.google.com/search?q=' + e.target.value),
-                '_parent'
-            );
+            window.open(encodeURI('https://www.google.com/search?q=' + e.target.value), '_parent');
             e.target.value = '';
         }
     };
 
     const handleDuckDuckGoKeyDown = (e) => {
         if (e.key === 'Enter') {
-            window.open(
-                encodeURI('https://duckduckgo.com/?q=' + e.target.value),
-                '_parent'
-            );
+            window.open(encodeURI('https://duckduckgo.com/?q=' + e.target.value), '_parent');
             e.target.value = '';
         }
     };
 
     const handleYandexKeyDown = (e) => {
         if (e.key === 'Enter') {
-            window.open(
-                encodeURI('https://yandex.kz/search/?text=' + e.target.value),
-                '_parent'
-            );
+            window.open(encodeURI('https://yandex.kz/search/?text=' + e.target.value), '_parent');
             e.target.value = '';
         }
     };
 
-    const EN = [
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-    ];
-    const RU = [
-        'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я',
-        'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я'
-    ];
+    const EN = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const RU = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я'];
 
     function detectLang(str) {
         let arrFromStr = [...str];
@@ -332,28 +308,14 @@ function App() {
 
     const handleGoogleTranslateDown = (e) => {
         if (e.key === 'Enter') {
-            window.open(
-                encodeURI((
-                    detectLang(e.target.value)
-                        ? "https://translate.google.com/?sl=en&tl=ru&text="
-                        : "https://translate.google.com/?sl=ru&tl=en&text="
-                ) + e.target.value),
-                '_parent'
-            );
+            window.open(encodeURI((detectLang(e.target.value) ? "https://translate.google.com/?sl=en&tl=ru&text=" : "https://translate.google.com/?sl=ru&tl=en&text=") + e.target.value), '_parent');
             e.target.value = '';
         }
     };
 
     const handleDeeplDown = (e) => {
         if (e.key === 'Enter') {
-            window.open(
-                encodeURI((
-                    detectLang(e.target.value)
-                        ? "https://www.deepl.com/translator#en/ru/"
-                        : "https://www.deepl.com/translator#ru/en/"
-                ) + e.target.value),
-                '_parent'
-            );
+            window.open(encodeURI((detectLang(e.target.value) ? "https://www.deepl.com/translator#en/ru/" : "https://www.deepl.com/translator#ru/en/") + e.target.value), '_parent');
             e.target.value = '';
         }
     };
@@ -378,8 +340,7 @@ function App() {
     const [inputLinkRef, setInputFocus] = useFocus();
     const [inputTextRef, setTextFocus] = useFocus();
 
-    const [settingsOneClick, setSettingsOneClick]
-        = useState(localStorage.getItem("settingsOneClick") === "true");
+    const [settingsOneClick, setSettingsOneClick] = useState(localStorage.getItem("settingsOneClick") === "true");
 
     const toggleSettingsOneClick = () => {
         setSettingsOneClick(!settingsOneClick)
@@ -449,12 +410,11 @@ function App() {
         localStorage.setItem("settingsTabex", (!settingsTabex).toString())
     }
 
-    return (
-        <div className="App"
-             onClick={(e) => {
-                 unLockScreen(e)
-             }}
-             style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
+    return (<div className="App"
+                 onClick={(e) => {
+                     unLockScreen(e)
+                 }}
+                 style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
             <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
                 <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
@@ -472,9 +432,7 @@ function App() {
                         </span>
                         <span className="logo-version-text menu-item"
                               onClick={() => {
-                                  window.open(process.env.NODE_ENV === "production"
-                                      ? publicRepo
-                                      : localProjectPathForWebStorm)
+                                  window.open(process.env.NODE_ENV === "production" ? publicRepo : localProjectPathForWebStorm)
                               }}>
                             v.{appVersion}
                         </span>
@@ -504,6 +462,10 @@ function App() {
                     {/*</div>*/}
 
                 </div>
+
+                <Notes
+                    menuHidden={menuHidden}
+                />
 
                 <ItemContext bookmarks={bookmarks}
                              showModal={needShowModal}
@@ -693,8 +655,7 @@ function App() {
                 </Modal>
 
             </div>
-        </div>
-    );
+        </div>);
 }
 
 export default App;

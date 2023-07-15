@@ -1,0 +1,64 @@
+.notes {
+    text-align: left;
+    transition: all 500ms ease-in-out;
+    display: flex;
+    align-items: self-start;
+}
+
+.notes_to-right {
+    padding-left: 50px;
+}
+
+.notes__add-note {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20%;
+    border: 2px dashed white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.notes__add-note-plus-svg {
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
+svg.notes__add-note-plus-svg {
+    fill: white !important;
+}
+
+.notes-list {
+    display: flex;
+    align-items: self-start;
+}
+
+.one-note {
+    padding-left: 10px;
+}
+
+.one-note textarea {
+    width: 166px;
+    outline: none;
+    border-radius: 7px;
+}
+
+.note-close-button {
+    position: relative;
+    top: -8px;
+    margin-bottom: -17px;
+    right: -162px;
+
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-size: 66%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+    transform: rotate(354deg);
+    border: 1px solid #888;
+}

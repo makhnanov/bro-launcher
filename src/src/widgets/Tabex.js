@@ -180,7 +180,10 @@ const Tabex = ({settingsTabex}) => {
 
         if (event.target.checked) {
             schedule.days[day].checked.push(perDay)
-            schedule.days[day].realDayGetPill = (new Date()).getTime();
+            // console.log(schedule.days[day].realDayGetPill)
+            if (schedule.days[day].realDayGetPill === undefined) {
+                schedule.days[day].realDayGetPill = (new Date()).getTime();
+            }
         } else {
             let index = schedule.days[day].checked.indexOf(perDay);
             if (index !== -1) {
