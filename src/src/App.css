@@ -322,7 +322,7 @@ input[type="checkbox"] {
 .ssl-warning-message {
     background-color: #ffc107;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom: 6px;
     border-bottom: 1px solid black;
     display: flex;
     justify-content: center;

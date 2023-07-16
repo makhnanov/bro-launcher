@@ -41,7 +41,7 @@ import EnFlag from "./img/Flag_of_the_United_Kingdom.svg";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.2';
+const appVersion = '1.7.3';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -427,11 +427,12 @@ function App() {
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
         <div>
             <div className={'ssl-warning-message'}>
-                <img src={RuFlag} alt={"RU"} className={'small-flag'}></img>
-                <img src={KzFlag} alt={"KZ"} className={'small-flag'}></img>
                 <img src={EnFlag} alt={"EN"} className={'small-flag'}></img>
+                <img src={KzFlag} alt={"KZ"} className={'small-flag'}></img>
+                <img src={RuFlag} alt={"RU"} className={'small-flag'}></img>
                 <div className={'ssl-warning-message_first'}>
-                    Дорогие пользователи 19 июля в 21:00 по Москве будет осуществлён принудительный редиррект на защищённую
+                    Дорогие пользователи, с 19 июля в 21:00 по Москве будет осуществляться принудительное
+                    перенаправление на защищённую
                     версию сайта с протоколом HTTPS.
                 </div>
             </div>
