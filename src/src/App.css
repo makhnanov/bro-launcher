@@ -318,3 +318,28 @@ input[type="checkbox"] {
     accent-color: rebeccapurple;
     transition: all 500ms ease-in-out;
 }
+
+.ssl-warning-message {
+    background-color: #ffc107;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.ssl-warning-message_first {
+    align-self: center;
+}
+
+.small-flag {
+    width: 38px;
+    height: 20px;
+    border: 1px solid black;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.small-flag:first-child {
+    margin-left: 0;
+}

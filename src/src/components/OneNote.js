@@ -28,11 +28,6 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         adjustHeight()
     }, [notes]);
 
-    // useLayoutEffect(() => {
-    //     console.log('useLayoutEffect');
-    //     adjustHeight()
-    // }, []);
-
     return (
         <div className={`one-note`} key={index}>
             <div className={"note-close-button"} style={{backgroundImage: `url(${Cross})`}} onClick={(e) => {

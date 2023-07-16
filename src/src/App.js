@@ -35,6 +35,10 @@ import Settings from "./components/Settings";
 
 import Tabex from "./widgets/Tabex";
 
+import RuFlag from "./img/ru.png";
+import KzFlag from "./img/Flag_of_Kazakhstan.svg";
+import EnFlag from "./img/Flag_of_the_United_Kingdom.svg";
+
 document.title = 'BRO Launcher';
 
 const appVersion = '1.7.2';
@@ -421,250 +425,265 @@ function App() {
                      unLockScreen(e)
                  }}
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
-            <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
+        <div>
+            <div className={'ssl-warning-message'}>
+                <img src={RuFlag} alt={"RU"} className={'small-flag'}></img>
+                <img src={KzFlag} alt={"KZ"} className={'small-flag'}></img>
+                <img src={EnFlag} alt={"EN"} className={'small-flag'}></img>
+                <div className={'ssl-warning-message_first'}>
+                    Дорогие пользователи 19 июля в 21:00 по Москве будет осуществлён принудительный редиррект на защищённую
+                    версию сайта с протоколом HTTPS.
+                </div>
+            </div>
+            <div className={'ssl-warning-message'}>
+                Убедительная просьба заранее перейти к использованию этой версии и постоянно делать сохранение заметок.
+            </div>
+        </div>
+        <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
-                <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
+            <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
 
-                    <div className={'menu-item close-menu-button'} style={{backgroundImage: `url(${Cross})`}}
-                         onClick={toggleHideMenu}>
-                    </div>
+                <div className={'menu-item close-menu-button'} style={{backgroundImage: `url(${Cross})`}}
+                     onClick={toggleHideMenu}>
+                </div>
 
-                    <div className="launcher">
+                <div className="launcher">
                         <span className={'bro-three-letters'} onClick={toggleHideMenu}>
                             BRO
                         </span>
-                        <span className={'launcher-text menu-item'}>
+                    <span className={'launcher-text menu-item'}>
                             Launcher
                         </span>
-                        <span className="logo-version-text menu-item"
-                              onClick={() => {
-                                  window.open(process.env.NODE_ENV === "production" ? publicRepo : localProjectPathForWebStorm)
-                              }}>
+                    <span className="logo-version-text menu-item"
+                          onClick={() => {
+                              window.open(process.env.NODE_ENV === "production" ? publicRepo : localProjectPathForWebStorm)
+                          }}>
                             v.{appVersion}
                         </span>
-                    </div>
-
-                    <div className={'menu-item'} onClick={exportData}>
-                        Backup
-                    </div>
-
-                    <div className={'menu-item'}>
-                        <label className="custom-file-upload">
-                            <input type="file" className="import-button" onChange={importData}/>
-                            Import
-                        </label>
-                    </div>
-
-                    <div className={"menu-item"} onClick={toggleSettings}>
-                        Settings
-                    </div>
-
-                    <div className={'menu-item'} onClick={lockScreen}>
-                        Lock
-                    </div>
-
-                    {/*<div className="">*/}
-                    {/*    Login*/}
-                    {/*</div>*/}
-
                 </div>
 
-                <Notes
-                    menuHidden={menuHidden}
-                    settingsNotes={settingsNotes}
-                />
-
-                <ItemContext bookmarks={bookmarks}
-                             showModal={needShowModal}
-                             showModalForEdit={needShowModalForEdit}
-                             dataVersion={dataVersion}
-                             setDataVersion={setDataVersion}
-                             exportData={exportData}
-                             isMenuHidden={menuHidden}
-                             settingsOneClick={settingsOneClick}
-                             settingsLifetime={settingsLifetime}
-                             suggestBackup={suggestBackup}
-                />
-
-                <div className={"search-engines"}>
-
-                    <div className="item-max" style={{display: settingsGoogle ? "" : "none"}}>
-                        <div className="g-wrapper" onClick={() => window.open('https://www.google.com/', '_parent')}>
-                            <img src={GoogleLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
-                        </div>
-                        <div className="youtube-search-container">
-                            <input type="text"
-                                   className="youtube-search"
-                                   onKeyDown={handleGoogleKeyDown}/>
-                        </div>
-                    </div>
-
-                    <div className="item-max" style={{display: settingsYoutube ? "" : "none"}}>
-                        <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>
-                            <img src={YouTube} className="y-img" alt="YouTube" width="200" height="50"></img>
-                        </div>
-                        <div className="youtube-search-container">
-                            <input type="text"
-                                   className="youtube-search"
-                                   onKeyDown={handleYoutubeKeyDown}/>
-                        </div>
-                    </div>
-
-                    <div className="item-max" style={{display: settingsDuckDuckGo ? "" : "none"}}>
-                        <div className="g-wrapper" onClick={() => window.open('https://duckduckgo.com/', '_parent')}>
-                            <img src={DuckDuckGo} className="y-img" alt="YouTube" width="200" height="50"></img>
-                        </div>
-                        <div className="youtube-search-container">
-                            <input type="text"
-                                   className="youtube-search"
-                                   onKeyDown={handleDuckDuckGoKeyDown}/>
-                        </div>
-                    </div>
-
-                    <div className="item-max" style={{display: settingsYandex ? "" : "none"}}>
-                        <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
-                            <img src={YandexLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
-                        </div>
-                        <div className="youtube-search-container">
-                            <input type="text"
-                                   className="youtube-search"
-                                   onKeyDown={handleYandexKeyDown}/>
-                        </div>
-                    </div>
-
-                    <div className="item-max" style={{display: settingsGoogleTranslate ? "" : "none"}}>
-                        <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
-                            <img src={GoogleTranslate} className="y-img gt-img" alt="YouTube" width="200"
-                                 height="50"></img>
-                        </div>
-                        <div className="youtube-search-container">
-                            <input type="text"
-                                   className="youtube-search"
-                                   onKeyDown={handleGoogleTranslateDown}/>
-                        </div>
-                    </div>
-
-                    <div className="item-max" style={{display: settingsDeepl ? "" : "none"}}>
-                        <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
-                            <img src={Deepl} className="y-img" alt="YouTube" width="200" height="50"></img>
-                        </div>
-                        <div className="youtube-search-container">
-                            <input type="text"
-                                   className="youtube-search"
-                                   onKeyDown={handleDeeplDown}/>
-                        </div>
-                    </div>
-
+                <div className={'menu-item'} onClick={exportData}>
+                    Backup
                 </div>
 
-                <Tabex settingsTabex={settingsTabex}></Tabex>
+                <div className={'menu-item'}>
+                    <label className="custom-file-upload">
+                        <input type="file" className="import-button" onChange={importData}/>
+                        Import
+                    </label>
+                </div>
 
-                <Settings
-                    className="modal"
-                    show={settingsModal}
-                    onHide={toggleSettings}
-                    renderBackdrop={renderBackdrop}
-                    settingsOneClick={settingsOneClick}
-                    toggleSettingsOneClick={toggleSettingsOneClick}
-                    settingsGoogle={settingsGoogle}
-                    toggleSettingsGoogle={toggleSettingsGoogle}
-                    settingsYoutube={settingsYoutube}
-                    toggleSettingsYoutube={toggleSettingsYoutube}
-                    settingsDuckDuckGo={settingsDuckDuckGo}
-                    toggleSettingsDuckDuckGo={toggleSettingsDuckDuckGo}
-                    settingsYandex={settingsYandex}
-                    toggleSettingsYandex={toggleSettingsYandex}
-                    settingsGoogleTranslate={settingsGoogleTranslate}
-                    toggleSettingsGoogleTranslate={toggleSettingsGoogleTranslate}
-                    settingsDeepl={settingsDeepl}
-                    toggleSettingsDeepl={toggleSettingsDeepl}
-                    settingsLifetime={settingsLifetime}
-                    toggleSettingsLifetime={toggleSettingsLifetime}
-                    settingsTabex={settingsTabex}
-                    toggleSettingsTabex={toggleSettingsTabex}
-                    suggestBackup={suggestBackup}
-                    toggleSuggestBackup={toggleSuggestBackup}
-                    settingsNotes={settingsNotes}
-                    toggleSettingsNotes={toggleSettingsNotes}
-                >
-                </Settings>
+                <div className={"menu-item"} onClick={toggleSettings}>
+                    Settings
+                </div>
 
-                <Modal
-                    className="modal"
-                    show={showModal}
-                    onHide={handleClose}
-                    renderBackdrop={renderBackdrop}
-                    onShow={() => !newBookmarkText ? inputLinkRef.current.focus() : inputTextRef.current.focus()}
-                    onEnter={handleSuccess}>
-                    <div>
+                <div className={'menu-item'} onClick={lockScreen}>
+                    Lock
+                </div>
 
-                        <div className="modal-header">
-                            <div className="modal-title">Add New Bookmark</div>
-                        </div>
-
-                        <div className="modal-desc">
-
-                            <p>Text:</p>
-                            <input type="text"
-                                   className="input-style"
-                                   ref={inputTextRef}
-                                   onChange={handleBookmarkTextChange}
-                                   onFocus={(e) => e.target.select()}
-                                   value={newBookmarkText}
-                                   onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
-                            />
-
-                            <p>Link:</p>
-                            {/*or AnyProgram executor*/}
-                            <input type="text"
-                                   className="input-style"
-                                   ref={inputLinkRef}
-                                   onChange={handleBookmarkLinkChange}
-                                   onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
-                                   value={newBookmarkLink}
-                            />
-
-                            <p>Image:</p>
-                            <input type="text" className="input-style" onChange={handleBookmarkImageChange}
-                                   value={newBookmarkImage}/>
-
-                            <div className="image-style-selector-block">
-                                <label htmlFor="image-style">Round Image:</label>
-                                <div className="input-style">
-                                    <select name="image-style"
-                                            id="image-style-id"
-                                            className="input-style"
-                                            onChange={handleBookmarkImageStyleChange}
-                                            value={!indexForEdit && newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle}>
-                                        <option value="none">None</option>
-                                        <option value="round-image-5">5%</option>
-                                        <option value="round-image-10">10%</option>
-                                        <option value="round-image-15">15%</option>
-                                        <option value="round-image-20">20%</option>
-                                        <option value="round-image-25">25%</option>
-                                        <option value="round-image-30">30%</option>
-                                        <option value="round-image-40">40%</option>
-                                        <option value="round-image-50">50%</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div className="modal-footer">
-                            <button className="secondary-button" onClick={handleClose}>
-                                Close
-                            </button>
-                            <button className="primary-button" onClick={handleSuccess}>
-                                Save Changes
-                            </button>
-                        </div>
-
-                    </div>
-                </Modal>
+                {/*<div className="">*/}
+                {/*    Login*/}
+                {/*</div>*/}
 
             </div>
-        </div>);
+
+            <Notes
+                menuHidden={menuHidden}
+                settingsNotes={settingsNotes}
+            />
+
+            <ItemContext bookmarks={bookmarks}
+                         showModal={needShowModal}
+                         showModalForEdit={needShowModalForEdit}
+                         dataVersion={dataVersion}
+                         setDataVersion={setDataVersion}
+                         exportData={exportData}
+                         isMenuHidden={menuHidden}
+                         settingsOneClick={settingsOneClick}
+                         settingsLifetime={settingsLifetime}
+                         suggestBackup={suggestBackup}
+            />
+
+            <div className={"search-engines"}>
+
+                <div className="item-max" style={{display: settingsGoogle ? "" : "none"}}>
+                    <div className="g-wrapper" onClick={() => window.open('https://www.google.com/', '_parent')}>
+                        <img src={GoogleLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
+                    </div>
+                    <div className="youtube-search-container">
+                        <input type="text"
+                               className="youtube-search"
+                               onKeyDown={handleGoogleKeyDown}/>
+                    </div>
+                </div>
+
+                <div className="item-max" style={{display: settingsYoutube ? "" : "none"}}>
+                    <div className="y-wrapper" onClick={() => window.open('https://youtube.com/', '_parent')}>
+                        <img src={YouTube} className="y-img" alt="YouTube" width="200" height="50"></img>
+                    </div>
+                    <div className="youtube-search-container">
+                        <input type="text"
+                               className="youtube-search"
+                               onKeyDown={handleYoutubeKeyDown}/>
+                    </div>
+                </div>
+
+                <div className="item-max" style={{display: settingsDuckDuckGo ? "" : "none"}}>
+                    <div className="g-wrapper" onClick={() => window.open('https://duckduckgo.com/', '_parent')}>
+                        <img src={DuckDuckGo} className="y-img" alt="YouTube" width="200" height="50"></img>
+                    </div>
+                    <div className="youtube-search-container">
+                        <input type="text"
+                               className="youtube-search"
+                               onKeyDown={handleDuckDuckGoKeyDown}/>
+                    </div>
+                </div>
+
+                <div className="item-max" style={{display: settingsYandex ? "" : "none"}}>
+                    <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
+                        <img src={YandexLogo} className="y-img" alt="YouTube" width="200" height="50"></img>
+                    </div>
+                    <div className="youtube-search-container">
+                        <input type="text"
+                               className="youtube-search"
+                               onKeyDown={handleYandexKeyDown}/>
+                    </div>
+                </div>
+
+                <div className="item-max" style={{display: settingsGoogleTranslate ? "" : "none"}}>
+                    <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
+                        <img src={GoogleTranslate} className="y-img gt-img" alt="YouTube" width="200"
+                             height="50"></img>
+                    </div>
+                    <div className="youtube-search-container">
+                        <input type="text"
+                               className="youtube-search"
+                               onKeyDown={handleGoogleTranslateDown}/>
+                    </div>
+                </div>
+
+                <div className="item-max" style={{display: settingsDeepl ? "" : "none"}}>
+                    <div className="g-wrapper" onClick={() => window.open('https://ya.ru/', '_parent')}>
+                        <img src={Deepl} className="y-img" alt="YouTube" width="200" height="50"></img>
+                    </div>
+                    <div className="youtube-search-container">
+                        <input type="text"
+                               className="youtube-search"
+                               onKeyDown={handleDeeplDown}/>
+                    </div>
+                </div>
+
+            </div>
+
+            <Tabex settingsTabex={settingsTabex}></Tabex>
+
+            <Settings
+                className="modal"
+                show={settingsModal}
+                onHide={toggleSettings}
+                renderBackdrop={renderBackdrop}
+                settingsOneClick={settingsOneClick}
+                toggleSettingsOneClick={toggleSettingsOneClick}
+                settingsGoogle={settingsGoogle}
+                toggleSettingsGoogle={toggleSettingsGoogle}
+                settingsYoutube={settingsYoutube}
+                toggleSettingsYoutube={toggleSettingsYoutube}
+                settingsDuckDuckGo={settingsDuckDuckGo}
+                toggleSettingsDuckDuckGo={toggleSettingsDuckDuckGo}
+                settingsYandex={settingsYandex}
+                toggleSettingsYandex={toggleSettingsYandex}
+                settingsGoogleTranslate={settingsGoogleTranslate}
+                toggleSettingsGoogleTranslate={toggleSettingsGoogleTranslate}
+                settingsDeepl={settingsDeepl}
+                toggleSettingsDeepl={toggleSettingsDeepl}
+                settingsLifetime={settingsLifetime}
+                toggleSettingsLifetime={toggleSettingsLifetime}
+                settingsTabex={settingsTabex}
+                toggleSettingsTabex={toggleSettingsTabex}
+                suggestBackup={suggestBackup}
+                toggleSuggestBackup={toggleSuggestBackup}
+                settingsNotes={settingsNotes}
+                toggleSettingsNotes={toggleSettingsNotes}
+            >
+            </Settings>
+
+            <Modal
+                className="modal"
+                show={showModal}
+                onHide={handleClose}
+                renderBackdrop={renderBackdrop}
+                onShow={() => !newBookmarkText ? inputLinkRef.current.focus() : inputTextRef.current.focus()}
+                onEnter={handleSuccess}>
+
+                <div>
+
+                    <div className="modal-header">
+                        <div className="modal-title">Add New Bookmark</div>
+                    </div>
+
+                    <div className="modal-desc">
+
+                        <p>Text:</p>
+                        <input type="text"
+                               className="input-style"
+                               ref={inputTextRef}
+                               onChange={handleBookmarkTextChange}
+                               onFocus={(e) => e.target.select()}
+                               value={newBookmarkText}
+                               onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
+                        />
+
+                        <p>Link:</p>
+                        {/*or AnyProgram executor*/}
+                        <input type="text"
+                               className="input-style"
+                               ref={inputLinkRef}
+                               onChange={handleBookmarkLinkChange}
+                               onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
+                               value={newBookmarkLink}
+                        />
+
+                        <p>Image:</p>
+                        <input type="text" className="input-style" onChange={handleBookmarkImageChange}
+                               value={newBookmarkImage}/>
+
+                        <div className="image-style-selector-block">
+                            <label htmlFor="image-style">Round Image:</label>
+                            <div className="input-style">
+                                <select name="image-style"
+                                        id="image-style-id"
+                                        className="input-style"
+                                        onChange={handleBookmarkImageStyleChange}
+                                        value={!indexForEdit && newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle}>
+                                    <option value="none">None</option>
+                                    <option value="round-image-5">5%</option>
+                                    <option value="round-image-10">10%</option>
+                                    <option value="round-image-15">15%</option>
+                                    <option value="round-image-20">20%</option>
+                                    <option value="round-image-25">25%</option>
+                                    <option value="round-image-30">30%</option>
+                                    <option value="round-image-40">40%</option>
+                                    <option value="round-image-50">50%</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className="modal-footer">
+                        <button className="secondary-button" onClick={handleClose}>
+                            Close
+                        </button>
+                        <button className="primary-button" onClick={handleSuccess}>
+                            Save Changes
+                        </button>
+                    </div>
+
+                </div>
+            </Modal>
+
+        </div>
+    </div>);
 }
 
 export default App;
