@@ -3,7 +3,7 @@ import '../styles/notes.css';
 import {ReactComponent as PlusImage} from '../img/Plus.svg';
 import NotesList from "../components/NotesList";
 
-const Notes = ({menuHidden}) => {
+const Notes = ({menuHidden, settingsNotes}) => {
     const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes') ?? '[]'))
 
     const addNote = () => {
@@ -30,7 +30,10 @@ const Notes = ({menuHidden}) => {
     }
 
     return (
-        <div className={`notes ${menuHidden ? 'notes_to-right' : ''}`}>
+        <div
+            className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
+            style={{display: settingsNotes ? "" : "none"}}
+        >
             <NotesList notes={notes} changeNote={changeNote} dropNote={dropNote}/>
             <div className={'notes__add-note'} onClick={addNote}>
                 <PlusImage className={"notes__add-note-plus-svg"} alt={"Add"} />

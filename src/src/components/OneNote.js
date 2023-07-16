@@ -1,5 +1,5 @@
 import Cross from '../img/cross-mark-svgrepo-com.svg'
-import {ChangeEvent, useEffect, useLayoutEffect, useRef} from "react";
+import {useEffect, useRef} from "react";
 
 const OneNote = ({note, index, changeNote, dropNote, notes}) => {
 
@@ -7,17 +7,19 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
 
     const handleInput = (e) => {
         if (ref.current) {
-            // ref.current.style.height = "auto";
-            ref.current.style.height = "1px";
-            ref.current.style.height = `${e.target.scrollHeight}px`;
+            ref.current.style.height = "19px";
+            if (e.target.scrollHeight > 19) {
+                ref.current.style.height = `${e.target.scrollHeight}px`;
+            }
         }
     };
 
     function adjustHeight() {
         if (ref.current) {
-            // ref.current.style.height = "inherit";
-            ref.current.style.height = "1px";
-            ref.current.style.height = `${ref.current.scrollHeight}px`;
+            ref.current.style.height = "19px";
+            if (ref.current.scrollHeight > 19) {
+                ref.current.style.height = `${ref.current.scrollHeight}px`;
+            }
         }
     }
 

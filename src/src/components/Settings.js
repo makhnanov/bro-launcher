@@ -26,6 +26,8 @@ const Settings = ({
                       toggleSettingsTabex,
                       suggestBackup,
                       toggleSuggestBackup,
+                      settingsNotes,
+                      toggleSettingsNotes,
                   }) => {
     return (
         <div className={'settings'}>
@@ -171,6 +173,17 @@ const Settings = ({
                                 />
                                 <label for={"settings-tabex"} className={"settings__open-bookmark-label"}>
                                     Tabex
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsNotes}
+                                       onChange={toggleSettingsNotes}
+                                       id={"settings-notes"}
+                                />
+                                <label for={"settings-notes"} className={"settings__open-bookmark-label"}>
+                                    Notes
                                 </label>
                             </div>
 

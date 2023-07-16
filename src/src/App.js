@@ -410,6 +410,12 @@ function App() {
         localStorage.setItem("settingsTabex", (!settingsTabex).toString())
     }
 
+    const [settingsNotes, setSettingsNotes] = useState(getOrSetSetting("settingsNotes", true))
+    const toggleSettingsNotes = () => {
+        setSettingsNotes(!settingsNotes)
+        localStorage.setItem("settingsNotes", (!settingsNotes).toString())
+    }
+
     return (<div className="App"
                  onClick={(e) => {
                      unLockScreen(e)
@@ -465,6 +471,7 @@ function App() {
 
                 <Notes
                     menuHidden={menuHidden}
+                    settingsNotes={settingsNotes}
                 />
 
                 <ItemContext bookmarks={bookmarks}
@@ -577,6 +584,8 @@ function App() {
                     toggleSettingsTabex={toggleSettingsTabex}
                     suggestBackup={suggestBackup}
                     toggleSuggestBackup={toggleSuggestBackup}
+                    settingsNotes={settingsNotes}
+                    toggleSettingsNotes={toggleSettingsNotes}
                 >
                 </Settings>
 
