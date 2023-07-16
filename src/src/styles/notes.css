@@ -62,3 +62,7 @@ svg.notes__add-note-plus-svg {
     transform: rotate(354deg);
     border: 1px solid #888;
 }
+
+.one-note-textarea {
+    background-color: antiquewhite;
+}

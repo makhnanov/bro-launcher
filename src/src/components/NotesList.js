@@ -7,7 +7,7 @@ const NotesList = ({notes, changeNote, dropNote}) => {
     return (
         <div className={`notes-list`}>
             {notes.map((note, index) => (
-                <OneNote note={note} index={index} key={index} changeNote={changeNote} dropNote={dropNote}/>
+                <OneNote note={note} index={index} key={index} changeNote={changeNote} dropNote={dropNote} notes={notes}/>
             ))}
         </div>
     );
