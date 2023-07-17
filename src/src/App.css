@@ -326,6 +326,8 @@ input[type="checkbox"] {
     border-bottom: 1px solid black;
     display: flex;
     justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .ssl-warning-message_first {
@@ -337,9 +339,13 @@ input[type="checkbox"] {
     height: 20px;
     border: 1px solid black;
     margin-top: 3px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .small-flag:first-child {
     margin-left: 0;
+}
+
+.small-flag_latest {
+    margin-right: 40px;
 }

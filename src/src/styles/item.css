@@ -154,6 +154,25 @@
 }
 
 /* First Lifetime Widget Start */
+
+@media (max-width: 1680px) {
+    .item-1-life__already_percent {
+        display: none;
+    }
+    .item-1-life__already_decimal {
+        display: none;
+    }
+    .item-1-life__separator {
+        display: none;
+    }
+    .item-1-life__estimate_percent {
+        margin-top: auto !important;
+    }
+    .item-1-life__estimate_decimal {
+        margin-bottom: auto !important;
+    }
+}
+
 .item-1-life {
     justify-content: unset;
     height: 100%;

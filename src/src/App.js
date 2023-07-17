@@ -35,13 +35,15 @@ import Settings from "./components/Settings";
 
 import Tabex from "./widgets/Tabex";
 
-import RuFlag from "./img/ru.png";
+import UaFlag from "./img/Flag_of_Ukraine.svg";
 import KzFlag from "./img/Flag_of_Kazakhstan.svg";
 import EnFlag from "./img/Flag_of_the_United_Kingdom.svg";
+import RuFlag from "./img/ru.png";
+import PutinFlag from "./img/PutinFlag.png";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.3';
+const appVersion = '1.7.5';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -427,9 +429,13 @@ function App() {
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
         <div>
             <div className={'ssl-warning-message'}>
-                <img src={EnFlag} alt={"EN"} className={'small-flag'}></img>
+                <img src={UaFlag} alt={"UA"} className={'small-flag'}></img>
                 <img src={KzFlag} alt={"KZ"} className={'small-flag'}></img>
-                <img src={RuFlag} alt={"RU"} className={'small-flag'}></img>
+                <img src={EnFlag} alt={"EN"} className={'small-flag'}></img>
+                <img src={RuFlag} alt={"RU"} className={'small-flag small-flag_latest'}></img>
+                <img src={PutinFlag} alt={"PutinFlag"} className={'small-flag'}></img>
+            </div>
+            <div className={'ssl-warning-message'}>
                 <div className={'ssl-warning-message_first'}>
                     Дорогие пользователи, с 19 июля в 21:00 по Москве будет осуществляться принудительное
                     перенаправление на защищённую
@@ -437,7 +443,7 @@ function App() {
                 </div>
             </div>
             <div className={'ssl-warning-message'}>
-                Убедительная просьба заранее перейти к использованию этой версии и постоянно делать сохранение заметок.
+                Убедительная просьба заранее перейти на использованию безопасной версии и постоянно делать сохранение заметок.
             </div>
         </div>
         <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
