@@ -519,7 +519,11 @@ Please make sure to switch to using the safe version in advance and make note sa
                         </span>
                     <span className="logo-version-text menu-item"
                           onClick={() => {
-                              window.open(process.env.NODE_ENV === "production" ? publicRepo : localProjectPathForWebStorm)
+                              window.open(
+                                  process.env.NODE_ENV === "production"
+                                      ? publicRepo
+                                      : localProjectPathForWebStorm
+                              )
                           }}>
                             v.{appVersion}
                         </span>
