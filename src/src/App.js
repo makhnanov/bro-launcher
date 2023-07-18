@@ -43,7 +43,7 @@ import PutinFlag from "./img/PutinFlag.png";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.5';
+const appVersion = '1.7.6';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -422,6 +422,49 @@ function App() {
         localStorage.setItem("settingsNotes", (!settingsNotes).toString())
     }
 
+    const warningFirstMsgArray = {
+        UA: `
+Дорогі користувачі, з 19 липня о 21:00 за Києвом буде здійснюватися примусове
+перенаправлення на захищену
+версію сайту з протоколом HTTPS.
+`,
+        KZ: `
+Құрметті пайдаланушылар, 19 шілдеден бастап Мәскеу уақыты бойынша сағат 21:00-де HTTPS протоколы бар сайттың қауіпсіз 
+нұсқасына мәжбүрлеп қайта бағыттау жүзеге асырылады.
+`,
+        EN: `
+Dear users, from July 19 at 21:00 Moscow time there will be a forced
+redirection to a secure
+version of the site with HTTPS protocol.
+`,
+        RU: `
+Дорогие пользователи, с 19 июля в 21:00 по Москве будет осуществляться принудительное
+перенаправление на защищённую
+версию сайта с протоколом HTTPS.
+`,
+    };
+
+    const warningSecondMsgArray = {
+        UA: `
+Переконливе прохання заздалегідь перейти на використання безпечної версії та постійно робити збереження
+нотаток.
+`,
+        KZ: `
+Осы нұсқаны пайдалануға алдын ала ауысуыңызды және жазбаларды үнемі сақтауыңызды сұраймыз.
+`,
+        EN: `
+Please make sure to switch to using the safe version in advance and make note saving all the time.
+`,
+        RU: `
+Убедительная просьба заранее перейти на использованию безопасной версии и постоянно делать сохранение
+заметок.
+`,
+    };
+
+    const [firstWarningMessage, setFirstWarningMessage] = useState(warningFirstMsgArray.RU)
+    const [secondWarningMessage, setSecondWarningMessage] = useState(warningSecondMsgArray.RU)
+
+
     return (<div className="App"
                  onClick={(e) => {
                      unLockScreen(e)
@@ -429,21 +472,34 @@ function App() {
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
         <div>
             <div className={'ssl-warning-message'}>
-                <img src={UaFlag} alt={"UA"} className={'small-flag'}></img>
-                <img src={KzFlag} alt={"KZ"} className={'small-flag'}></img>
-                <img src={EnFlag} alt={"EN"} className={'small-flag'}></img>
-                <img src={RuFlag} alt={"RU"} className={'small-flag small-flag_latest'}></img>
-                <img src={PutinFlag} alt={"PutinFlag"} className={'small-flag'}></img>
+                <img src={UaFlag} alt={"UA"} className={'small-flag'} onClick={() => {
+                    setFirstWarningMessage(warningFirstMsgArray.UA)
+                    setSecondWarningMessage(warningSecondMsgArray.UA)
+                }}></img>
+                <img src={KzFlag} alt={"KZ"} className={'small-flag'} onClick={() => {
+                    setFirstWarningMessage(warningFirstMsgArray.KZ)
+                    setSecondWarningMessage(warningSecondMsgArray.KZ)
+                }}></img>
+                <img src={EnFlag} alt={"EN"} className={'small-flag'} onClick={() => {
+                    setFirstWarningMessage(warningFirstMsgArray.EN)
+                    setSecondWarningMessage(warningSecondMsgArray.EN)
+                }}></img>
+                <img src={RuFlag} alt={"RU"} className={'small-flag small-flag_latest'} onClick={() => {
+                    setFirstWarningMessage(warningFirstMsgArray.RU)
+                    setSecondWarningMessage(warningSecondMsgArray.RU)
+                }}></img>
+                <img src={PutinFlag} alt={"PutinFlag"} className={'small-flag'} onClick={() => {
+                    setFirstWarningMessage(warningFirstMsgArray.UA)
+                    setSecondWarningMessage(warningSecondMsgArray.UA)
+                }}></img>
             </div>
             <div className={'ssl-warning-message'}>
                 <div className={'ssl-warning-message_first'}>
-                    Дорогие пользователи, с 19 июля в 21:00 по Москве будет осуществляться принудительное
-                    перенаправление на защищённую
-                    версию сайта с протоколом HTTPS.
+                    {firstWarningMessage}
                 </div>
             </div>
             <div className={'ssl-warning-message'}>
-                Убедительная просьба заранее перейти на использованию безопасной версии и постоянно делать сохранение заметок.
+                {secondWarningMessage}
             </div>
         </div>
         <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
