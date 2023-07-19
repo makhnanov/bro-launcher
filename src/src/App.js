@@ -43,7 +43,7 @@ import PutinFlag from "./img/PutinFlag.png";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.7';
+const appVersion = '1.7.10';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -470,38 +470,38 @@ Please make sure to switch to using the safe version in advance and make note sa
                      unLockScreen(e)
                  }}
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
-        <div>
-            <div className={'ssl-warning-message'}>
-                <img src={UaFlag} alt={"UA"} className={'small-flag'} onClick={() => {
-                    setFirstWarningMessage(warningFirstMsgArray.UA)
-                    setSecondWarningMessage(warningSecondMsgArray.UA)
-                }}></img>
-                <img src={KzFlag} alt={"KZ"} className={'small-flag'} onClick={() => {
-                    setFirstWarningMessage(warningFirstMsgArray.KZ)
-                    setSecondWarningMessage(warningSecondMsgArray.KZ)
-                }}></img>
-                <img src={EnFlag} alt={"EN"} className={'small-flag'} onClick={() => {
-                    setFirstWarningMessage(warningFirstMsgArray.EN)
-                    setSecondWarningMessage(warningSecondMsgArray.EN)
-                }}></img>
-                <img src={RuFlag} alt={"RU"} className={'small-flag small-flag_latest'} onClick={() => {
-                    setFirstWarningMessage(warningFirstMsgArray.RU)
-                    setSecondWarningMessage(warningSecondMsgArray.RU)
-                }}></img>
-                <img src={PutinFlag} alt={"PutinFlag"} className={'small-flag'} onClick={() => {
-                    setFirstWarningMessage(warningFirstMsgArray.UA)
-                    setSecondWarningMessage(warningSecondMsgArray.UA)
-                }}></img>
-            </div>
-            <div className={'ssl-warning-message'}>
-                <div className={'ssl-warning-message_first'}>
-                    {firstWarningMessage}
-                </div>
-            </div>
-            <div className={'ssl-warning-message'}>
-                {secondWarningMessage}
-            </div>
-        </div>
+        {/*<div>*/}
+        {/*    <div className={'ssl-warning-message'}>*/}
+        {/*        <img src={UaFlag} alt={"UA"} className={'small-flag'} onClick={() => {*/}
+        {/*            setFirstWarningMessage(warningFirstMsgArray.UA)*/}
+        {/*            setSecondWarningMessage(warningSecondMsgArray.UA)*/}
+        {/*        }}></img>*/}
+        {/*        <img src={KzFlag} alt={"KZ"} className={'small-flag'} onClick={() => {*/}
+        {/*            setFirstWarningMessage(warningFirstMsgArray.KZ)*/}
+        {/*            setSecondWarningMessage(warningSecondMsgArray.KZ)*/}
+        {/*        }}></img>*/}
+        {/*        <img src={EnFlag} alt={"EN"} className={'small-flag'} onClick={() => {*/}
+        {/*            setFirstWarningMessage(warningFirstMsgArray.EN)*/}
+        {/*            setSecondWarningMessage(warningSecondMsgArray.EN)*/}
+        {/*        }}></img>*/}
+        {/*        <img src={RuFlag} alt={"RU"} className={'small-flag small-flag_latest'} onClick={() => {*/}
+        {/*            setFirstWarningMessage(warningFirstMsgArray.RU)*/}
+        {/*            setSecondWarningMessage(warningSecondMsgArray.RU)*/}
+        {/*        }}></img>*/}
+        {/*        <img src={PutinFlag} alt={"PutinFlag"} className={'small-flag'} onClick={() => {*/}
+        {/*            setFirstWarningMessage(warningFirstMsgArray.UA)*/}
+        {/*            setSecondWarningMessage(warningSecondMsgArray.UA)*/}
+        {/*        }}></img>*/}
+        {/*    </div>*/}
+        {/*    <div className={'ssl-warning-message'}>*/}
+        {/*        <div className={'ssl-warning-message_first'}>*/}
+        {/*            {firstWarningMessage}*/}
+        {/*        </div>*/}
+        {/*    </div>*/}
+        {/*    <div className={'ssl-warning-message'}>*/}
+        {/*        {secondWarningMessage}*/}
+        {/*    </div>*/}
+        {/*</div>*/}
         <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
             <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>

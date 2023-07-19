@@ -38,6 +38,11 @@ svg.notes__add-note-plus-svg {
 
 .one-note {
     padding-left: 10px;
+    display: flex;
+}
+
+.one-note:not(.one-note:first-child) {
+    margin-left: -30px;
 }
 
 .one-note textarea {
@@ -48,9 +53,8 @@ svg.notes__add-note-plus-svg {
 
 .note-close-button {
     position: relative;
-    top: -8px;
-    margin-bottom: -17px;
-    right: -162px;
+    right: 7px;
+    top: -4px;
 
     width: 14px;
     height: 14px;
@@ -63,6 +67,40 @@ svg.notes__add-note-plus-svg {
     border: 1px solid #888;
 }
 
+.note-hide-button {
+    position: relative;
+    right: 41px;
+    top: -4px;
+
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+    transform: rotate(354deg);
+    border: 1px solid #888;
+}
+
 .one-note-textarea {
     background-color: antiquewhite;
+    margin-bottom: -6px;
+    position: relative;
+    top: -1px;
+}
+.where-note-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -40px;
+}
+.where-text {
+    color: #000;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+.where-note {
+    width: 40px;
+    height: 40px;
 }

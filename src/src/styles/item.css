@@ -303,3 +303,11 @@
 .item-image-icon {
     fill: #FFF;
 }
+
+.author-link {
+    color: black;
+}
+.author-fire {
+    width: 25px;
+    height: 25px;
+}

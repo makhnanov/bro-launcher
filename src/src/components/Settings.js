@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-overlays/Modal";
 import "../styles/settings.css"
+import Fire from "../img/fire.png"
 
 const Settings = ({
                       show,
@@ -187,6 +188,21 @@ const Settings = ({
                                 </label>
                             </div>
 
+                        </div>
+
+
+                        <hr></hr>
+
+                        <p>Author:</p>
+
+                        <div className={"settings__open-bookmark"}>
+                            <div>
+                                <a href={"tg://resolve?domain=BakirovRoman"} className={"author-link"}>
+                                    Roman
+                                    <img src={Fire} alt={"Fire"} className={'author-fire'}/>
+                                    Bakirov
+                                </a>
+                            </div>
                         </div>
 
                     </div>
