@@ -43,7 +43,7 @@ import PutinFlag from "./img/PutinFlag.png";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.11';
+const appVersion = '1.7.12';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
