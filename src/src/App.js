@@ -32,8 +32,9 @@ import React, {useState, useRef, useEffect} from "react";
 import Notes from "./components/Notes";
 import ItemContext from "./components/ItemContext";
 import Settings from "./components/Settings";
-
 import Tabex from "./widgets/Tabex";
+
+import MetaTags from 'react-meta-tags';
 
 import UaFlag from "./img/Flag_of_Ukraine.svg";
 import KzFlag from "./img/Flag_of_Kazakhstan.svg";
@@ -464,12 +465,19 @@ Please make sure to switch to using the safe version in advance and make note sa
     const [firstWarningMessage, setFirstWarningMessage] = useState(warningFirstMsgArray.RU)
     const [secondWarningMessage, setSecondWarningMessage] = useState(warningSecondMsgArray.RU)
 
-
     return (<div className="App"
                  onClick={(e) => {
                      unLockScreen(e)
                  }}
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
+
+        <MetaTags>
+            <title>BRO Launcher</title>
+            <meta name="description" content="One tap against three! Easies way to save bookmarks and many other features." />
+            <meta property="og:title" content="BRO Launcher" />
+            <meta property="og:image" content="http://bro-launcher/RocketV1.jpg" />
+        </MetaTags>
+
         {/*<div>*/}
         {/*    <div className={'ssl-warning-message'}>*/}
         {/*        <img src={UaFlag} alt={"UA"} className={'small-flag'} onClick={() => {*/}
