@@ -34,14 +34,6 @@ import ItemContext from "./components/ItemContext";
 import Settings from "./components/Settings";
 import Tabex from "./widgets/Tabex";
 
-import MetaTags from 'react-meta-tags';
-
-import UaFlag from "./img/Flag_of_Ukraine.svg";
-import KzFlag from "./img/Flag_of_Kazakhstan.svg";
-import EnFlag from "./img/Flag_of_the_United_Kingdom.svg";
-import RuFlag from "./img/ru.png";
-import PutinFlag from "./img/PutinFlag.png";
-
 document.title = 'BRO Launcher';
 
 const appVersion = '1.7.13';
@@ -470,46 +462,6 @@ Please make sure to switch to using the safe version in advance and make note sa
                      unLockScreen(e)
                  }}
                  style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
-
-        <MetaTags>
-            <title>BRO Launcher</title>
-            <meta name="description" content="One tap against three! Easies way to save bookmarks and many other features." />
-            <meta property="og:title" content="BRO Launcher" />
-            <meta property="og:image" content="http://bro-launcher/RocketV1.jpg" />
-        </MetaTags>
-
-        {/*<div>*/}
-        {/*    <div className={'ssl-warning-message'}>*/}
-        {/*        <img src={UaFlag} alt={"UA"} className={'small-flag'} onClick={() => {*/}
-        {/*            setFirstWarningMessage(warningFirstMsgArray.UA)*/}
-        {/*            setSecondWarningMessage(warningSecondMsgArray.UA)*/}
-        {/*        }}></img>*/}
-        {/*        <img src={KzFlag} alt={"KZ"} className={'small-flag'} onClick={() => {*/}
-        {/*            setFirstWarningMessage(warningFirstMsgArray.KZ)*/}
-        {/*            setSecondWarningMessage(warningSecondMsgArray.KZ)*/}
-        {/*        }}></img>*/}
-        {/*        <img src={EnFlag} alt={"EN"} className={'small-flag'} onClick={() => {*/}
-        {/*            setFirstWarningMessage(warningFirstMsgArray.EN)*/}
-        {/*            setSecondWarningMessage(warningSecondMsgArray.EN)*/}
-        {/*        }}></img>*/}
-        {/*        <img src={RuFlag} alt={"RU"} className={'small-flag small-flag_latest'} onClick={() => {*/}
-        {/*            setFirstWarningMessage(warningFirstMsgArray.RU)*/}
-        {/*            setSecondWarningMessage(warningSecondMsgArray.RU)*/}
-        {/*        }}></img>*/}
-        {/*        <img src={PutinFlag} alt={"PutinFlag"} className={'small-flag'} onClick={() => {*/}
-        {/*            setFirstWarningMessage(warningFirstMsgArray.UA)*/}
-        {/*            setSecondWarningMessage(warningSecondMsgArray.UA)*/}
-        {/*        }}></img>*/}
-        {/*    </div>*/}
-        {/*    <div className={'ssl-warning-message'}>*/}
-        {/*        <div className={'ssl-warning-message_first'}>*/}
-        {/*            {firstWarningMessage}*/}
-        {/*        </div>*/}
-        {/*    </div>*/}
-        {/*    <div className={'ssl-warning-message'}>*/}
-        {/*        {secondWarningMessage}*/}
-        {/*    </div>*/}
-        {/*</div>*/}
         <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
             <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
