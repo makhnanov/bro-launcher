@@ -87,6 +87,8 @@ svg.notes__add-note-plus-svg {
     margin-bottom: -6px;
     position: relative;
     top: -1px;
+    overflow: hidden;
+    min-height: 18px;
 }
 
 .where-note-container {
