@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin-left: 10px;
+    margin-left: -18px;
 }
 
 .notes__add-note-plus-svg {
@@ -34,14 +34,14 @@ svg.notes__add-note-plus-svg {
 .notes-list {
     display: flex;
     align-items: self-start;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    margin-left: 22px;
 }
 
 .one-note {
     padding-left: 10px;
     display: flex;
-}
-
-.one-note:not(.one-note:first-child) {
     margin-left: -30px;
 }
 
@@ -71,7 +71,6 @@ svg.notes__add-note-plus-svg {
     position: relative;
     right: 41px;
     top: -4px;
-
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -89,17 +88,20 @@ svg.notes__add-note-plus-svg {
     position: relative;
     top: -1px;
 }
+
 .where-note-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: -40px;
 }
+
 .where-text {
     color: #000;
     font-size: 16px;
     padding-left: 5px;
     padding-top: 2px;
 }
+
 .where-note {
     width: 40px;
     height: 40px;

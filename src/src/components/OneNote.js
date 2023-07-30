@@ -22,7 +22,7 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         if (ref.current) {
             ref.current.style.height = "19px";
             if (e.target.scrollHeight > 19) {
-                ref.current.style.height = (e.target.scrollHeight - 6) + "px";
+                ref.current.style.height = (e.target.scrollHeight - 4) + "px";
             }
         }
     };
@@ -31,7 +31,7 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         if (ref.current) {
             ref.current.style.height = "19px";
             if (ref.current.scrollHeight > 19) {
-                ref.current.style.height = (ref.current.scrollHeight - 6) + "px";
+                ref.current.style.height = (ref.current.scrollHeight - 4) + "px";
             }
         }
     }

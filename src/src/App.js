@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.13';
+const appVersion = '1.7.14';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -402,7 +402,6 @@ function App() {
         localStorage.setItem("settingsLifetime", (!settingsLifetime).toString())
     }
 
-
     const [settingsTabex, setSettingsTabex] = useState(getOrSetSetting("settingsTabex", false))
     const toggleSettingsTabex = () => {
         setSettingsTabex(!settingsTabex)
@@ -414,48 +413,6 @@ function App() {
         setSettingsNotes(!settingsNotes)
         localStorage.setItem("settingsNotes", (!settingsNotes).toString())
     }
-
-    const warningFirstMsgArray = {
-        UA: `
-Дорогі користувачі! 19 липня о 21:00 по Києву буде здійснюватись примусове 
-перенаправлення на захищену 
-версію сайта з протоколом HTTPS. 
-`,
-        KZ: `
-Құрметті пайдаланушылар, 19 шілдеден бастап Мәскеу уақыты бойынша сағат 21:00-де HTTPS протоколы бар сайттың қауіпсіз 
-нұсқасына мәжбүрлеп қайта бағыттау жүзеге асырылады.
-`,
-        EN: `
-Dear users, from July 19 at 21:00 Moscow time there will be a forced
-redirection to a secure
-version of the site with HTTPS protocol.
-`,
-        RU: `
-Дорогие пользователи, с 19 июля в 21:00 по Москве будет осуществляться принудительное
-перенаправление на защищённую
-версию сайта с протоколом HTTPS.
-`,
-    };
-
-    const warningSecondMsgArray = {
-        UA: `
-Прохання завчасно перейти на використання безпечної версії і постійно зберігати 
-закладки  через  резервне копіювання або комбінацію клавіш CTRL+S
-`,
-        KZ: `
-Осы нұсқаны пайдалануға алдын ала ауысуыңызды және жазбаларды үнемі сақтауыңызды сұраймыз.
-`,
-        EN: `
-Please make sure to switch to using the safe version in advance and make note saving all the time.
-`,
-        RU: `
-Убедительная просьба заранее перейти на использованию безопасной версии и постоянно делать сохранение
-заметок.
-`,
-    };
-
-    const [firstWarningMessage, setFirstWarningMessage] = useState(warningFirstMsgArray.RU)
-    const [secondWarningMessage, setSecondWarningMessage] = useState(warningSecondMsgArray.RU)
 
     return (<div className="App"
                  onClick={(e) => {

@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import '../styles/notes.css';
-import {ReactComponent as PlusImage} from '../img/Plus.svg';
 import NotesList from "../components/NotesList";
 
 const Notes = ({menuHidden, settingsNotes}) => {
@@ -34,10 +33,7 @@ const Notes = ({menuHidden, settingsNotes}) => {
             className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
             style={{display: settingsNotes ? "" : "none"}}
         >
-            <NotesList notes={notes} changeNote={changeNote} dropNote={dropNote}/>
-            <div className={'notes__add-note'} onClick={addNote}>
-                <PlusImage className={"notes__add-note-plus-svg"} alt={"Add"} />
-            </div>
+            <NotesList notes={notes} changeNote={changeNote} dropNote={dropNote} addNote={addNote} />
         </div>
     );
 };
