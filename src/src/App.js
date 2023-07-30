@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.18';
+const appVersion = '1.7.19';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -602,7 +602,7 @@ function App() {
                 <div>
 
                     <div className="modal-header">
-                        <div className="modal-title">Add New Bookmark</div>
+                        <div className="modal-title">{ indexForEdit ? ("Edit \"" + bookmarks[indexForEdit].text + "\" ") : "Add New"} Bookmark</div>
                     </div>
 
                     <div className="modal-desc">
