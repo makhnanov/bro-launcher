@@ -114,8 +114,8 @@ const ItemContext = ({
                     <ContextMenu top={points.y} left={points.x}>
                         <ul className={'context-menu'}>
                             <li onClick={editItem}>Edit</li>
-                            {/*<li onClick={() => copy(bookmarks[contextMenuItemIndex].img)}>Copy Image</li>*/}
-                            {/*<li onClick={() => copy(bookmarks[contextMenuItemIndex].link)}>Copy Link</li>*/}
+                            <li onClick={() => copy(bookmarks[contextMenuItemIndex].img)}>Copy Image</li>
+                            <li onClick={() => copy(bookmarks[contextMenuItemIndex].link)}>Copy Link</li>
                             <li className={'context-menu-nothing'}>Nothing</li>
                             {/*<li>Duplicate</li>*/}
                             {/*<li>To Archive</li>*/}
