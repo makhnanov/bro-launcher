@@ -28,14 +28,12 @@ const Notes = ({menuHidden, settingsNotes}) => {
         }
     }
 
-    return (
-        <div
+    return (<div
             className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
             style={{display: settingsNotes ? "" : "none"}}
         >
-            <NotesList notes={notes} changeNote={changeNote} dropNote={dropNote} addNote={addNote} />
-        </div>
-    );
+            <NotesList notes={notes} changeNote={changeNote} dropNote={dropNote} addNote={addNote}/>
+        </div>);
 };
 
 export default Notes;

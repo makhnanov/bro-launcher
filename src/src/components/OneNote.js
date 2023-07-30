@@ -1,6 +1,6 @@
-import Cross from '../img/cross-mark-svgrepo-com.svg'
-import EyeClosed from '../img/eyeClosed.svg'
-import DontKnow from '../img/question.png'
+import Cross from '../img/cross-mark-svgrepo-com.svg';
+import EyeClosed from '../img/eyeClosed.svg';
+import DontKnow from '../img/question.png';
 import {useEffect, useRef, useState} from "react";
 
 const OneNote = ({note, index, changeNote, dropNote, notes}) => {
@@ -79,10 +79,7 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         <div
             onClick={toggleNoteHidden}
             style={{
-                overflow: "hidden",
-                backgroundColor: "#ffc107",
-                borderRadius: 8 + "px",
-                border: '2px solid #ffc107'
+                overflow: "hidden", backgroundColor: "#ffc107", borderRadius: 8 + "px", border: '2px solid #ffc107'
             }}
         >
             <div
@@ -114,17 +111,21 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         <div
             className={"note-close-button"}
             style={{
-                backgroundImage: `url(${Cross})`,
-                visibility: noteHidden ? 'hidden' : 'visible'
+                backgroundImage: `url(${Cross})`, visibility: noteHidden ? 'hidden' : 'visible'
             }}
             onClick={(e) => {
+                let offsetWidth = null;
+                setWidth(offsetWidth);
+                localStorage.removeItem(getItemWidthKey());
+                let offsetHeight = null;
+                setHeight(offsetHeight);
+                localStorage.removeItem(getItemHeightKey());
                 dropNote(index);
             }}
         />
         <div className={"note-hide-button"}
              style={{
-                 backgroundImage: `url(${EyeClosed})`,
-                 visibility: noteHidden ? 'hidden' : 'visible'
+                 backgroundImage: `url(${EyeClosed})`, visibility: noteHidden ? 'hidden' : 'visible'
              }}
              onClick={(e) => {
                  toggleNoteHidden();
