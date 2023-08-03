@@ -43,12 +43,43 @@ svg.notes__add-note-plus-svg {
     padding-left: 10px;
     display: flex;
     margin-left: -30px;
+    position: relative;
+    overflow: hidden;
 }
 
 .one-note textarea {
     width: 166px;
     outline: none;
     border-radius: 7px;
+}
+
+.one-note textarea::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    padding: 2px;
+    max-height: 5px;
+    max-width: 5px;
+}
+
+.one-note textarea::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 20px;
+    max-height: 5px;
+    max-width: 5px;
+}
+
+.one-note textarea::-webkit-scrollbar-thumb:hover {
+    background: red;
+    max-height: 5px;
+    max-width: 5px;
+    cursor: pointer;
+}
+
+.one-note textarea::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+.one-note textarea::-webkit-scrollbar:hover {
+    cursor: pointer;
 }
 
 .note-close-button {
@@ -89,6 +120,9 @@ svg.notes__add-note-plus-svg {
     top: -1px;
     overflow: hidden;
     min-height: 18px;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
 }
 
 .where-note-container {

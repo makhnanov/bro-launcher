@@ -274,21 +274,33 @@ button {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    padding: 5px;
+    background: rgba(255, 255, 255, 0);
+    padding: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar {
+    background: rgba(255, 255, 255, 0);
+    max-height: 5px;
+    max-width: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     /*background: #888;*/
-    background: #2b7ec6;
+    background: orange;
     border-radius: 20px;
+    max-height: 5px;
+    max-width: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #152c5a;
+    background: red;
+    max-height: 5px;
+    max-width: 5px;
 }
+
 
 .logo-version-text {
     margin-left: 6px;
