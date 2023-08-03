@@ -29,13 +29,19 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
         setNoteHidden(!noteHidden)
         localStorage.setItem(getIndexName(), (!noteHidden).toString())
     }
+    // const toggleNoteMode = () => {
+    //     setNoteMode(!noteHidden)
+    //     localStorage.setItem(getIndexName(), (!noteHidden).toString())
+    // }
+
+
 
     const handleInput = (e) => {
         if (ref.current) {
             ref.current.style.height = "19px";
             if (e.target.scrollHeight > 18) {
                 if (note.height) {
-                    ref.current.style.height = note.height + 'px';
+                    ref.current.style.height = (e.target.scrollHeight) + "px";
                 } else {
                     ref.current.style.height = (e.target.scrollHeight - 4) + "px";
                 }
@@ -51,7 +57,8 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
             ref.current.style.height = "19px";
             if (ref.current.scrollHeight > 18) {
                 if (note.height) {
-                    ref.current.style.height = note.height + 'px';
+                    // ref.current.style.height = note.height + 'px';
+                    ref.current.style.height = (ref.current.scrollHeight) + "px";
                 } else {
                     ref.current.style.height = (ref.current.scrollHeight - 4) + "px";
                 }
@@ -119,19 +126,19 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
                     console.log('onClick')
                     e.stopPropagation();
                 }}
-                onMouseLeave={(e) => {
-                    console.log('onMouseLeave')
-                }}
-                onMouseUpCapture={(e) => {
-                    console.log('onMouseUpCapture')
-                }}
+                // onMouseLeave={(e) => {
+                //     console.log('onMouseLeave')
+                // }}
+                // onMouseUpCapture={(e) => {
+                //     console.log('onMouseUpCapture')
+                // }}
                 onMouseDown={handleOnMouseDown}
                 onMouseUp={handleOnMouseUp}
                 onChange={(e) => {
                     let textChangedLinks = [];
                     e.target.value.split('\n').forEach((e, index) => {
                         if (e.startsWith('http://') || e.startsWith('https://')) {
-                            console.log(index)
+                            // console.log(index)
                             textChangedLinks.push({url: e, index: index})
                         }
                     });
@@ -140,6 +147,15 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
                 }}
             />
         </div>
+        {/*<div*/}
+        {/*    className={"note-mode-button"}*/}
+        {/*    style={{*/}
+        {/*        backgroundImage: `url(${EyeClosed})`, visibility: noteHidden ? 'hidden' : 'visible'*/}
+        {/*    }}*/}
+        {/*    onClick={(e) => {*/}
+        {/*        toggleNoteMode();*/}
+        {/*    }}*/}
+        {/*/>*/}
         <div
             className={"note-close-button"}
             style={{
