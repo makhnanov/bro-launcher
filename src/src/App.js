@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.19';
+const appVersion = '1.7.21';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -476,18 +476,6 @@ function App() {
                 settingsNotes={settingsNotes}
             />
 
-            <ItemContext bookmarks={bookmarks}
-                         showModal={needShowModal}
-                         showModalForEdit={needShowModalForEdit}
-                         dataVersion={dataVersion}
-                         setDataVersion={setDataVersion}
-                         exportData={exportData}
-                         isMenuHidden={menuHidden}
-                         settingsOneClick={settingsOneClick}
-                         settingsLifetime={settingsLifetime}
-                         suggestBackup={suggestBackup}
-            />
-
             <div className={"search-engines"}>
 
                 <div className="item-max" style={{display: settingsGoogle ? "" : "none"}}>
@@ -558,6 +546,18 @@ function App() {
                 </div>
 
             </div>
+
+            <ItemContext bookmarks={bookmarks}
+                         showModal={needShowModal}
+                         showModalForEdit={needShowModalForEdit}
+                         dataVersion={dataVersion}
+                         setDataVersion={setDataVersion}
+                         exportData={exportData}
+                         isMenuHidden={menuHidden}
+                         settingsOneClick={settingsOneClick}
+                         settingsLifetime={settingsLifetime}
+                         suggestBackup={suggestBackup}
+            />
 
             <Tabex settingsTabex={settingsTabex}></Tabex>
 

@@ -311,3 +311,19 @@
     width: 25px;
     height: 25px;
 }
+
+/* links column */
+.links-column {
+    display: flex;
+    flex-direction: column;
+}
+.link-icon {
+    width: 20px;
+}
+.link-container {
+    height: 15.1px;
+    padding-right: 2px;
+}
+.link-a {
+    /*height: 14px;*/
+}

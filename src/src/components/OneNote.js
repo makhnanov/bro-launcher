@@ -2,8 +2,9 @@ import Cross from '../img/cross-mark-svgrepo-com.svg';
 import EyeClosed from '../img/eyeClosed.svg';
 import DontKnow from '../img/question.png';
 import {useEffect, useRef, useState} from "react";
+import LinksColumn from './LinksColumn';
 
-const OneNote = ({note, index, changeNote, dropNote, notes}) => {
+const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, activeTarget, setActiveTarget, activeIndex, setActiveIndex}) => {
 
     const ref = useRef(null);
 
@@ -33,14 +34,14 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         if (ref.current) {
             ref.current.style.height = "19px";
             if (e.target.scrollHeight > 18) {
-                if (height) {
-                    ref.current.style.height = height + 'px';
+                if (note.height) {
+                    ref.current.style.height = note.height + 'px';
                 } else {
                     ref.current.style.height = (e.target.scrollHeight - 4) + "px";
                 }
-                if (width) {
-                    ref.current.style.width = width + 'px';
-                }
+            }
+            if (note.width) {
+                ref.current.style.width = note.width + 'px';
             }
         }
     };
@@ -49,14 +50,14 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
         if (ref.current) {
             ref.current.style.height = "19px";
             if (ref.current.scrollHeight > 18) {
-                if (height) {
-                    ref.current.style.height = height + 'px';
+                if (note.height) {
+                    ref.current.style.height = note.height + 'px';
                 } else {
                     ref.current.style.height = (ref.current.scrollHeight - 4) + "px";
                 }
-                if (width) {
-                    ref.current.style.width = width + 'px';
-                }
+            }
+            if (note.width) {
+                ref.current.style.width = note.width + 'px';
             }
         }
     }
@@ -66,16 +67,29 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
     }, [notes]);
 
     function handleOnMouseUp(e) {
-        let offsetWidth = e.target.offsetWidth - 6;
-        setWidth(offsetWidth);
-        localStorage.setItem(getItemWidthKey(), offsetWidth.toString());
-
-        let offsetHeight = e.target.offsetHeight - 6;
-        setHeight(offsetHeight);
-        localStorage.setItem(getItemHeightKey(), offsetHeight.toString());
+        console.log('handleOnMouseUp');
+        changeNoteSize(activeIndex, activeTarget.offsetWidth - 6,  activeTarget.offsetHeight - 6)
     }
 
+    function handleOnMouseDown(e) {
+        console.log('handleOnMouseDown');
+        setActiveTarget(e.target)
+        setActiveIndex(index)
+    }
+
+    let textChangedLinks = [];
+    note.content.split('\n').forEach((e, index) => {
+        if (e.startsWith('http://') || e.startsWith('https://')) {
+            console.log(index)
+            textChangedLinks.push({url: e, index: index})
+        }
+    })
+
+    const [links, setLinks] = useState(textChangedLinks);
+
     return (<div className={`one-note`} key={index}>
+        <LinksColumn links={links} noteHidden={noteHidden}>
+        </LinksColumn>
         <div
             onClick={toggleNoteHidden}
             style={{
@@ -101,9 +115,27 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
                 rows={1}
                 placeholder="Enter text here..."
                 onInput={handleInput}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                    console.log('onClick')
+                    e.stopPropagation();
+                }}
+                onMouseLeave={(e) => {
+                    console.log('onMouseLeave')
+                }}
+                onMouseUpCapture={(e) => {
+                    console.log('onMouseUpCapture')
+                }}
+                onMouseDown={handleOnMouseDown}
                 onMouseUp={handleOnMouseUp}
                 onChange={(e) => {
+                    let textChangedLinks = [];
+                    e.target.value.split('\n').forEach((e, index) => {
+                        if (e.startsWith('http://') || e.startsWith('https://')) {
+                            console.log(index)
+                            textChangedLinks.push({url: e, index: index})
+                        }
+                    });
+                    setLinks(textChangedLinks);
                     changeNote(index, e.target.value)
                 }}
             />
@@ -114,12 +146,6 @@ const OneNote = ({note, index, changeNote, dropNote, notes}) => {
                 backgroundImage: `url(${Cross})`, visibility: noteHidden ? 'hidden' : 'visible'
             }}
             onClick={(e) => {
-                let offsetWidth = null;
-                setWidth(offsetWidth);
-                localStorage.removeItem(getItemWidthKey());
-                let offsetHeight = null;
-                setHeight(offsetHeight);
-                localStorage.removeItem(getItemHeightKey());
                 dropNote(index);
             }}
         />
