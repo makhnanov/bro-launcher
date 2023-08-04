@@ -3,38 +3,30 @@ import EyeClosed from '../img/eyeClosed.svg';
 import DontKnow from '../img/question.png';
 import {useEffect, useRef, useState} from "react";
 import LinksColumn from './LinksColumn';
+import Sun from '../img/sun-svgrepo-com.svg';
+import Moon from '../img/moon-svgrepo-com.svg';
 
-const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, activeTarget, setActiveTarget, activeIndex, setActiveIndex}) => {
+
+const OneNote = ({
+                     note,
+                     index,
+                     changeNote,
+                     dropNote,
+                     notes,
+                     changeNoteSize,
+                     activeTarget,
+                     setActiveTarget,
+                     activeIndex,
+                     setActiveIndex,
+                     changeNoteHidden,
+                     changeNoteMode
+                 }) => {
 
     const ref = useRef(null);
 
     const getIndexName = () => {
         return "note_" + index + "_Hidden";
     }
-
-    const getItemWidthKey = () => {
-        return "note_" + index + "_width";
-    }
-
-    const getItemHeightKey = () => {
-        return "note_" + index + "_height";
-    }
-
-    const [noteHidden, setNoteHidden] = useState(localStorage.getItem(getIndexName()) === "true");
-
-    const [width, setWidth] = useState(localStorage.getItem(getItemWidthKey()) ?? null);
-    const [height, setHeight] = useState(localStorage.getItem(getItemHeightKey()) ?? null);
-
-    const toggleNoteHidden = () => {
-        setNoteHidden(!noteHidden)
-        localStorage.setItem(getIndexName(), (!noteHidden).toString())
-    }
-    // const toggleNoteMode = () => {
-    //     setNoteMode(!noteHidden)
-    //     localStorage.setItem(getIndexName(), (!noteHidden).toString())
-    // }
-
-
 
     const handleInput = (e) => {
         if (ref.current) {
@@ -74,12 +66,10 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
     }, [notes]);
 
     function handleOnMouseUp(e) {
-        console.log('handleOnMouseUp');
-        changeNoteSize(activeIndex, activeTarget.offsetWidth - 6,  activeTarget.offsetHeight - 6)
+        changeNoteSize(activeIndex, activeTarget.offsetWidth - 6, activeTarget.offsetHeight - 6)
     }
 
     function handleOnMouseDown(e) {
-        console.log('handleOnMouseDown');
         setActiveTarget(e.target)
         setActiveIndex(index)
     }
@@ -87,7 +77,6 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
     let textChangedLinks = [];
     note.content.split('\n').forEach((e, index) => {
         if (e.startsWith('http://') || e.startsWith('https://')) {
-            console.log(index)
             textChangedLinks.push({url: e, index: index})
         }
     })
@@ -95,17 +84,22 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
     const [links, setLinks] = useState(textChangedLinks);
 
     return (<div className={`one-note`} key={index}>
-        <LinksColumn links={links} noteHidden={noteHidden}>
+        <LinksColumn links={links} noteHidden={note?.hidden}>
         </LinksColumn>
         <div
-            onClick={toggleNoteHidden}
+            className={"where-note-container-wrapper"}
+            onClick={(e) => {
+                changeNoteHidden(index);
+            }}
             style={{
-                overflow: "hidden", backgroundColor: "#ffc107", borderRadius: 8 + "px", border: '2px solid #ffc107'
+                overflow: "hidden",
+                backgroundColor: "#ffc107",
+                border: '2px solid #ffc107',
             }}
         >
             <div
                 className={"where-note-container"}
-                style={{display: noteHidden ? 'flex' : 'none'}}
+                style={{display: note?.hidden ? 'flex' : 'none'}}
             >
                 <div className={"where-text"}>
                     Note {index + 1} hidden
@@ -114,24 +108,17 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
             </div>
             <textarea
                 style={{
-                    visibility: noteHidden ? 'hidden' : 'visible'
+                    visibility: note?.hidden ? 'hidden' : 'visible'
                 }}
-                className={'one-note-textarea'}
+                className={`one-note-textarea ${note?.mode ? 'one-note-textarea_night' : ''}`}
                 value={note.content}
                 ref={ref}
                 rows={1}
                 placeholder="Enter text here..."
                 onInput={handleInput}
                 onClick={(e) => {
-                    console.log('onClick')
                     e.stopPropagation();
                 }}
-                // onMouseLeave={(e) => {
-                //     console.log('onMouseLeave')
-                // }}
-                // onMouseUpCapture={(e) => {
-                //     console.log('onMouseUpCapture')
-                // }}
                 onMouseDown={handleOnMouseDown}
                 onMouseUp={handleOnMouseUp}
                 onChange={(e) => {
@@ -147,32 +134,36 @@ const OneNote = ({note, index, changeNote, dropNote, notes, changeNoteSize, acti
                 }}
             />
         </div>
-        {/*<div*/}
-        {/*    className={"note-mode-button"}*/}
-        {/*    style={{*/}
-        {/*        backgroundImage: `url(${EyeClosed})`, visibility: noteHidden ? 'hidden' : 'visible'*/}
-        {/*    }}*/}
-        {/*    onClick={(e) => {*/}
-        {/*        toggleNoteMode();*/}
-        {/*    }}*/}
-        {/*/>*/}
-        <div
-            className={"note-close-button"}
-            style={{
-                backgroundImage: `url(${Cross})`, visibility: noteHidden ? 'hidden' : 'visible'
-            }}
-            onClick={(e) => {
-                dropNote(index);
-            }}
-        />
-        <div className={"note-hide-button"}
-             style={{
-                 backgroundImage: `url(${EyeClosed})`, visibility: noteHidden ? 'hidden' : 'visible'
-             }}
-             onClick={(e) => {
-                 toggleNoteHidden();
-             }}
-        />
+
+        <div className={"note-action-buttons"}>
+            <div
+                className={"note-mode-button"}
+                style={{
+                    backgroundImage: note?.mode ? `url(${Sun})` : `url(${Moon})`,
+                    visibility: note?.hidden ? 'hidden' : 'visible'
+                }}
+                onClick={(e) => {
+                    changeNoteMode(index);
+                }}
+            />
+            <div className={"note-hide-button"}
+                 style={{
+                     backgroundImage: `url(${EyeClosed})`, visibility: note?.hidden ? 'hidden' : 'visible'
+                 }}
+                 onClick={(e) => {
+                     changeNoteHidden(index);
+                 }}
+            />
+            <div
+                className={"note-close-button"}
+                style={{
+                    backgroundImage: `url(${Cross})`, visibility: note?.hidden ? 'hidden' : 'visible'
+                }}
+                onClick={(e) => {
+                    dropNote(index);
+                }}
+            />
+        </div>
     </div>);
 };
 

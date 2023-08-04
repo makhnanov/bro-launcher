@@ -307,21 +307,3 @@
     width: 25px;
     height: 25px;
 }
-
-/* links column */
-.links-column {
-    display: flex;
-    flex-direction: column;
-    width: 20px;
-}
-.link-icon {
-    width: 20px;
-}
-.link-container {
-    height: 15.1px;
-    padding-right: 2px;
-    position: absolute;
-}
-.link-a {
-    /*height: 14px;*/
-}

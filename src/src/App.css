@@ -287,7 +287,6 @@ button {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    /*background: #888;*/
     background: orange;
     border-radius: 20px;
     max-height: 5px;

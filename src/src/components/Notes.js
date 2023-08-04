@@ -27,6 +27,20 @@ const Notes = ({menuHidden, settingsNotes}) => {
         localStorage.setItem("notes", JSON.stringify(newNotes))
     }
 
+    const changeNoteHidden = (index) => {
+        let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
+        newNotes[index].hidden = !(newNotes[index]?.hidden ?? false);
+        setNotes(newNotes);
+        localStorage.setItem("notes", JSON.stringify(newNotes))
+    }
+
+    const changeNoteMode = (index) => {
+        let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
+        newNotes[index].mode = !(newNotes[index]?.mode ?? false);
+        setNotes(newNotes);
+        localStorage.setItem("notes", JSON.stringify(newNotes))
+    }
+
     const dropNote = (index) => {
         if (window.confirm('Are you sure to delete?')) {
             let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
@@ -37,7 +51,8 @@ const Notes = ({menuHidden, settingsNotes}) => {
     }
 
     return (<div
-            className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
+            // className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
+            className={`notes`}
             style={{display: settingsNotes ? "" : "none"}}
         >
             <NotesList
@@ -46,6 +61,8 @@ const Notes = ({menuHidden, settingsNotes}) => {
                 dropNote={dropNote}
                 addNote={addNote}
                 changeNoteSize={changeNoteSize}
+                changeNoteHidden={changeNoteHidden}
+                changeNoteMode={changeNoteMode}
             />
         </div>);
 };

@@ -7,7 +7,7 @@ const LinksColumn = ({links, noteHidden}) => {
         width: noteHidden || !links.length ? "0" : "20px",
     }}>
         {links.map((link, index) => (
-            <div className={'link-container'} style={{
+            <div key={index} className={'link-container'} style={{
                 top: ((15.1 * (link.index))) + "px",
             }}>
                 <a href={link.url} target={"_blank"} className={'link-a'} >

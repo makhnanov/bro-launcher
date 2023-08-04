@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.23';
+const appVersion = '1.7.24';
 
 function App() {
     const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
@@ -447,13 +447,13 @@ function App() {
                 </div>
 
                 <div className={'menu-item'} onClick={exportData}>
-                    Backup
+                    Create Backup
                 </div>
 
                 <div className={'menu-item'}>
                     <label className="custom-file-upload">
                         <input type="file" className="import-button" onChange={importData}/>
-                        Import
+                        Import From File
                     </label>
                 </div>
 

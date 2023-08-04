@@ -4,7 +4,7 @@ import OneNote from "../components/OneNote";
 import React, {useState} from "react";
 import {ReactComponent as PlusImage} from '../img/Plus.svg';
 
-const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize}) => {
+const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, changeNoteHidden, changeNoteMode}) => {
 
     const [activeTarget, setActiveTarget] = useState(null);
     const [activeIndex, setActiveIndex] = useState(null);
@@ -22,6 +22,8 @@ const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize}) => {
                          setActiveTarget={setActiveTarget}
                          activeIndex={activeIndex}
                          setActiveIndex={setActiveIndex}
+                         changeNoteHidden={changeNoteHidden}
+                         changeNoteMode={changeNoteMode}
                 />))}
             <div className={`notes__add-note`} onClick={addNote}>
                 <PlusImage className={"notes__add-note-plus-svg"} alt={"Add"}/>

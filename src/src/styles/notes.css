@@ -3,6 +3,8 @@
     transition: all 500ms ease-in-out;
     display: flex;
     align-items: self-start;
+    padding-top: 13px;
+    padding-bottom: 13px;
 }
 
 .notes_to-right {
@@ -18,7 +20,6 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin-left: -18px;
     position: relative;
 }
 
@@ -35,23 +36,25 @@ svg.notes__add-note-plus-svg {
 .notes-list {
     display: flex;
     align-items: self-start;
-    row-gap: 10px;
+    row-gap: 16px;
     flex-wrap: wrap;
     margin-left: 22px;
 }
 
 .one-note {
-    padding-left: 10px;
+    margin-right: 10px;
     display: flex;
-    margin-left: -30px;
     position: relative;
-    overflow: hidden;
 }
 
 .one-note textarea {
     width: 166px;
     outline: none;
-    border-radius: 7px;
+    min-width: 44px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 0;
 }
 
 .one-note textarea::-webkit-scrollbar-track {
@@ -83,10 +86,14 @@ svg.notes__add-note-plus-svg {
     cursor: pointer;
 }
 
-.note-mode-button {
+.note-action-buttons {
     position: relative;
-    right: 27px;
-    top: -4px;
+}
+
+.note-mode-button {
+    position: absolute;
+    right: 35px;
+    top: -12px;
 
     width: 14px;
     height: 14px;
@@ -99,10 +106,25 @@ svg.notes__add-note-plus-svg {
     border: 1px solid #888;
 }
 
+.note-hide-button {
+    position: absolute;
+    right: 14px;
+    top: -12px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+    transform: rotate(354deg);
+    border: 1px solid #888;
+}
+
 .note-close-button {
-    position: relative;
-    right: 7px;
-    top: -4px;
+    position: absolute;
+    right: -6px;
+    top: -7px;
 
     width: 14px;
     height: 14px;
@@ -116,21 +138,6 @@ svg.notes__add-note-plus-svg {
     z-index: 100;
 }
 
-.note-hide-button {
-    position: relative;
-    right: 41px;
-    top: -4px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #000;
-    transform: rotate(354deg);
-    border: 1px solid #888;
-}
-
 .one-note-textarea {
     background-color: antiquewhite;
     margin-bottom: -6px;
@@ -141,6 +148,18 @@ svg.notes__add-note-plus-svg {
     white-space: pre;
     overflow-wrap: normal;
     overflow-x: scroll;
+}
+
+.one-note-textarea_night {
+    background-color: black;
+    color: white;
+}
+
+.where-note-container-wrapper {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 0;
 }
 
 .where-note-container {
@@ -159,4 +178,25 @@ svg.notes__add-note-plus-svg {
 .where-note {
     width: 40px;
     height: 40px;
+}
+
+
+/* links column */
+.links-column {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    position: inherit;
+    overflow: hidden;
+}
+.link-icon {
+    width: 20px;
+}
+.link-container {
+    height: 15.1px;
+    padding-right: 2px;
+    position: absolute;
+}
+.link-a {
+    /*height: 14px;*/
 }
