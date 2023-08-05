@@ -11,6 +11,18 @@
     padding-left: 50px;
 }
 
+.notes__settings {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20%;
+    border: 2px dashed white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
 .notes__add-note {
     width: 24px;
     height: 24px;
@@ -21,6 +33,7 @@
     align-items: center;
     text-align: center;
     position: relative;
+    margin-left: 10px;
 }
 
 .notes__add-note-plus-svg {
@@ -59,31 +72,29 @@ svg.notes__add-note-plus-svg {
 
 .one-note textarea::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0);
-    padding: 2px;
-    max-height: 5px;
-    max-width: 5px;
+    /*padding: 10px;*/
+    /*max-height: 10px;*/
+    /*max-width: 10px;*/
 }
 
 .one-note textarea::-webkit-scrollbar-thumb {
     background: orange;
     border-radius: 20px;
-    max-height: 5px;
-    max-width: 5px;
+    /*max-height: 10px;*/
+    /*max-width: 10px;*/
 }
 
 .one-note textarea::-webkit-scrollbar-thumb:hover {
     background: red;
-    max-height: 5px;
-    max-width: 5px;
-    cursor: pointer;
+    /*max-height: 15px;*/
+    /*max-width: 15px;*/
 }
 
 .one-note textarea::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    /*width: 15px;*/
+    /*height: 15px;*/
 }
 .one-note textarea::-webkit-scrollbar:hover {
-    cursor: pointer;
 }
 
 .note-action-buttons {
@@ -156,10 +167,11 @@ svg.notes__add-note-plus-svg {
 }
 
 .where-note-container-wrapper {
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 0;
+    border-radius: 8px 8px 0 8px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 42px;
+    text-wrap: wrap;
 }
 
 .where-note-container {

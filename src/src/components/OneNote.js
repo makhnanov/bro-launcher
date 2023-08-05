@@ -21,58 +21,53 @@ const OneNote = ({
                      changeNoteHidden,
                      changeNoteMode
                  }) => {
-
     const ref = useRef(null);
 
-    const getIndexName = () => {
-        return "note_" + index + "_Hidden";
-    }
+    let magic = 6;
 
-    const handleInput = (e) => {
+    const resizeWhenTyping = (e) => {
         if (ref.current) {
-            ref.current.style.height = "19px";
-            if (e.target.scrollHeight > 18) {
-                if (note.height) {
-                    ref.current.style.height = (e.target.scrollHeight) + "px";
-                } else {
-                    ref.current.style.height = (e.target.scrollHeight - 4) + "px";
-                }
+            let lastScrollHeight = e.target.scrollHeight;
+            ref.current.style.removeProperty("min-height")
+            ref.current.style.height = 19 + "px";
+            ref.current.style.minHeight = (e.target.scrollHeight + 8) + "px";
+            ref.current.style.height = parseInt(lastScrollHeight) + 8 + "px";
+            if (e.target.scrollHeight > note.height) {
+                ref.current.style.height = (e.target.scrollHeight + 8) + "px";
+                note.height = (e.target.scrollHeight);
             }
+
             if (note.width) {
-                ref.current.style.width = note.width + 'px';
+                ref.current.style.width = note.width - magic + 'px';
             }
         }
     };
 
-    function adjustHeight() {
-        if (ref.current) {
-            ref.current.style.height = "19px";
-            if (ref.current.scrollHeight > 18) {
-                if (note.height) {
-                    // ref.current.style.height = note.height + 'px';
-                    ref.current.style.height = (ref.current.scrollHeight) + "px";
-                } else {
-                    ref.current.style.height = (ref.current.scrollHeight - 4) + "px";
-                }
-            }
-            if (note.width) {
-                ref.current.style.width = note.width + 'px';
-            }
-        }
-    }
-
     useEffect(() => {
-        adjustHeight()
-    }, [notes]);
+        ref.current.style.height = 19 + "px";
+        ref.current.style.minHeight = ref.current.scrollHeight + magic + "px";
 
-    function handleOnMouseUp(e) {
-        changeNoteSize(activeIndex, activeTarget.offsetWidth - 6, activeTarget.offsetHeight - 6)
-    }
+        const observer = new ResizeObserver(() => {
+            if (ref.current) {
+                if (ref.current.offsetHeight > ref.current.scrollHeight) {
+                    note.height = ref.current.offsetHeight
+                } else {
+                    note.height = ref.current.scrollHeight
+                }
+                note.width = ref.current.offsetWidth
+                changeNoteSize(index, note.width, note.height)
+            }
+        });
+        observer.observe(ref.current);
 
-    function handleOnMouseDown(e) {
-        setActiveTarget(e.target)
-        setActiveIndex(index)
-    }
+        if (note.height) {
+            ref.current.style.height = (note.height - magic) + "px";
+        }
+        if (note.width) {
+            ref.current.style.width = (note.width - magic) + 'px';
+        }
+
+    }, []);
 
     let textChangedLinks = [];
     note.content.split('\n').forEach((e, index) => {
@@ -95,6 +90,9 @@ const OneNote = ({
                 overflow: "hidden",
                 backgroundColor: "#ffc107",
                 border: '2px solid #ffc107',
+                maxWidth: !note?.hidden ? 'unset' : '',
+                minWidth: !note?.hidden ? 'unset' : '',
+                minHeight: !note?.hidden ? 'unset' : '',
             }}
         >
             <div
@@ -107,20 +105,16 @@ const OneNote = ({
                 <img src={DontKnow} alt={"Where?"} className={'where-note'}/>
             </div>
             <textarea
-                style={{
-                    visibility: note?.hidden ? 'hidden' : 'visible'
-                }}
+                style={{display: note?.hidden ? 'none' : 'block'}}
                 className={`one-note-textarea ${note?.mode ? 'one-note-textarea_night' : ''}`}
                 value={note.content}
                 ref={ref}
                 rows={1}
                 placeholder="Enter text here..."
-                onInput={handleInput}
+                onInput={resizeWhenTyping}
                 onClick={(e) => {
                     e.stopPropagation();
                 }}
-                onMouseDown={handleOnMouseDown}
-                onMouseUp={handleOnMouseUp}
                 onChange={(e) => {
                     let textChangedLinks = [];
                     e.target.value.split('\n').forEach((e, index) => {

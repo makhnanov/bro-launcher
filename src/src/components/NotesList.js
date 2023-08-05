@@ -3,6 +3,7 @@ import '../styles/notes.css';
 import OneNote from "../components/OneNote";
 import React, {useState} from "react";
 import {ReactComponent as PlusImage} from '../img/Plus.svg';
+import {ReactComponent as SettingImage} from '../img/setting-svgrepo-com.svg';
 
 const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, changeNoteHidden, changeNoteMode}) => {
 
@@ -25,6 +26,11 @@ const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, change
                          changeNoteHidden={changeNoteHidden}
                          changeNoteMode={changeNoteMode}
                 />))}
+            <div className={`notes__settings`} onClick={() => {
+                alert('WIP. Please wait new release.');
+            }}>
+                <SettingImage className={"notes__add-note-plus-svg"} alt={"Add"}/>
+            </div>
             <div className={`notes__add-note`} onClick={addNote}>
                 <PlusImage className={"notes__add-note-plus-svg"} alt={"Add"}/>
             </div>

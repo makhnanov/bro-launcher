@@ -281,7 +281,7 @@ button {
 /* Track */
 ::-webkit-scrollbar {
     background: rgba(255, 255, 255, 0);
-    max-height: 5px;
+    max-height: 12px;
     max-width: 5px;
 }
 
@@ -299,7 +299,6 @@ button {
     max-height: 5px;
     max-width: 5px;
 }
-
 
 .logo-version-text {
     margin-left: 6px;
