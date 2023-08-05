@@ -1,6 +1,6 @@
 # BRO Launcher 
 # Public Community Edition Beta: 
-# [http://bro-launcher.com](http://bro-launcher.com)
+# [https://bro-launcher.com](https://bro-launcher.com)
 ## BRO Launcher is useful tool for save bookmarks and launch app in your new tab in browser.
 ![BRO Launcher](https://github.com/makhnanov/bro-launcher/blob/master/preview/img/v.1.4.5.png?raw=true)
 ## Step 1: Install one of add-ons for your browser
