@@ -205,6 +205,18 @@ const Settings = ({
                             </div>
                         </div>
 
+                        <hr></hr>
+
+                        <p>Project Github Repository:</p>
+
+                        <div className={"settings__open-bookmark"}>
+                            <div>
+                                <a href={"https://github.com/makhnanov/bro-launcher"} className={"author-link"} target={"_blank"}>
+                                    https://github.com/makhnanov/bro-launcher
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
