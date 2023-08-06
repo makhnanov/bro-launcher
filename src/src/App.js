@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.5';
+const appVersion = '1.8.6';
 
 function App() {
 
@@ -274,6 +274,15 @@ function App() {
         }
     };
 
+    const [barrelRoll, setBarrelRoll] = useState(false);
+    const handleBarrelRoll = (e) => {
+        if (e?.target?.value?.toLowerCase() === 'do a barrel roll') {
+            setBarrelRoll(true);
+        } else {
+            setBarrelRoll(false);
+        }
+    };
+
     const handleGoogleKeyDown = (e) => {
         if (e.key === 'Enter') {
             window.open(encodeURI('https://www.google.com/search?q=' + e.target.value), '_parent');
@@ -421,7 +430,7 @@ function App() {
         localStorage.setItem("settingsDeveloperMode", (!settingsDeveloperMode).toString())
     }
 
-    return (<div className="App"
+    return (<div className={`App ${barrelRoll ? "barrel-roll" : ""}`}
                  onClick={(e) => {
                      unLockScreen(e)
                  }}
@@ -516,6 +525,7 @@ function App() {
                     <div className="youtube-search-container">
                         <input type="text"
                                className="youtube-search"
+                               onChange={handleBarrelRoll}
                                onKeyDown={handleGoogleKeyDown}/>
                     </div>
                 </div>
@@ -527,6 +537,7 @@ function App() {
                     <div className="youtube-search-container">
                         <input type="text"
                                className="youtube-search"
+                               onChange={handleBarrelRoll}
                                onKeyDown={handleYoutubeKeyDown}/>
                     </div>
                 </div>
@@ -538,6 +549,7 @@ function App() {
                     <div className="youtube-search-container">
                         <input type="text"
                                className="youtube-search"
+                               onChange={handleBarrelRoll}
                                onKeyDown={handleDuckDuckGoKeyDown}/>
                     </div>
                 </div>
@@ -549,6 +561,7 @@ function App() {
                     <div className="youtube-search-container">
                         <input type="text"
                                className="youtube-search"
+                               onChange={handleBarrelRoll}
                                onKeyDown={handleYandexKeyDown}/>
                     </div>
                 </div>
@@ -561,6 +574,7 @@ function App() {
                     <div className="youtube-search-container">
                         <input type="text"
                                className="youtube-search"
+                               onChange={handleBarrelRoll}
                                onKeyDown={handleGoogleTranslateDown}/>
                     </div>
                 </div>
@@ -572,6 +586,7 @@ function App() {
                     <div className="youtube-search-container">
                         <input type="text"
                                className="youtube-search"
+                               onChange={handleBarrelRoll}
                                onKeyDown={handleDeeplDown}/>
                     </div>
                 </div>

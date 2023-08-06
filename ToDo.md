@@ -5,7 +5,6 @@
 - If you change image round - prefer make round for all same images (checkbox)
 - Make image white or other color via filter: `filter: brightness(0) invert(1);`
 - Select Image
-- Do a barrel roll
 - Remake tg link for on the fly resolve rewrite
 - Add sleep time to show background
 - Add checker for different tabs in one of them is new
@@ -79,3 +78,4 @@
 - Change or add search to google or ya or etc.
 - Add image to items
 - Add lock img if menu hidden
+- Do a barrel roll

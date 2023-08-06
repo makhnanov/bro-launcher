@@ -7,6 +7,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+    background: #434042;
+    overflow: hidden;
+    background-image: url("img/BackgroundOfficeMountainsEpic.webp");
+    background-color: rgba(0, 0, 0, 70%);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 25% 40%;
+    background-size: cover;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -21,7 +33,8 @@ code {
     background-position: 25% 40%;
     background-size: cover;
     overflow: hidden;
-    transition: all 500ms ease-in-out;
+    transition: all 2s ease-in-out;
+    transform: rotate(0deg);
 }
 
 .App:hover {
@@ -50,6 +63,28 @@ code {
     to {
         transform: rotate(360deg);
     }
+}
+
+@keyframes do-a-barrel-roll {
+    from {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(-30deg);
+    }
+    19% {
+        transform: rotate(60deg);
+    }
+    30% {
+        transform: rotate(-80deg);
+    }
+    to {
+        transform: rotate(5400deg);
+    }
+}
+
+.barrel-roll {
+    animation: do-a-barrel-roll infinite 14s ease-in-out;
 }
 
 .App-header {
