@@ -127,7 +127,7 @@ code {
 }
 
 .menu-item-border {
-    border: 2px solid #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);;
     border-radius: 16px;
     padding: 3px 30px;
     /*display: inline-block;*/
