@@ -56,6 +56,9 @@
 - Part one: together common note edit.
 - Part two: together common note edit with web sockets.
 
+## Interface:
+- Fix lock over Login bug.
+
 ## Header:
 
 ## Items:
