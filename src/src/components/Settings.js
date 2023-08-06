@@ -29,6 +29,8 @@ const Settings = ({
                       toggleSuggestBackup,
                       settingsNotes,
                       toggleSettingsNotes,
+                      settingsDeveloperMode,
+                      toggleSettingsDeveloperMode
                   }) => {
     return (
         <div className={'settings'}>
@@ -214,6 +216,23 @@ const Settings = ({
                                 <a href={"https://github.com/makhnanov/bro-launcher"} className={"author-link"} target={"_blank"}>
                                     https://github.com/makhnanov/bro-launcher
                                 </a>
+                            </div>
+                        </div>
+
+                        <hr></hr>
+
+                        <p>Developer mode:</p>
+
+                        <div className={"settings__widgets-visibility"}>
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsDeveloperMode}
+                                       onChange={toggleSettingsDeveloperMode}
+                                       id={"setting-developer-mode"}
+                                />
+                                <label htmlFor={"setting-developer-mode"} className={"settings__open-bookmark-label"}>
+                                    Yes
+                                </label>
                             </div>
                         </div>
 

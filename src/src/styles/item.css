@@ -307,3 +307,15 @@
     width: 25px;
     height: 25px;
 }
+.ws-dev-mode {
+    width: 30px;
+    position: absolute;
+    margin-top: -4px;
+    margin-left: 7px;
+}
+.ws-dev-mode_second {
+    width: 30px;
+    position: absolute;
+    margin-top: -4px;
+    margin-left: 47px;
+}

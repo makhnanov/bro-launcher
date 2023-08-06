@@ -36,7 +36,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.29';
+const appVersion = '1.8.0';
 
 function App() {
 
@@ -68,6 +68,7 @@ function App() {
     const [menuHidden, setMenuHidden] = useState(localStorage.getItem('menuHidden') === 'true');
 
     const localProjectPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher/&line=95";
+    const localProjectBuildPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher-build/&line=95";
     const publicRepo = "https://github.com/makhnanov/bro-launcher";
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
@@ -413,6 +414,12 @@ function App() {
         localStorage.setItem("settingsNotes", (!settingsNotes).toString())
     }
 
+    const [settingsDeveloperMode, setSettingsDeveloperMode] = useState(getOrSetSetting("settingsDeveloperMode", false))
+    const toggleSettingsDeveloperMode = () => {
+        setSettingsDeveloperMode(!settingsDeveloperMode)
+        localStorage.setItem("settingsDeveloperMode", (!settingsDeveloperMode).toString())
+    }
+
     return (<div className="App"
                  onClick={(e) => {
                      unLockScreen(e)
@@ -427,46 +434,68 @@ function App() {
                 </div>
 
                 <div className="launcher">
-                        <span className={'bro-three-letters'} onClick={toggleHideMenu}>
-                            BRO
-                        </span>
+                    <span className={'bro-three-letters menu-item-text-style'} onClick={toggleHideMenu}>
+                        <b>BRO</b>
+                    </span>
                     <span className={'launcher-text menu-item'}>
-                            Launcher
-                        </span>
-                    <span className="logo-version-text menu-item"
-                          onClick={() => {
-                              window.open(
-                                  process.env.NODE_ENV === "production"
-                                      ? publicRepo
-                                      : localProjectPathForWebStorm
-                              )
-                          }}>
-                            v.{appVersion}
-                        </span>
+                        <b>Launcher</b>
+                    </span>
+                    <span className="logo-version-text menu-item">
+                        v.{appVersion}
+                    </span>
+                    <span
+                        className={'bro-go-dev menu-item menu-item-border menu-item-to-dev'}
+                        style={{
+                            backgroundColor: process.env.NODE_ENV === "production" ? "darkgreen" : "darkred",
+                            display: settingsDeveloperMode ? "inline" : "none"
+                        }}
+                        onClick={() => {
+                            window.open(
+                                process.env.NODE_ENV === "production"
+                                    ? "http://bro-launcher/"
+                                    : "https://bro-launcher.com/",
+                                '_parent'
+                            )
+                        }}
+                    >
+                    <b>Go {process.env.NODE_ENV === "production" ? "Dev" : "PROD"}</b>
+                    </span>
+                    <a href={localProjectPathForWebStorm}>
+                        <img src={WebStorm} className={"ws-dev-mode"} style={{
+                            display: settingsDeveloperMode ? "inline" : "none"
+                        }}/>
+                    </a>
+                    <a href={localProjectBuildPathForWebStorm}>
+                        <img src={WebStorm} className={"ws-dev-mode_second"} style={{
+                            display: settingsDeveloperMode ? "inline" : "none"
+                        }}/>
+                    </a>
                 </div>
 
-                <div className={'menu-item'} onClick={exportData}>
-                    Create Backup
+                <div className={'menu-item menu-item-border'} onClick={exportData}>
+                    <b>Create Backup</b>
                 </div>
 
-                <div className={'menu-item'}>
+                <div className={'menu-item menu-item-border'}>
                     <label className="custom-file-upload">
                         <input type="file" className="import-button" onChange={importData}/>
-                        Import From File
+                        <b>Import From File</b>
                     </label>
                 </div>
 
-                <div className={"menu-item"} onClick={toggleSettings}>
-                    Settings
+                <div className={"menu-item menu-item-border"} onClick={toggleSettings}>
+                    <b>Settings</b>
                 </div>
 
-                <div className={'menu-item'} onClick={lockScreen}>
-                    Lock
+                <div className={'menu-item menu-item-border'} onClick={lockScreen}>
+                    <b>Lock</b>
                 </div>
 
-                {/*<div className="">*/}
-                {/*    Login*/}
-                {/*</div>*/}
+                <div className="menu-item menu-item-border" onClick={() => {
+                    alert('WIP. Please wait new release.');
+                }}>
+                    <b>Login</b>
+                </div>
 
             </div>
 
@@ -546,16 +575,17 @@ function App() {
 
             </div>
 
-            <ItemContext bookmarks={bookmarks}
-                         showModal={needShowModal}
-                         showModalForEdit={needShowModalForEdit}
-                         dataVersion={dataVersion}
-                         setDataVersion={setDataVersion}
-                         exportData={exportData}
-                         isMenuHidden={menuHidden}
-                         settingsOneClick={settingsOneClick}
-                         settingsLifetime={settingsLifetime}
-                         suggestBackup={suggestBackup}
+            <ItemContext
+                bookmarks={bookmarks}
+                showModal={needShowModal}
+                showModalForEdit={needShowModalForEdit}
+                dataVersion={dataVersion}
+                setDataVersion={setDataVersion}
+                exportData={exportData}
+                isMenuHidden={menuHidden}
+                settingsOneClick={settingsOneClick}
+                settingsLifetime={settingsLifetime}
+                suggestBackup={suggestBackup}
             />
 
             <Tabex settingsTabex={settingsTabex}></Tabex>
@@ -587,6 +617,8 @@ function App() {
                 toggleSuggestBackup={toggleSuggestBackup}
                 settingsNotes={settingsNotes}
                 toggleSettingsNotes={toggleSettingsNotes}
+                settingsDeveloperMode={settingsDeveloperMode}
+                toggleSettingsDeveloperMode={toggleSettingsDeveloperMode}
             >
             </Settings>
 
@@ -601,7 +633,9 @@ function App() {
                 <div>
 
                     <div className="modal-header">
-                        <div className="modal-title">{ indexForEdit ? ("Edit \"" + bookmarks[indexForEdit].text + "\" ") : "Add New"} Bookmark</div>
+                        <div
+                            className="modal-title">{indexForEdit ? ("Edit \"" + bookmarks[indexForEdit].text + "\" ") : "Add New"} Bookmark
+                        </div>
                     </div>
 
                     <div className="modal-desc">
