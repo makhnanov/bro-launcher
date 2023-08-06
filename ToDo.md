@@ -51,12 +51,14 @@
 - GoogleDrive or DropBox extension for open, group and sort files
 - Add per note encryption
 
+
 ## Frontend internal logic:
 - Part one: together common note edit.
 - Part two: together common note edit with web sockets.
 
 ## Interface:
 - Fix lock over Login bug.
+- ESC to stop barrel roll.
 
 ## Header:
 
