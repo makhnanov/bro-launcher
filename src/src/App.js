@@ -25,6 +25,7 @@ import Cross from './img/cross-mark-svgrepo-com.svg';
 import GoogleLogo from './img/GoogleLogo.svg';
 import DuckDuckGo from './img/DuckDuckGo.svg';
 import YandexLogo from './img/YandexLogo.svg';
+import Lock from "./img/lock-round-svgrepo-com.svg";
 
 import './App.css';
 import Modal from "react-overlays/Modal";
@@ -36,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.3';
+const appVersion = '1.8.5';
 
 function App() {
 
@@ -461,12 +462,12 @@ function App() {
                     <b>Go {process.env.NODE_ENV === "production" ? "Dev" : "PROD"}</b>
                     </span>
                     <a href={localProjectPathForWebStorm}>
-                        <img src={WebStorm} className={"ws-dev-mode"} style={{
+                        <img src={WebStorm} className={"ws-dev-mode menu-item"} style={{
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}/>
                     </a>
                     <a href={localProjectBuildPathForWebStorm}>
-                        <img src={WebStorm} className={"ws-dev-mode_second"} style={{
+                        <img src={WebStorm} className={"ws-dev-mode_second menu-item"} style={{
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}/>
                     </a>
@@ -496,7 +497,9 @@ function App() {
                 }}>
                     <b>Login</b>
                 </div>
-
+                <div className={"lock-round-icon-wrapper"} onClick={lockScreen}>
+                    <img src={Lock} alt={"Lock"} className={"lock-round-icon"}/>
+                </div>
             </div>
 
             <Notes

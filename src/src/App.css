@@ -93,6 +93,25 @@ code {
     letter-spacing: 1.2px;
 }
 
+.lock-round-icon-wrapper {
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    transition: all 500ms ease-in-out;
+    opacity: 0;
+}
+
+.lock-round-icon {
+    width: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.menu-hidden .lock-round-icon-wrapper {
+    /*display: block !important;*/
+    opacity: 1 !important;
+}
+
 .menu-item-text-style {
     transition: all 500ms ease-in-out;
     user-select: none;
@@ -344,7 +363,7 @@ button {
 .close-menu-button {
     position: absolute;
     margin-left: -21px;
-    margin-top: -13px;
+    margin-top: -34px;
     width: 14px;
     height: 14px;
     border-radius: 50%;

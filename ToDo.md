@@ -1,8 +1,9 @@
-- Add any service google / yahoo / wiki search
+# Site:
+
+## Unsorted:
+- Add sync settings
 - If you change image round - prefer make round for all same images (checkbox)
 - Make image white or other color via filter: `filter: brightness(0) invert(1);`
-- Add image
-
 - Select Image
 - Do a barrel roll
 - Remake tg link for on the fly resolve rewrite
@@ -11,10 +12,8 @@
 - Add double click for unlock
 - Add gh icon left on title
 - Title editor in settings
-- Unshift or push
 - Add dynamic search
 - Fast add bookmark by pass link into input
-- In ext - override "Ctrl + D"
 - Add fast copy url button
 - Set default round in memory (local storage)
 - JS <script> for add widget or functionality into foreign site
@@ -25,7 +24,6 @@
 - Water drink widget
 - Always set IMG for link mask
 - Fix first open lock bug
-- Add lock img if menu hidden
 - Change link tg preview
 - Change favicon. Check it via google url
 - Fix auto-click after unlock screen
@@ -42,18 +40,39 @@
 - Parser for steal bookmarks from other services
 - Add changelog autogen readme from x.x.x. Commit messages
 - Add / replace std image to images after document ready (because google dark api cool but can be slowly)
-
-+ Add settings for all
-+ Turn on / off youtube
-+ Change or add search to google or ya or etc.
 - Add folders
 - Add sort by filter
 - Customize background
-- Add dark mode
-- Add sync settings
+- Add Light Mode
 - Add api ajax requests extension, e.g. with local servers or devices
 - Some themes with customization
 - Google drive sync for backup
+- Add wiki search by default
+- Add service search array
 - GoogleDrive or DropBox extension for open, group and sort files
+- Add per note encryption
 
+## Frontend internal logic:
+- Part one: together common note edit.
+- Part two: together common note edit with web sockets.
 
+## Header:
+
+## Items:
+- Unshift or push
+
+## Widgets:
+- Add bitcoin widget
+- Add Custom Api Widget
+- Add wttr.in Widget
+- Add time widget
+
+## Extension:
+- In ext - override "Ctrl + D"
+
+# Done:
+- Add settings for all
+- Turn on / off youtube
+- Change or add search to google or ya or etc.
+- Add image to items
+- Add lock img if menu hidden
