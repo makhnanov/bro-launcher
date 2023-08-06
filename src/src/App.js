@@ -36,11 +36,11 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.7.28';
+const appVersion = '1.7.29';
 
 function App() {
-    const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
 
+    const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmarks') ?? '[]'));
     const [dataVersion, setDataVersion] = useState(parseInt(localStorage.getItem('dataVersion') ?? '0'));
 
     if (localStorage.getItem('isActive') === null) {
@@ -49,7 +49,6 @@ function App() {
     const [isActive, setIsActive] = useState(localStorage.getItem('isActive') === 'true');
 
     const [showModal, setShowModal] = useState(false);
-
     const [indexForEdit, setIndexForEdit] = useState(null);
 
     const [newBookmarkLink, setNewBookmarkLink] = useState('');
