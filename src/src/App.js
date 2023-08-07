@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.10';
+const appVersion = '1.8.13';
 
 function App() {
 
@@ -450,9 +450,14 @@ function App() {
                     <span className={'launcher-text menu-item'}>
                         <b>Launcher</b>
                     </span>
-                    <span className="logo-version-text menu-item">
+                    <span className="logo-version-text menu-item" onClick={(e) => {
+                        window.open("https://github.com/makhnanov/bro-launcher/releases", '_blank')
+                    }}>
                         v.{appVersion}
                     </span>
+                    <img src={Github} className={'gh-icon-in-header'} onClick={(e) => {
+                        window.open("https://github.com/makhnanov/bro-launcher", '_blank')
+                    }}/>
                     <span
                         className={'bro-go-dev menu-item menu-item-border menu-item-to-dev'}
                         style={{
@@ -460,15 +465,10 @@ function App() {
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}
                         onClick={() => {
-                            window.open(
-                                process.env.NODE_ENV === "production"
-                                    ? "http://bro-launcher/"
-                                    : "https://bro-launcher.com/",
-                                '_parent'
-                            )
+                            window.open(process.env.NODE_ENV === "production" ? "http://bro-launcher/" : "https://bro-launcher.com/", '_parent')
                         }}
                     >
-                    <b>Go {process.env.NODE_ENV === "production" ? "PROD !" : "Dev"}</b>
+                        <b>{process.env.NODE_ENV === "production" ? "PROD !" : "Dev"}</b>
                     </span>
                     <a href={localProjectPathForWebStorm}>
                         <img src={WebStorm} className={"ws-dev-mode menu-item"} style={{
@@ -480,6 +480,11 @@ function App() {
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}/>
                     </a>
+                    <img src={Github} className={'gh-icon-in-header-dev'} onClick={(e) => {
+                        window.open("https://github.com/makhnanov/bro-launcher/blob/master/ToDo.md", '_blank')
+                    }} style={{
+                        display: settingsDeveloperMode ? "inline" : "none"
+                    }}/>
                 </div>
 
                 <div className={'menu-item menu-item-border'} onClick={exportData}>
