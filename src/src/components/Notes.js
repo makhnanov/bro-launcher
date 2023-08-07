@@ -42,7 +42,7 @@ const Notes = ({menuHidden, settingsNotes}) => {
     }
 
     const dropNote = (index) => {
-        if (window.confirm('Are you sure to delete?')) {
+        if (window.confirm('Are you sure you want to delete?')) {
             let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
             newNotes.splice(index, 1);
             setNotes(newNotes);
