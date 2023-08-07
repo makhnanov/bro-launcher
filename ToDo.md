@@ -82,3 +82,4 @@ https://mixedanalytics.com/knowledge-base/top-free-crypto-apis/
 - Add image to items
 - Add lock img if menu hidden
 - Do a barrel roll
+
