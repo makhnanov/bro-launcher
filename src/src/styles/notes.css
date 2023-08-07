@@ -7,10 +7,6 @@
     padding-bottom: 13px;
 }
 
-.notes_to-right {
-    padding-left: 50px;
-}
-
 .notes__settings {
     width: 24px;
     height: 24px;
@@ -54,10 +50,15 @@ svg.notes__add-note-plus-svg {
     margin-left: 22px;
 }
 
+.notes_to-right .one-note:first-child {
+    padding-left: 25px;
+}
+
 .one-note {
     margin-right: 10px;
     display: flex;
     position: relative;
+    transition: all .5s ease-in-out;
 }
 
 .one-note textarea {

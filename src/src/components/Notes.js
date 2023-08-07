@@ -51,8 +51,8 @@ const Notes = ({menuHidden, settingsNotes}) => {
     }
 
     return (<div
-            // className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
-            className={`notes`}
+            className={`notes ${menuHidden ? 'notes_to-right' : ''}`}
+            // className={`notes`}
             style={{display: settingsNotes ? "" : "none"}}
         >
             <NotesList
