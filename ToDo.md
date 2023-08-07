@@ -67,6 +67,7 @@
 
 ## Widgets:
 - Add bitcoin widget
+https://mixedanalytics.com/knowledge-base/top-free-crypto-apis/
 - Add Custom Api Widget
 - Add wttr.in Widget
 - Add time widget
