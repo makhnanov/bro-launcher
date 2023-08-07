@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.9';
+const appVersion = '1.8.10';
 
 function App() {
 
@@ -456,7 +456,7 @@ function App() {
                     <span
                         className={'bro-go-dev menu-item menu-item-border menu-item-to-dev'}
                         style={{
-                            backgroundColor: process.env.NODE_ENV === "production" ? "darkgreen" : "darkred",
+                            backgroundColor: process.env.NODE_ENV === "production" ? "darkred" : "darkgreen",
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}
                         onClick={() => {
@@ -468,7 +468,7 @@ function App() {
                             )
                         }}
                     >
-                    <b>Go {process.env.NODE_ENV === "production" ? "Dev" : "PROD"}</b>
+                    <b>Go {process.env.NODE_ENV === "production" ? "PROD !" : "Dev"}</b>
                     </span>
                     <a href={localProjectPathForWebStorm}>
                         <img src={WebStorm} className={"ws-dev-mode menu-item"} style={{
