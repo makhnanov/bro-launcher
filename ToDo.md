@@ -52,7 +52,8 @@
 - Add service search array
 - GoogleDrive or DropBox extension for open, group and sort files
 - Add per note encryption
-
+- Google images: add: &tbm=isch
+- Add svgrepo search: https://www.svgrepo.com/vectors/hello-world/
 
 ## Frontend internal logic:
 - Part one: together common note edit.
@@ -84,4 +85,3 @@ https://mixedanalytics.com/knowledge-base/top-free-crypto-apis/
 - Add image to items
 - Add lock img if menu hidden
 - Do a barrel roll
-
