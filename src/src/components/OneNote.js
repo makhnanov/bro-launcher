@@ -85,6 +85,7 @@ const OneNote = ({
             className={"where-note-container-wrapper"}
             onClick={(e) => {
                 changeNoteHidden(index);
+                // resizeRef();
             }}
             style={{
                 overflow: "hidden",
@@ -105,7 +106,10 @@ const OneNote = ({
                 <img src={DontKnow} alt={"Where?"} className={'where-note'}/>
             </div>
             <textarea
-                style={{display: note?.hidden ? 'none' : 'block'}}
+                style={{
+                    visibility: note?.hidden ? 'hidden' : 'visible',
+                    position: note?.hidden ? 'absolute' : 'relative',
+                }}
                 className={`one-note-textarea ${note?.mode ? 'one-note-textarea_night' : ''}`}
                 value={note.content}
                 ref={ref}

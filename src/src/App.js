@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.16';
+const appVersion = '1.8.18';
 
 function App() {
 
@@ -69,7 +69,7 @@ function App() {
     const [menuHidden, setMenuHidden] = useState(localStorage.getItem('menuHidden') === 'true');
 
     const localProjectPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher/&line=95";
-    const localProjectBuildPathForWebStorm = "webstorm://open?url=file:///var/www/bro-launcher-build/&line=95";
+    const localProjectPathForPhpStorm = "phpstorm://open?url=file:///var/www/bro-launcher/backend/&line=95";
     const publicRepo = "https://github.com/makhnanov/bro-launcher";
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
@@ -475,8 +475,8 @@ function App() {
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}/>
                     </a>
-                    <a href={localProjectBuildPathForWebStorm}>
-                        <img src={WebStorm} className={"ws-dev-mode_second menu-item"} style={{
+                    <a href={localProjectPathForPhpStorm}>
+                        <img src={PhpStorm} className={"ws-dev-mode_second menu-item"} style={{
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}/>
                     </a>
@@ -684,7 +684,10 @@ function App() {
                         />
 
                         <p>Image:</p>
-                        <input type="text" className="input-style" onChange={handleBookmarkImageChange}
+                        <input type="text"
+                               className="input-style"
+                               onChange={handleBookmarkImageChange}
+                               onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
                                value={newBookmarkImage}/>
 
                         <div className="image-style-selector-block">
@@ -693,6 +696,7 @@ function App() {
                                 <select name="image-style"
                                         id="image-style-id"
                                         className="input-style"
+                                        onKeyUp={(e) => e.keyCode === 13 ? handleSuccess() : null}
                                         onChange={handleBookmarkImageStyleChange}
                                         value={!indexForEdit && newBookmarkImageStyle === '' ? "round-image-30" : newBookmarkImageStyle}>
                                     <option value="none">None</option>

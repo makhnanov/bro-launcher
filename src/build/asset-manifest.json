@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.bb80d989.css",
-    "main.js": "./static/js/main.b16396e1.js",
+    "main.css": "./static/css/main.186b7281.css",
+    "main.js": "./static/js/main.c70cabb2.js",
     "static/js/787.98651143.chunk.js": "./static/js/787.98651143.chunk.js",
     "static/media/BackgroundOfficeMountainsEpic.webp": "./static/media/BackgroundOfficeMountainsEpic.cb330544130ded945429.webp",
     "static/media/Jira.png": "./static/media/Jira.9a53935a35cb6eb110c6.png",
@@ -37,12 +37,12 @@
     "static/media/eyeClosed.svg": "./static/media/eyeClosed.e77d23099aebea5e66985379e477b9ca.svg",
     "static/media/lock-round-svgrepo-com.svg": "./static/media/lock-round-svgrepo-com.075d0678638c3c194157d3f818627f9d.svg",
     "static/media/Plus.svg": "./static/media/Plus.a45ba227c23067a025cb8cbc7cddef4e.svg",
-    "main.bb80d989.css.map": "./static/css/main.bb80d989.css.map",
-    "main.b16396e1.js.map": "./static/js/main.b16396e1.js.map",
+    "main.186b7281.css.map": "./static/css/main.186b7281.css.map",
+    "main.c70cabb2.js.map": "./static/js/main.c70cabb2.js.map",
     "787.98651143.chunk.js.map": "./static/js/787.98651143.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb80d989.css",
-    "static/js/main.b16396e1.js"
+    "static/css/main.186b7281.css",
+    "static/js/main.c70cabb2.js"
   ]
 }
