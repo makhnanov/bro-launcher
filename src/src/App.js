@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.18';
+const appVersion = '1.8.19';
 
 function App() {
 
@@ -400,7 +400,7 @@ function App() {
         localStorage.setItem("settingsGoogleTranslate", (!settingsGoogleTranslate).toString())
     }
 
-    const [settingsDeepl, setSettingsDeepl] = useState(getOrSetSetting("settingsDeepl", false))
+    const [settingsDeepl, setSettingsDeepl] = useState(getOrSetSetting("settingsDeepl", true))
     const toggleSettingsDeepl = () => {
         setSettingsDeepl(!settingsDeepl)
         localStorage.setItem("settingsDeepl", (!settingsDeepl).toString())
@@ -516,10 +516,15 @@ function App() {
                 </div>
             </div>
 
-            <Notes
-                menuHidden={menuHidden}
-                settingsNotes={settingsNotes}
-            />
+            <div className={"simple-notes-wrapper"}>
+                <span className={"simple-notes-label"}>
+                    Simple Notes
+                </span>
+                <Notes
+                    menuHidden={menuHidden}
+                    settingsNotes={settingsNotes}
+                />
+            </div>
 
             <div className={"search-engines"}>
 
