@@ -158,12 +158,17 @@ code {
     right: 3px;
     transition: all 500ms ease-in-out;
     opacity: 0;
+    z-index: 100;
 }
 
 .lock-round-icon {
     width: 40px;
     border: 2px solid white;
     border-radius: 50%;
+}
+
+.simple-notes-label {
+    transition: all 0.5s ease-in-out;
 }
 
 .menu-hidden .lock-round-icon-wrapper {

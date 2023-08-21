@@ -54,6 +54,7 @@
 - Add per note encryption
 - Google images: add: &tbm=isch
 - Add svgrepo search: https://www.svgrepo.com/vectors/hello-world/
+- API tester
 
 ## Frontend internal logic:
 - Part one: together common note edit.

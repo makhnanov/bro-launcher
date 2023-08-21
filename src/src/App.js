@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.19';
+const appVersion = '1.8.22';
 
 function App() {
 
@@ -455,7 +455,7 @@ function App() {
                     }}>
                         v.{appVersion}
                     </span>
-                    <img src={Github} className={'gh-icon-in-header'} onClick={(e) => {
+                    <img src={Github} className={'gh-icon-in-header menu-item'} onClick={(e) => {
                         window.open("https://github.com/makhnanov/bro-launcher", '_blank')
                     }}/>
                     <span
@@ -480,7 +480,7 @@ function App() {
                             display: settingsDeveloperMode ? "inline" : "none"
                         }}/>
                     </a>
-                    <img src={Github} className={'gh-icon-in-header-dev'} onClick={(e) => {
+                    <img src={Github} className={'gh-icon-in-header-dev menu-item'} onClick={(e) => {
                         window.open("https://github.com/makhnanov/bro-launcher/blob/master/ToDo.md", '_blank')
                     }} style={{
                         display: settingsDeveloperMode ? "inline" : "none"
@@ -517,7 +517,10 @@ function App() {
             </div>
 
             <div className={"simple-notes-wrapper"}>
-                <span className={"simple-notes-label"}>
+                <span className={"simple-notes-label"} style={{
+                    marginLeft: menuHidden ? "60px" : '0',
+                    marginTop: menuHidden ? "-7px" : '0',
+                }}>
                     Simple Notes
                 </span>
                 <Notes
