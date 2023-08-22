@@ -101,7 +101,10 @@ const OneNote = ({
                 style={{display: note?.hidden ? 'flex' : 'none'}}
             >
                 <div className={"where-text"}>
-                    Note {index + 1} hidden
+                    { note.content.length
+                        ? note.content.split("\n")[0]
+                        : "Note " + (index + 1) + " hidden"
+                    }
                 </div>
                 <img src={DontKnow} alt={"Where?"} className={'where-note'}/>
             </div>
