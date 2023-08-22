@@ -217,3 +217,35 @@ svg.notes__add-note-plus-svg {
 .link-a {
     /*height: 14px;*/
 }
+
+.link-icon_red {
+    background-color: red;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+}
+
+.link-icon_green {
+    background-color: green;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+}
+
+.link-icon_blue {
+    background-color: blue;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+}
+
+.link-icon_yellow {
+    background-color: #f6b000;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+}
