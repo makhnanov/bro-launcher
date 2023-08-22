@@ -37,7 +37,7 @@ import Tabex from "./widgets/Tabex";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.23';
+const appVersion = '1.8.24';
 
 function App() {
 
