@@ -11,6 +11,25 @@ const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, change
     const [activeIndex, setActiveIndex] = useState(null);
 
     return (<div className={`notes-list`}>
+        <div className={"closed-notes"}>
+            {notes.map((note, index) => (
+                <OneNote note={note}
+                         index={index}
+                         key={index}
+                         changeNote={changeNote}
+                         dropNote={dropNote}
+                         notes={notes}
+                         changeNoteSize={changeNoteSize}
+                         activeTarget={activeTarget}
+                         setActiveTarget={setActiveTarget}
+                         activeIndex={activeIndex}
+                         setActiveIndex={setActiveIndex}
+                         changeNoteHidden={changeNoteHidden}
+                         changeNoteMode={changeNoteMode}
+                         type={"hidden"}
+                />))
+            }
+        </div>
         {notes.map((note, index) => (
             <OneNote note={note}
                      index={index}
@@ -25,6 +44,7 @@ const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, change
                      setActiveIndex={setActiveIndex}
                      changeNoteHidden={changeNoteHidden}
                      changeNoteMode={changeNoteMode}
+                     type={"active"}
             />))
         }
         <div className={`notes__settings`} onClick={() => {

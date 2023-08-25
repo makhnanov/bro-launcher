@@ -19,7 +19,8 @@ const OneNote = ({
                      activeIndex,
                      setActiveIndex,
                      changeNoteHidden,
-                     changeNoteMode
+                     changeNoteMode,
+                     type
                  }) => {
     const ref = useRef(null);
 
@@ -78,7 +79,12 @@ const OneNote = ({
 
     const [links, setLinks] = useState(textChangedLinks);
 
-    return (<div className={`one-note`} key={index}>
+    return (<div className={`one-note`} key={index} style={{
+        display:
+            (type === "hidden" && note?.hidden) || (type === "active" && !note?.hidden)
+                ? "flex"
+                : "none"
+    }}>
         <LinksColumn links={links} noteHidden={note?.hidden}>
         </LinksColumn>
         <div
