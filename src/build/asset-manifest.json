@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.d77e0336.css",
-    "main.js": "./static/js/main.ffd5a33e.js",
+    "main.js": "./static/js/main.006b4f05.js",
     "static/js/787.98651143.chunk.js": "./static/js/787.98651143.chunk.js",
     "static/media/BackgroundOfficeMountainsEpic.webp": "./static/media/BackgroundOfficeMountainsEpic.cb330544130ded945429.webp",
     "static/media/Jira.png": "./static/media/Jira.9a53935a35cb6eb110c6.png",
@@ -38,11 +38,11 @@
     "static/media/lock-round-svgrepo-com.svg": "./static/media/lock-round-svgrepo-com.075d0678638c3c194157d3f818627f9d.svg",
     "static/media/Plus.svg": "./static/media/Plus.d3c334e9bd3d33014ff6e9b71931bd47.svg",
     "main.d77e0336.css.map": "./static/css/main.d77e0336.css.map",
-    "main.ffd5a33e.js.map": "./static/js/main.ffd5a33e.js.map",
+    "main.006b4f05.js.map": "./static/js/main.006b4f05.js.map",
     "787.98651143.chunk.js.map": "./static/js/787.98651143.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d77e0336.css",
-    "static/js/main.ffd5a33e.js"
+    "static/js/main.006b4f05.js"
   ]
 }
