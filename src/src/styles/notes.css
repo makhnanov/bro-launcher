@@ -51,7 +51,7 @@ svg.notes__add-note-plus-svg {
 }
 
 .notes_to-right .one-note:first-child {
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 
 .one-note {
@@ -222,7 +222,7 @@ svg.notes__add-note-plus-svg {
     background-color: red;
     padding-top: 3px;
     padding-bottom: 3px;
-    border: 1px solid darkgray;
+    border: 1px solid #616161;
     border-radius: 10px;
 }
 
@@ -230,7 +230,7 @@ svg.notes__add-note-plus-svg {
     background-color: green;
     padding-top: 3px;
     padding-bottom: 3px;
-    border: 1px solid darkgray;
+    border: 1px solid #616161;
     border-radius: 10px;
 }
 
@@ -238,7 +238,7 @@ svg.notes__add-note-plus-svg {
     background-color: blue;
     padding-top: 3px;
     padding-bottom: 3px;
-    border: 1px solid darkgray;
+    border: 1px solid #616161;
     border-radius: 10px;
 }
 
@@ -246,7 +246,7 @@ svg.notes__add-note-plus-svg {
     background-color: #f6b000;
     padding-top: 3px;
     padding-bottom: 3px;
-    border: 1px solid darkgray;
+    border: 1px solid #616161;
     border-radius: 10px;
 }
 .closed-notes {

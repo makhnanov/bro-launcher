@@ -148,8 +148,11 @@ code {
     padding-top: 1px;
     background-color: rgba(0,0,0, 0.3);
     padding-right: 7px;
-    border: 1px solid #616161;
     border-radius: 7px;
+    margin-left: 13px;
+    margin-top: 0;
+    background-color: #1d1e1e;
+    border: 1px solid #616161;
 }
 
 .lock-round-icon-wrapper {
@@ -485,3 +488,69 @@ input[type="checkbox"] {
 .small-flag_latest {
     margin-right: 40px;
 }
+
+.splide-content {
+    height: 100px;
+}
+
+.splide-thumbnail {
+    height: 100px;
+}
+
+.splide-thumbnail-button {
+    padding: 0;
+}
+
+.splide-thumbnail-button {
+    background-color: unset;
+}
+
+.thumbnails li button div {
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.thumbnails li:not(:last-child) {
+    margin-right: 10px;
+}
+
+.thumbnails li:first-child {
+    margin-left: 15px;
+}
+
+.thumbnails li {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 1px solid #616161;
+    border-left: 1px solid #616161;
+    border-right: 1px solid #616161;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    padding-top: 3px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.thumbnails {
+    display: flex;
+    list-style-type: none;
+    margin-top: 7px !important;
+    margin-bottom: 10px !important;
+    padding-left: 0;
+}
+
+.splide__track {
+    overflow: visible !important;
+}
+
+.tab-backstage {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+    height: 666px;
+    position: relative;
+    top: -10px;
+    left: -7px;
+    width: 100%;
+    margin-bottom: -666px;
+    border-top-left-radius: 24px;
+    border-left: 1px solid #616161;
+}
+
