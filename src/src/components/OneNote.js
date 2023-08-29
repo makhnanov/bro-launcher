@@ -28,47 +28,54 @@ const OneNote = ({
 
     const resizeWhenTyping = (e) => {
         if (ref.current) {
-            let lastScrollHeight = e.target.scrollHeight;
-            ref.current.style.removeProperty("min-height")
-            ref.current.style.height = 19 + "px";
-            ref.current.style.minHeight = (e.target.scrollHeight + 8) + "px";
-            ref.current.style.height = parseInt(lastScrollHeight) + 8 + "px";
-            if (e.target.scrollHeight > note.height) {
-                ref.current.style.height = (e.target.scrollHeight + 8) + "px";
-                note.height = (e.target.scrollHeight);
-            }
-
-            if (note.width) {
-                ref.current.style.width = note.width - magic + 'px';
-            }
+            // let lastScrollHeight = e.target.scrollHeight;
+            // ref.current.style.removeProperty("min-height")
+            // ref.current.style.height = 19 + "px";
+            // ref.current.style.minHeight = (e.target.scrollHeight + 8) + "px";
+            // ref.current.style.height = parseInt(lastScrollHeight) + 8 + "px";
+            // if (e.target.scrollHeight > note.height) {
+            //     ref.current.style.height = (e.target.scrollHeight + 8) + "px";
+            //     note.height = (e.target.scrollHeight);
+            // }
+            //
+            // if (note.width) {
+            //     ref.current.style.width = note.width - magic + 'px';
+            // }
         }
     };
 
-    useEffect(() => {
-        ref.current.style.height = 19 + "px";
-        ref.current.style.minHeight = ref.current.scrollHeight + magic + "px";
-
-        const observer = new ResizeObserver(() => {
-            if (ref.current) {
-                if (ref.current.offsetHeight > ref.current.scrollHeight) {
-                    note.height = ref.current.offsetHeight
-                } else {
-                    note.height = ref.current.scrollHeight
-                }
-                note.width = ref.current.offsetWidth
-                changeNoteSize(index, note.width, note.height)
-            }
-        });
-        observer.observe(ref.current);
-
-        if (note.height) {
-            ref.current.style.height = (note.height - magic) + "px";
-        }
-        if (note.width) {
-            ref.current.style.width = (note.width - magic) + 'px';
-        }
-
-    }, []);
+    // useEffect(() => {
+    //
+    //     // ref.current.style.height = 19 + "px";
+    //     // // ref.current.style.minHeight = ref.current.scrollHeight + magic + "px";
+    //     // ref.current.style.minHeight = "fit-content";
+    //
+    //     const observer = new ResizeObserver(() => {
+    //         if (ref.current) {
+    //             // if (ref.current.style.height !== "fit-content") {
+    //             //     ref.current.style.height = "fit-content"
+    //             // }
+    //             // console.log(ref.current.style.height)
+    //             // if (ref.current.offsetHeight > ref.current.scrollHeight) {
+    //             //     note.height = ref.current.offsetHeight
+    //             // } else {
+    //             //     note.height = ref.current.scrollHeight
+    //             // }
+    //             // note.width = ref.current.offsetWidth
+    //             // changeNoteSize(index, note.width, note.height)
+    //         }
+    //     });
+    //     observer.observe(ref.current);
+    //
+    //     if (note.height) {
+    //         // ref.current.style.height = "fit-content"
+    //         // ref.current.style.height = (note.height - magic) + "px";
+    //     }
+    //     if (note.width) {
+    //         // ref.current.style.width = (note.width - magic) + 'px';
+    //     }
+    //
+    // }, []);
 
     let textChangedLinks = [];
     note.content.split('\n').forEach((e, index) => {
@@ -114,7 +121,8 @@ const OneNote = ({
                 </div>
                 <img src={DontKnow} alt={"Where?"} className={'where-note'}/>
             </div>
-            <textarea
+            <div
+                contentEditable="true"
                 style={{
                     visibility: note?.hidden ? 'hidden' : 'visible',
                     position: note?.hidden ? 'absolute' : 'relative',

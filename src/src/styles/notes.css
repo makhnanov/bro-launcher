@@ -69,6 +69,7 @@ svg.notes__add-note-plus-svg {
     border-top-right-radius: 7px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 0;
+    height: fit-content;
 }
 
 .one-note textarea::-webkit-scrollbar-track {
@@ -170,7 +171,7 @@ svg.notes__add-note-plus-svg {
 .where-note-container-wrapper {
     border-radius: 8px 8px 0 8px;
     min-width: 100px;
-    max-width: 100px;
+    /*max-width: 100px;*/
     min-height: 42px;
     text-wrap: wrap;
 }
@@ -250,8 +251,18 @@ svg.notes__add-note-plus-svg {
     border-radius: 10px;
 }
 .closed-notes {
-    max-width: 343px;
+    /*max-width: 343px;*/
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;
+}
+
+.one-note-textarea {
+    min-height: 100px;
+    min-width: 100px;
+    /*max-width: 100px;*/
+    color: black;
+    padding-top: 2px;
+    padding-left: 2px;
+    height: max-content;
 }
