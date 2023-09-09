@@ -548,9 +548,17 @@ input[type="checkbox"] {
     position: relative;
     top: -10px;
     left: -7px;
-    width: 100%;
+    width: calc(100% + 12px);
     margin-bottom: -666px;
     border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
     border-left: 1px solid #616161;
+    border-right: 1px solid #616161;
+    border-top: 1px solid #616161;
 }
 
+.thumbnail.thumbnail_active {
+    border-bottom: 1px solid #181717;
+    margin-bottom: -1px;
+    z-index: 9999;
+}

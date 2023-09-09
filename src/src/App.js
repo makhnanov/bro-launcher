@@ -27,6 +27,7 @@ import GoogleLogo from './img/GoogleLogo.svg';
 import DuckDuckGo from './img/DuckDuckGo.svg';
 import YandexLogo from './img/YandexLogo.svg';
 import Lock from "./img/lock-round-svgrepo-com.svg";
+import KateBackend from "./img/KateBackground.webp";
 
 // Css
 import './App.css';
@@ -42,6 +43,7 @@ import Notes from "./components/Notes";
 import ItemContext from "./components/ItemContext";
 import Settings from "./components/Settings";
 import Tabex from "./widgets/Tabex";
+import KateSlide from "./components/KateSlide";
 
 // Vendor
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
@@ -52,6 +54,7 @@ import p1 from './img/Jira.png';
 import p2 from './img/Confluence.svg';
 import p3 from './img/WebStorm.png';
 import p4 from './img/PhpStorm.png';
+import main from "./Main";
 
 document.title = 'BRO Launcher';
 
@@ -178,6 +181,12 @@ function App() {
             // https://stackoverflow.com/questions/73659207/react-js-upload-image-when-user-pastes-an-image
         };
         // window.addEventListener('paste', handlePasteAnywhere);
+
+        // if (mainRef.current) {
+            // console.log(mainRef.current.splide);
+        // }
+
+        handleThumbs(tabs.indexOf(currentTab))
 
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
@@ -465,18 +474,57 @@ function App() {
     const mainRef = useRef(null);
 
     const handleThumbs = (id) => {
+        let allThumbnails = document.getElementsByClassName("thumbnail")
+        for (let i = 0; i < allThumbnails.length; i++) {
+            if (allThumbnails.item(i).classList.contains("thumbnail_active")) {
+                allThumbnails.item(i).classList.remove("thumbnail_active")
+            }
+            if (id === i) {
+                allThumbnails.item(i).classList.add("thumbnail_active")
+            }
+        }
+        localStorage.setItem('currentTab', tabs[id] ?? "Default");
+        setCurrentTab(tabs[id] ?? "Default");
         mainRef.current.go(id);
     };
 
-    const tabs = [
-        "Default", "Kates's Style"
-    ];
+    if (localStorage.getItem("tabs") === null) {
+        localStorage.setItem("tabs", JSON.stringify(["Default"]));
+    }
 
-    return (<div className={`App ${barrelRoll ? "barrel-roll" : ""}`}
-                 onClick={(e) => {
-                     unLockScreen(e)
-                 }}
-                 style={{filter: !isActive ? 'none' : '', backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : ''}}>
+    const [tabs, setTabs] = useState(JSON.parse(localStorage.getItem("tabs")))
+
+    const [settingsKate, setSettingsKate] = useState(getOrSetSetting("settingsKate", false))
+    const toggleSettingsKate = () => {
+        setSettingsKate(!settingsKate)
+        localStorage.setItem("settingsKate", (!settingsKate).toString())
+        let localTabs;
+        if (!settingsKate) {
+            localTabs = ["Default", "Kates's Style"];
+        } else {
+            localTabs= ["Default"];
+        }
+        localStorage.setItem("tabs", JSON.stringify(localTabs));
+        setTabs(localTabs)
+    }
+
+    let localCurrentTab = localStorage.getItem('currentTab');
+    if (localCurrentTab === null) {
+        localCurrentTab = 'Default'
+    }
+    const [currentTab, setCurrentTab] = useState(localCurrentTab);
+
+    return (<div
+        className={`App ${barrelRoll ? "barrel-roll" : ""}`}
+        onClick={(e) => {
+            unLockScreen(e)
+        }}
+        style={{
+            filter: !isActive ? 'none' : '',
+            backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : "",
+            backgroundImage: currentTab === "Kates's Style" ? `url(${KateBackend})` : "",
+        }}
+    >
         <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
 
             <div className={`item-max-header ${menuHidden ? 'menu-hidden' : ''}`}>
@@ -560,7 +608,7 @@ function App() {
 
             <ul className="thumbnails">
                 {(tabs).map((thumbnail, index) => (
-                    <li>
+                    <li className={"thumbnail"}>
                         <button onClick={() => handleThumbs(index)} className={"splide-thumbnail-button"}>
                             <div>
                                 {thumbnail}
@@ -574,22 +622,26 @@ function App() {
             </div>
 
             <Splide options={{
-                type: 'loop',
+                type: 'fade',
                 perPage: 1,
                 perMove: 1,
                 gap: '1rem',
                 pagination: false,
                 // height: '100px',
                 arrows: false,
+                rewindByDrag: false,
+                drag: false,
             }} ref={mainRef}>
+
                 <SplideSlide>
                     <div className={"simple-notes-wrapper"}>
-                <span className={"simple-notes-label"} style={{
-                    marginLeft: menuHidden ? "27px" : '27px',
-                    marginTop: menuHidden ? "0" : '0',
-                }}>
-                    Simple Notes
-                </span>
+
+                        <span className={"simple-notes-label"} style={{
+                            marginLeft: menuHidden ? "27px" : '27px',
+                            marginTop: menuHidden ? "0" : '0',
+                        }}>
+                            Simple Notes
+                        </span>
                         <Notes
                             menuHidden={menuHidden}
                             settingsNotes={settingsNotes}
@@ -717,6 +769,8 @@ function App() {
                         toggleSettingsNotes={toggleSettingsNotes}
                         settingsDeveloperMode={settingsDeveloperMode}
                         toggleSettingsDeveloperMode={toggleSettingsDeveloperMode}
+                        settingsKate={settingsKate}
+                        toggleSettingsKate={toggleSettingsKate}
                     >
                     </Settings>
 
@@ -802,7 +856,8 @@ function App() {
                     </Modal>
                 </SplideSlide>
                 <SplideSlide>
-                    <img src={p2} className={"splide-content"} alt="product image 2"/>
+                    <KateSlide>
+                    </KateSlide>
                 </SplideSlide>
             </Splide>
         </div>

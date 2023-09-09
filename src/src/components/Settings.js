@@ -30,7 +30,9 @@ const Settings = ({
                       settingsNotes,
                       toggleSettingsNotes,
                       settingsDeveloperMode,
-                      toggleSettingsDeveloperMode
+                      toggleSettingsDeveloperMode,
+                      settingsKate,
+                      toggleSettingsKate
                   }) => {
     return (
         <div className={'settings'}>
@@ -176,6 +178,17 @@ const Settings = ({
                                 />
                                 <label for={"settings-tabex"} className={"settings__open-bookmark-label"}>
                                     Tabex
+                                </label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox"
+                                       checked={settingsKate}
+                                       onChange={toggleSettingsKate}
+                                       id={"settings-kate"}
+                                />
+                                <label for={"settings-kate"} className={"settings__open-bookmark-label"}>
+                                    Kates's Style
                                 </label>
                             </div>
 

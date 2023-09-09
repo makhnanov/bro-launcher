@@ -1,0 +1,126 @@
+.kate-wrapper {
+    border-radius: 15px;
+    background: rgba(166, 166, 166, 0.08);
+    width: calc(100% - 60px);
+    margin: 30px 30px 30px 30px;
+}
+
+.kate-container {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+
+.kate-items-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.kate-left {
+    width: 100%;
+    max-width: calc(33% + 0.5% - 8px);
+    min-width: calc(33% + 0.5% - 8px);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.kate-left-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 230px;
+    max-height: 230px;
+}
+
+.kate-weight-tracker {
+    width: 100%;
+    min-height: 230px;
+    max-height: 230px;
+    background: rgba(0, 0, 0, 0.40);
+    border-radius: 15px;
+}
+
+.kate-expenses {
+    width: calc(50% - 8px);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.40);
+}
+
+.kate-water-tracker {
+    width: calc(50% - 8px);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.40);
+}
+
+.kate-right {
+    max-width: calc(66% + 0.5% - 8px);
+    min-width: calc(66% + 0.5% - 8px);
+}
+
+.kate-daily-container {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    background: rgba(0, 0, 0, 0.30);
+    margin-right: 40px;
+    border-radius: 15px;
+    gap: 15px;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.kate-day {
+    min-width: calc(25% - 12px);
+    min-height: 215px;
+    max-height: 215px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.kate-left-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 230px;
+    max-height: 230px;
+}
+
+.kate-notes {
+    width: calc(50% - 8px);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.40);
+}
+
+.kate-calendar {
+    width: calc(50% - 8px);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.40);
+}
+
+.kate-day-header {
+    width: 100%;
+    display: flex;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+
+@font-face {
+    font-family: 'Signika';
+    src: local('Signika'), url('../fonts/Signika-Regular.ttf') format('ttf');
+}
+
+.kate-day-of-week {
+    font-family: Signika;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.2;
+}
