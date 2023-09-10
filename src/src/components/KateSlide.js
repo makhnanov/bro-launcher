@@ -10,21 +10,31 @@ const KateSlide = ({}) => {
                     <div className={"kate-left"}>
                         <div className={"kate-left-top"}>
                             <div className={"kate-expenses"}>
-                                Expenses
+                                <div className={"kate-header kate-font"}>
+                                    Expenses
+                                </div>
                             </div>
                             <div className={"kate-water-tracker"}>
-                                Water tracker
+                                <div className={"kate-header kate-font"}>
+                                    Water tracker
+                                </div>
                             </div>
                         </div>
                         <div className={"kate-weight-tracker"}>
-                            Weight tracker
+                            <div className={"kate-header kate-font"}>
+                                Weight tracker
+                            </div>
                         </div>
                         <div className={"kate-left-bottom"}>
-                            <div className={"kate-calendar"}>
-                                March
-                            </div>
                             <div className={"kate-notes"}>
-                                Notes
+                                <div className={"kate-header kate-font"}>
+                                    Notes
+                                </div>
+                            </div>
+                            <div className={"kate-calendar"}>
+                                <div className={"kate-header kate-font"}>
+                                    March
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,48 +43,80 @@ const KateSlide = ({}) => {
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Monday</div>
-                                    <div>20</div>
+                                    <div className={"kate-date"}>20</div>
                                 </div>
                             </div>
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Tuesday</div>
-                                    <div>21</div>
+                                    <div className={"kate-date"}>21</div>
+                                </div>
+                                <div>
+                                    <div className={"kate-checkbox"}>
+                                        <label className={"kate-checkbox-label"}>
+                                            <input type={"checkbox"}/>
+                                            <div className={"kate-checkbox-label-text"}>Lorem</div>
+                                        </label>
+                                    </div>
+                                    <div className={"kate-checkbox"}>
+                                        <label className={"kate-checkbox-label"}>
+                                            <input type={"checkbox"}/>
+                                            <div className={"kate-checkbox-label-text"}>Lorem ipsum</div>
+                                        </label>
+                                    </div>
+                                    <div className={"kate-checkbox"}>
+                                        <label className={"kate-checkbox-label"}>
+                                            <input type={"checkbox"}/>
+                                            <div className={"kate-checkbox-label-text"}>Lorem ipsum dolor</div>
+                                        </label>
+                                    </div>
+                                    <div className={"kate-checkbox"}>
+                                        <label className={"kate-checkbox-label"}>
+                                            <input type={"checkbox"}/>
+                                            <div className={"kate-checkbox-label-text"}>Lorem ipsum dolor sir</div>
+                                        </label>
+                                    </div>
+                                    <div className={"kate-checkbox"}>
+                                        <label className={"kate-checkbox-label"}>
+                                            <input type={"checkbox"}/>
+                                            <div className={"kate-checkbox-label-text"}>Lorem ipsum dolor sir amulet</div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Wednesday</div>
-                                    <div>22</div>
+                                    <div className={"kate-date"}>22</div>
                                 </div>
                             </div>
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Thursday</div>
-                                    <div>23</div>
+                                    <div className={"kate-date"}>23</div>
                                 </div>
                             </div>
-                            <div className={"kate-day kate-daily-habits"}>
+                            <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
-                                    <div>Daily habits</div>
+                                    <div className={"kate-font kate-daily-habits"}>Daily habits</div>
                                 </div>
                             </div>
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Friday</div>
-                                    <div>24</div>
+                                    <div className={"kate-date"}>24</div>
                                 </div>
                             </div>
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Saturday</div>
-                                    <div>25</div>
+                                    <div className={"kate-date"}>25</div>
                                 </div>
                             </div>
                             <div className={"kate-day"}>
                                 <div className={"kate-day-header"}>
                                     <div className={"kate-day-of-week"}>Sunday</div>
-                                    <div>26</div>
+                                    <div className={"kate-date"}>26</div>
                                 </div>
                             </div>
                         </div>

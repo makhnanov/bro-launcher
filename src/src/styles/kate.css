@@ -106,21 +106,79 @@
     width: 100%;
     display: flex;
     padding-left: 20px;
+}
+
+.kate-daily-habits {
     padding-top: 15px;
 }
 
+.kate-font {
+    color: #E1E1E1;
+    font-family: "Signika", serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 @font-face {
-    font-family: 'Signika';
-    src: local('Signika'), url('../fonts/Signika-Regular.ttf') format('ttf');
+    font-family: Signika;
+    src: url(../fonts/Signika-Regular.ttf);
+}
+
+.kate-checkbox {
+    padding-left: 21px;
 }
 
 .kate-day-of-week {
-    font-family: Signika;
+    font-family: "Signika", serif;
     color: #FFF;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    opacity: 0.2;
+    opacity: 0.4;
+    padding-top: 15px;
+    padding-right: 6px;
+}
+
+.kate-date {
+    color: #FFF;
+    font-family: "Signika", serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    opacity: 0.15;
+    padding-top: 1px;
+}
+
+.kate-header {
+    display: flex;
+    padding-left: 20px;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.kate-checkbox {
+    display: flex;
+    width: 100%;
+    padding-top: 7px;
+}
+
+
+.kate-checkbox-label {
+    display: flex;
+}
+
+.kate-checkbox-label-text {
+    color: #949494;
+    font-family: "Signika", serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 7px;
+    align-self: center;
+    user-select: none;
 }
