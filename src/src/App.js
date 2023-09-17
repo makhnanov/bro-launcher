@@ -58,7 +58,7 @@ import main from "./Main";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.8.25';
+const appVersion = '1.9.0';
 
 function App() {
 
@@ -608,7 +608,10 @@ function App() {
 
             <ul className="thumbnails">
                 {(tabs).map((thumbnail, index) => (
-                    <li className={"thumbnail"}>
+                    <li
+                        className={"thumbnail"}
+                        style={{marginLeft: menuHidden && index === 0 ? `50px` : ""}}
+                    >
                         <button onClick={() => handleThumbs(index)} className={"splide-thumbnail-button"}>
                             <div>
                                 {thumbnail}

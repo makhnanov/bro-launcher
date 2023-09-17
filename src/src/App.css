@@ -557,6 +557,10 @@ input[type="checkbox"] {
     border-top: 1px solid #616161;
 }
 
+.thumbnails li:first-child {
+    transition: margin-left 0.5s ease-in-out;
+}
+
 .thumbnail.thumbnail_active {
     border-bottom: 1px solid #181717;
     margin-bottom: -1px;

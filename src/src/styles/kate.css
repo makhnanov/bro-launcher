@@ -76,6 +76,7 @@
 
 .kate-day {
     min-width: calc(25% - 12px);
+    max-width: calc(25% - 12px);
     min-height: 215px;
     max-height: 215px;
     border-radius: 15px;
@@ -181,4 +182,69 @@
     padding-left: 7px;
     align-self: center;
     user-select: none;
+}
+
+.kate-today-counter {
+    width: 100%;
+    display: flex;
+    padding-left: 20px;
+    color: #949494;
+    font-family: "Signika", serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 5px;
+}
+
+.kate-subheader {
+    width: 100%;
+    display: flex;
+    padding-left: 20px;
+    color: #949494;
+    font-family: "Signika", serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 5px;
+}
+
+.kate-today-counter span {
+    padding-left: 10px;
+}
+
+.kate-daily-habits-icons {
+    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    max-width: 100%;
+    /*justify-content: space-between;*/
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.kate-daily-habits-icon {
+    width: 58px;
+}
+
+.kate-notes-items li {
+    color: #949494;
+    font-family: "Signika", serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    list-style: disc;
+    padding-right: 10px;
+}
+
+.kate-notes-items li:not(li:first-child) {
+    padding-top: 5px;
+}
+
+.kate-notes-items {
+    width: 100%;
+    text-align: left;
+    padding-top: 13px;
 }
