@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.d77e0336.css",
-    "main.js": "./static/js/main.006b4f05.js",
+    "main.css": "./static/css/main.2b06b96d.css",
+    "main.js": "./static/js/main.dd267f6a.js",
     "static/js/787.98651143.chunk.js": "./static/js/787.98651143.chunk.js",
     "static/media/BackgroundOfficeMountainsEpic.webp": "./static/media/BackgroundOfficeMountainsEpic.cb330544130ded945429.webp",
     "static/media/Jira.png": "./static/media/Jira.9a53935a35cb6eb110c6.png",
+    "static/media/Signika-Regular.ttf": "./static/media/Signika-Regular.5ea0e07d3afddf2b9c76.ttf",
     "static/media/Firefox.png": "./static/media/Firefox.9116f3f5900fce7df70c.png",
     "static/media/KeePassXC.png": "./static/media/KeePassXC.8cfeb2eae852527e8efa.png",
+    "static/media/KateBackground.webp": "./static/media/KateBackground.a41f8977550ad3637e71.webp",
     "static/media/question.png": "./static/media/question.52dc447ccd89c8296a54.png",
     "static/media/PhpStorm.png": "./static/media/PhpStorm.d16f930766c1211b511d.png",
     "static/media/WebStorm.png": "./static/media/WebStorm.9cc5ff8e8a88905d827e.png",
@@ -24,7 +26,7 @@
     "static/media/sun-svgrepo-com.svg": "./static/media/sun-svgrepo-com.feb83a4d8ef6c1fb9191d1d47071bf5f.svg",
     "static/media/Bitbucket.svg": "./static/media/Bitbucket.b2765e1d86fe17ef941b1d5e028cf24a.svg",
     "static/media/setting-svgrepo-com.svg": "./static/media/setting-svgrepo-com.0edc7518f54a24f973cae12a13c87e3d.svg",
-    "static/media/Outlook.svg": "./static/media/Outlook.069de29f3773012bd623a9f895e1c0e1.svg",
+    "static/media/Outlook.svg": "./static/media/Outlook.bdc256a139c6f5f7a15d6f091053e93d.svg",
     "static/media/link.svg": "./static/media/link.d4dc06508c1b4c4bc98ffaa2f58348df.svg",
     "static/media/Github.svg": "./static/media/Github.a81afef89db87a9cddd56091a955671f.svg",
     "static/media/YandexLogo.svg": "./static/media/YandexLogo.10428c562be017d3a6e726843d5bd58e.svg",
@@ -37,12 +39,12 @@
     "static/media/eyeClosed.svg": "./static/media/eyeClosed.3ebd2375eed9987706f580bb45f1e2a0.svg",
     "static/media/lock-round-svgrepo-com.svg": "./static/media/lock-round-svgrepo-com.075d0678638c3c194157d3f818627f9d.svg",
     "static/media/Plus.svg": "./static/media/Plus.d3c334e9bd3d33014ff6e9b71931bd47.svg",
-    "main.d77e0336.css.map": "./static/css/main.d77e0336.css.map",
-    "main.006b4f05.js.map": "./static/js/main.006b4f05.js.map",
+    "main.2b06b96d.css.map": "./static/css/main.2b06b96d.css.map",
+    "main.dd267f6a.js.map": "./static/js/main.dd267f6a.js.map",
     "787.98651143.chunk.js.map": "./static/js/787.98651143.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d77e0336.css",
-    "static/js/main.006b4f05.js"
+    "static/css/main.2b06b96d.css",
+    "static/js/main.dd267f6a.js"
   ]
 }
