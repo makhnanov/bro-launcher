@@ -19,7 +19,87 @@ const KateSlide = ({}) => {
                                     Expenses
                                 </div>
                                 <div className={"kate-subheader"}>
-                                    Last month
+                                    Last month: Total: 16.57K
+                                </div>
+                                <div className={"kate-expenses-container"}>
+                                    <div className={"kate-expenses-container-column"}>
+                                        <div className={"kate-expenses-top"}>
+                                            <div className={"kate-expenses-week-counter-wrapper"}>
+                                                <div className={"kate-expenses-week-counter"}>
+                                                    3
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={"kate-expenses-bottom"}>
+                                            <div className={"kate-expenses-week-container"}>
+                                                Week 1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-expenses-container-column"}>
+                                        <div className={"kate-expenses-top"}>
+                                            <div className={"kate-expenses-week-counter-wrapper kate-expenses-week-counter-wrapper_114"}>
+                                                <div className={"kate-expenses-week-counter"}>
+                                                    4.8
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={"kate-expenses-bottom"}>
+                                            <div className={"kate-expenses-week-container"}>
+                                                Week 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-expenses-container-column"}>
+                                        <div className={"kate-expenses-top"}>
+                                            <div className={"kate-expenses-week-counter-wrapper kate-expenses-week-counter-wrapper_100"}>
+                                                <div className={"kate-expenses-week-counter"}>
+                                                    4.5
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={"kate-expenses-bottom"}>
+                                            <div className={"kate-expenses-week-container"}>
+                                                Week 3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-expenses-container-column"}>
+                                        <div className={"kate-expenses-top"}>
+                                            <div className={"kate-expenses-week-counter-wrapper kate-expenses-week-counter-wrapper_92"}>
+                                                <div className={"kate-expenses-week-counter"}>
+                                                    4.2
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={"kate-expenses-bottom"}>
+                                            <div className={"kate-expenses-week-container kate-expenses-week-container_active"}>
+                                                Week 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-expenses-container-column"}>
+                                        <div className={"kate-expenses-top kate-expenses-top-numbers"}>
+                                            <div>
+                                                5K
+                                            </div>
+                                            <div>
+                                                4K
+                                            </div>
+                                            <div>
+                                                3K
+                                            </div>
+                                            <div>
+                                                2K
+                                            </div>
+                                            <div>
+                                                1K
+                                            </div>
+                                        </div>
+                                        <div className={"kate-expenses-bottom"}>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className={"kate-water-tracker"}>

@@ -248,3 +248,86 @@
     text-align: left;
     padding-top: 13px;
 }
+
+.kate-expenses-container {
+    display: flex;
+    width: 100%;
+    /*border: 1px solid white;*/
+    height: calc(100% - 45px - 21px);
+    color: #949494;
+    font-family: "Signika", serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+}
+
+.kate-expenses-top {
+    display: flex;
+    height: 75%;
+    /*border: 1px solid white;*/
+}
+
+.kate-expenses-bottom {
+    height: 20%;
+    /*border: 1px solid white;*/
+    align-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kate-expenses-container-column {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kate-expenses-top-numbers {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.kate-expenses-week-container {
+
+}
+
+.kate-expenses-week-container_active {
+    border-radius: 10px;
+    background: #7DADD9;
+    color: black;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.kate-expenses-week-counter {
+    margin-bottom: auto;
+    color: black;
+    width: 30px;
+    padding-top: 7px;
+}
+
+.kate-expenses-week-counter-wrapper_114 {
+    height: 114px !important;
+}
+
+.kate-expenses-week-counter-wrapper_100 {
+    height: 100px !important;
+}
+
+.kate-expenses-week-counter-wrapper_92 {
+    height: 92px !important;
+    background: linear-gradient(180deg, #7EA4C7 46.11%, #FFF 96.71%) !important;
+}
+
+.kate-expenses-week-counter-wrapper {
+    height: 69px;
+    margin-top: auto;
+    border-radius: 15px;
+    background: #7DADD9;
+}

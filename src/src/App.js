@@ -563,12 +563,12 @@ function App() {
                     <a href={localProjectPathForWebStorm}>
                         <img src={WebStorm} className={"ws-dev-mode menu-item"} style={{
                             display: settingsDeveloperMode ? "inline" : "none"
-                        }}/>
+                        }} alt={"WebStorm"}/>
                     </a>
                     <a href={localProjectPathForPhpStorm}>
                         <img src={PhpStorm} className={"ws-dev-mode_second menu-item"} style={{
                             display: settingsDeveloperMode ? "inline" : "none"
-                        }}/>
+                        }} alt={"PhpStorm"}/>
                     </a>
                     <img src={Github} className={'gh-icon-in-header-dev menu-item'} onClick={(e) => {
                         window.open("https://github.com/makhnanov/bro-launcher/blob/master/ToDo.md", '_blank')
