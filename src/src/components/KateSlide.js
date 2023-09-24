@@ -109,6 +109,123 @@ const KateSlide = ({}) => {
                                 <div className={"kate-subheader"}>
                                     This week
                                 </div>
+                                <div className={"kate-water-tracker-container"}>
+                                    <div className={"kate-water-tracker-column kate-water-tracker-glasses-count"}>
+                                        <div className={"kate-water-top"}>
+
+                                        </div>
+                                        <div className={"kate-water-bottom kate-water-bottom_counter"}>
+                                            <div>
+                                                8
+                                            </div>
+                                            <div>
+                                                7
+                                            </div>
+                                            <div>
+                                                6
+                                            </div>
+                                            <div>
+                                                5
+                                            </div>
+                                            <div>
+                                                4
+                                            </div>
+                                            <div>
+                                                3
+                                            </div>
+                                            <div>
+                                                2
+                                            </div>
+                                            <div>
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            Mo
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            Tu
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done kate-water-done_60"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            We
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done kate-water-done_100"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            Th
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done kate-water-done_70"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            Fr
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done kate-water-done_40"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            Sa
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done kate-water-done_0"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"kate-water-tracker-column"}>
+                                        <div className={"kate-water-top"}>
+                                            Su
+                                        </div>
+                                        <div className={"kate-water-bottom"}>
+                                            <div className={"kate-water-total"}>
+                                                <div className={"kate-water-done kate-water-done_0"}>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className={"kate-weight-tracker"}>

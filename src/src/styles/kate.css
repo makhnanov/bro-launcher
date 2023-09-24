@@ -331,3 +331,74 @@
     border-radius: 15px;
     background: #7DADD9;
 }
+
+.kate-water-tracker-container {
+    display: flex;
+    height: calc(100% - 45px - 21px);
+}
+
+.kate-water-tracker-glasses-count {
+
+}
+
+.kate-water-tracker-column {
+    height: 100%;
+    width: 12%;
+}
+
+.kate-water-bottom_counter {
+    display: flex;
+    flex-direction: column;
+}
+
+.kate-water-top {
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px;
+    color: #949494;
+}
+
+.kate-water-bottom {
+    height: 80%;
+    font-size: 14px;
+    color: #949494;
+    display: flex;
+    justify-content: center;
+}
+
+.kate-water-total {
+    height: 100%;
+    width: 20px;
+    border-radius: 20px;
+    background-color: white;
+    flex-direction: column-reverse;
+    display: flex;
+    overflow: hidden;
+}
+
+.kate-water-done {
+    background-color: #7DADD9;
+    height: 85%
+}
+
+.kate-water-done_100 {
+    height: 100%
+}
+
+.kate-water-done_70 {
+    height: 70%
+}
+
+.kate-water-done_60 {
+    height: 60%
+}
+
+.kate-water-done_40 {
+    height: 40%
+}
+
+.kate-water-done_0 {
+    height: 0;
+}
