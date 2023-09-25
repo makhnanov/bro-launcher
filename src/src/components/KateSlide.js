@@ -235,11 +235,480 @@ const KateSlide = ({}) => {
                             <div className={"kate-subheader"}>
                                 Last month
                             </div>
+                            <div className={"kate-weight-graph-wrapper"}>
+                                <div className={"kate-weight-graph"}>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            1
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            2
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            3
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            4
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            5
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            6
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            7
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            8
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
+                                            9
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            10
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            11
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            12
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            13
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            14
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            15
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            16
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            17
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            18
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            19
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            20
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            21
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            22
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            23
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            24
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            25
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            26
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            27
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            28
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            29
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            30
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-col"}>
+                                        <div className={"kate-weight-graph-col-top"}>
+
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom"}>
+                                            31
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={"kate-weight-graph-y"}>
+                                    <div className={"kate-weight-graph-y-top"}>
+                                        <div className={"kate-weight-graph-y-top-text"}>
+                                            80
+                                        </div>
+                                        <div className={"kate-weight-graph-y-top-text"}>
+                                            75
+                                        </div>
+                                        <div className={"kate-weight-graph-y-top-text"}>
+                                            70
+                                        </div>
+                                        <div className={"kate-weight-graph-y-top-text"}>
+                                            65
+                                        </div>
+                                        <div className={"kate-weight-graph-y-top-text"}>
+                                            60
+                                        </div>
+                                        <div className={"kate-weight-graph-y-top-text"}>
+                                            55
+                                        </div>
+                                    </div>
+                                    <div className={"kate-weight-graph-y-bottom"}>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className={"kate-left-bottom"}>
                             <div className={"kate-calendar"}>
+
                                 <div className={"kate-header kate-font"}>
                                     March
+                                </div>
+
+                                <div className={"kate-calendar-days"}>
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            Mo
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            27
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            6
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            13
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            20
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            27
+                                        </div>
+                                    </div>
+
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            Tu
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            28
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            7
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            14
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            21
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            28
+                                        </div>
+                                    </div>
+
+
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            We
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            1
+                                        </div>
+                                        <div className={"kate-calendar-one-day kate-calendar-one-day_holiday"}>
+                                            8
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            15
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            22
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            29
+                                        </div>
+                                    </div>
+
+
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            Th
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            2
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            9
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            16
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            23
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            30
+                                        </div>
+                                    </div>
+
+
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            Fr
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            3
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            10
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            17
+                                        </div>
+                                        <div className={"kate-calendar-one-day kate-calendar-one-day_current-day"}>
+                                            24
+                                        </div>
+                                        <div className={"kate-calendar-one-day kate-calendar-one-day_deadline"}>
+                                            31
+                                        </div>
+                                    </div>
+
+
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            Sa
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            4
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            11
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            18
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            25
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            1
+                                        </div>
+                                    </div>
+
+
+                                    <div className={"kate-calendar-day-column"}>
+                                        <div className={"kate-calendar-day-of-week"}>
+                                            Su
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            5
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            12
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            19
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            26
+                                        </div>
+                                        <div className={"kate-calendar-one-day"}>
+                                            2
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={"kate-calendar-types"}>
+                                    <div className={"kate-calendar-type"}>
+                                        <div className={"kate-calendar-type-color kate-calendar-type_meeting"}>
+                                        </div>
+                                        <div className={"kate-calendar-type-text"}>
+                                            Meeting
+                                        </div>
+                                    </div>
+                                    <div className={"kate-calendar-type"}>
+                                        <div className={"kate-calendar-type-color kate-calendar-type_holiday"}>
+                                        </div>
+                                        <div className={"kate-calendar-type-text"}>
+                                            Holiday
+                                        </div>
+                                    </div>
+                                    <div className={"kate-calendar-type"}>
+                                        <div className={"kate-calendar-type-color kate-calendar-type_custom"}>
+                                        </div>
+                                        <div className={"kate-calendar-type-text"}>
+                                            Custom
+                                        </div>
+                                    </div>
+                                    <div className={"kate-calendar-type"}>
+                                        <div className={"kate-calendar-type-color kate-calendar-type_deadline"}>
+                                        </div>
+                                        <div className={"kate-calendar-type-text"}>
+                                            Deadline
+                                        </div>
+                                    </div>
+                                    <div className={"kate-calendar-type"}>
+                                        <div className={"kate-calendar-type-color kate-calendar-type_current-day"}>
+                                        </div>
+                                        <div className={"kate-calendar-type-text"}>
+                                            Current day
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className={"kate-notes"}>

@@ -101,6 +101,8 @@
     width: calc(50% - 8px);
     border-radius: 15px;
     background: rgba(0, 0, 0, 0.40);
+    display: flex;
+    flex-direction: column;
 }
 
 .kate-day-header {
@@ -401,4 +403,154 @@
 
 .kate-water-done_0 {
     height: 0;
+}
+
+.kate-calendar-days {
+    padding-top: 2px;
+    gap: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kate-calendar-day-of-week {
+    font-size: 15px;
+    color: white;
+}
+
+.kate-calendar-day-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.kate-calendar-one-day {
+    display: flex;
+    align-self: center;
+    font-size: 13px;
+    color: #949494;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    justify-content: center;
+    padding: 1px;
+    line-height: 17px;
+}
+
+.kate-calendar-one-day_holiday {
+    background-color: #5A9F9B;
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.kate-calendar-one-day_current-day {
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #7DADD9;
+}
+
+.kate-calendar-one-day_deadline {
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #74424E;
+}
+
+.kate-calendar-types {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4px;
+    row-gap: 8px;
+    margin-left: 18px;
+    margin-top: 6px;
+}
+
+.kate-calendar-type {
+    display: flex;
+    min-width: 87px;
+}
+
+.kate-calendar-type-color {
+    width: 13px;
+    height: 13px;
+    border-radius: 10px;
+}
+
+.kate-calendar-type-text {
+    height: 13px;
+    font-size: 16px;
+    padding-left: 7px;
+    color: #949494;
+}
+
+.kate-calendar-type_meeting {
+    background-color: #7E6FA9;
+}
+
+.kate-calendar-type_holiday {
+    background-color: #5A9F9B;
+}
+
+.kate-calendar-type_custom {
+    background-color: #A6A475;
+}
+
+.kate-calendar-type_deadline {
+    background-color: #74424E;
+}
+
+.kate-calendar-type_current-day {
+    background-color: #7DADD9;
+}
+
+.kate-weight-graph-col {
+    height: 100%;
+}
+
+.kate-weight-graph-wrapper {
+    height: calc(100% - 106px);
+    display: flex;
+}
+
+.kate-weight-graph {
+    height: 100%;
+    display: flex;
+    width: 530px;
+    justify-content: space-between;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.kate-weight-graph-col-top {
+    height: 100%;
+    border-right: 2px dashed #9494941A;
+    width: 1px;
+}
+
+.kate-weight-graph-col-bottom {
+    width: 3px;
+    font-size: 13px;
+    color: #949494;
+    margin-left: -6px;
+    margin-top: 8px;
+}
+
+.kate-weight-graph-col-bottom_first {
+    margin-left: -2px;
+}
+
+.kate-weight-graph-y-top {
+    height: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    margin-top: 10px;
+}
+
+.kate-weight-graph-y-top-text {
+    color: #949494;
+    font-size: 15px;
 }
