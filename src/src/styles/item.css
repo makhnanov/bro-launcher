@@ -1,6 +1,5 @@
 .grid-container-wrapper {
     padding-top: 6px;
-    min-height: calc(100vh - 171px);
     transition: all 500ms ease-in-out;
 }
 
