@@ -12,9 +12,9 @@
 ## Step 2: Select one of the installation options:
 
 ### Option 1: Install app via only html & css & js build (Easiest)
-#### Download and unzip build
-[Download build](https://github.com/makhnanov/bro-launcher-build/archive/refs/heads/main.zip)
-#### Open index.html and copy url
+#### Download latest release and unzip build
+[Download build](https://github.com/makhnanov/bro-launcher/releases)
+#### Open src/public/index.html and copy url
 
 ### Option 2: Install server via docker (For advanced users)
 ```shell
