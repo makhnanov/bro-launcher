@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import '../styles/kate.css'
 import "../fonts/Signika-Regular.ttf";
 import Teeth from "../img/dailyHabbits/teeth.png"
@@ -9,44 +9,40 @@ import Clean from "../img/dailyHabbits/clean.png"
 
 const KateSlide = ({}) => {
 
+    const canvasRef = useRef(null)
+
     useEffect(() => {
-        return () => {
-            let canvas = document.getElementById('kate-weight-graph-canvas');
-            console.log("canvas")
-            console.log(canvas && canvas.getContext)
-            if (canvas && canvas.getContext) {
-                var context = canvas.getContext('2d');
-                context.beginPath(); // Start a new path
-                context.moveTo(0, 20); // Move the pen to (30, 50)
-                context.lineTo(10, 18); // Draw a line to (150, 100)
-                context.lineTo(20, 18); // Draw a line to (150, 100)
-                context.lineTo(30, 31); // Draw a line to (150, 100)
-                context.lineTo(40, 31); // Draw a line to (150, 100)
-                context.lineTo(50, 25); // Draw a line to (150, 100)
-                context.lineTo(60, 25); // Draw a line to (150, 100)
-                context.lineTo(70, 31); // Draw a line to (150, 100)
-                context.lineTo(80, 12); // Draw a line to (150, 100)
-                context.lineTo(90, 12); // Draw a line to (150, 100)
-                context.lineTo(100, 12); // Draw a line to (150, 100)
-                context.lineTo(110, 12); // Draw a line to (150, 100)
-                context.lineTo(120, 31); // Draw a line to (150, 100)
-                context.lineTo(130, 33); // Draw a line to (150, 100)
-                context.lineTo(140, 36); // Draw a line to (150, 100)
-                context.lineTo(150, 39); // Draw a line to (150, 100)
-                context.lineTo(160, 41); // Draw a line to (150, 100)
-                context.lineTo(170, 43); // Draw a line to (150, 100)
-                context.lineTo(180, 43); // Draw a line to (150, 100)
-                context.lineTo(190, 40); // Draw a line to (150, 100)
-                context.lineTo(200, 46); // Draw a line to (150, 100)
-                context.lineTo(210, 40); // Draw a line to (150, 100)
-                context.lineTo(220, 49); // Draw a line to (150, 100)
-                context.lineTo(230, 52); // Draw a line to (150, 100)
-                context.lineWidth = 2;
-                context.strokeStyle = '#949494';
-                context.stroke(); // Render the path
-            }
-        };
-    }, []);
+        const canvas = canvasRef.current
+        const context = canvas.getContext('2d')
+        context.strokeStyle = '#949494';
+        context.lineWidth = 2;
+        context.beginPath();
+        context.moveTo(0, 20);
+        context.lineTo(10, 18);
+        context.lineTo(20, 18);
+        context.lineTo(30, 31);
+        context.lineTo(40, 31);
+        context.lineTo(50, 25);
+        context.lineTo(60, 25);
+        context.lineTo(70, 31);
+        context.lineTo(80, 12);
+        context.lineTo(90, 12);
+        context.lineTo(100, 12);
+        context.lineTo(110, 12);
+        context.lineTo(120, 31);
+        context.lineTo(130, 33);
+        context.lineTo(140, 36);
+        context.lineTo(150, 39);
+        context.lineTo(160, 41);
+        context.lineTo(170, 43);
+        context.lineTo(180, 43);
+        context.lineTo(190, 40);
+        context.lineTo(200, 46);
+        context.lineTo(210, 40);
+        context.lineTo(220, 49);
+        context.lineTo(230, 52);
+        context.stroke();
+    }, [])
 
     return (<div className={"kate-slide"} style={{}}>
         <div className={"kate-wrapper"}>
@@ -580,7 +576,7 @@ const KateSlide = ({}) => {
                                     </div>
                                 </div>
 
-                                <canvas id={"kate-weight-graph-canvas"}></canvas>
+                                <canvas id={"kate-weight-graph-canvas"} ref={canvasRef}></canvas>
 
                                 <div id={"kate-weight-graph-want-weight"}></div>
                             </div>
