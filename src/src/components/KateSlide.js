@@ -12,7 +12,9 @@ const KateSlide = ({}) => {
     useEffect(() => {
         return () => {
             let canvas = document.getElementById('kate-weight-graph-canvas');
-            if(canvas && canvas.getContext) {
+            console.log("canvas")
+            console.log(canvas && canvas.getContext)
+            if (canvas && canvas.getContext) {
                 var context = canvas.getContext('2d');
                 context.beginPath(); // Start a new path
                 context.moveTo(0, 20); // Move the pen to (30, 50)
