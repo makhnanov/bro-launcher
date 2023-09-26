@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../styles/kate.css'
 import "../fonts/Signika-Regular.ttf";
 import Teeth from "../img/dailyHabbits/teeth.png"
@@ -8,6 +8,44 @@ import Gym from "../img/dailyHabbits/gym.png"
 import Clean from "../img/dailyHabbits/clean.png"
 
 const KateSlide = ({}) => {
+
+    useEffect(() => {
+        return () => {
+            let canvas = document.getElementById('kate-weight-graph-canvas');
+            if(canvas && canvas.getContext) {
+                var context = canvas.getContext('2d');
+                context.beginPath(); // Start a new path
+                context.moveTo(0, 20); // Move the pen to (30, 50)
+                context.lineTo(10, 18); // Draw a line to (150, 100)
+                context.lineTo(20, 18); // Draw a line to (150, 100)
+                context.lineTo(30, 31); // Draw a line to (150, 100)
+                context.lineTo(40, 31); // Draw a line to (150, 100)
+                context.lineTo(50, 25); // Draw a line to (150, 100)
+                context.lineTo(60, 25); // Draw a line to (150, 100)
+                context.lineTo(70, 31); // Draw a line to (150, 100)
+                context.lineTo(80, 12); // Draw a line to (150, 100)
+                context.lineTo(90, 12); // Draw a line to (150, 100)
+                context.lineTo(100, 12); // Draw a line to (150, 100)
+                context.lineTo(110, 12); // Draw a line to (150, 100)
+                context.lineTo(120, 31); // Draw a line to (150, 100)
+                context.lineTo(130, 33); // Draw a line to (150, 100)
+                context.lineTo(140, 36); // Draw a line to (150, 100)
+                context.lineTo(150, 39); // Draw a line to (150, 100)
+                context.lineTo(160, 41); // Draw a line to (150, 100)
+                context.lineTo(170, 43); // Draw a line to (150, 100)
+                context.lineTo(180, 43); // Draw a line to (150, 100)
+                context.lineTo(190, 40); // Draw a line to (150, 100)
+                context.lineTo(200, 46); // Draw a line to (150, 100)
+                context.lineTo(210, 40); // Draw a line to (150, 100)
+                context.lineTo(220, 49); // Draw a line to (150, 100)
+                context.lineTo(230, 52); // Draw a line to (150, 100)
+                context.lineWidth = 2;
+                context.strokeStyle = '#949494';
+                context.stroke(); // Render the path
+            }
+        };
+    }, []);
+
     return (<div className={"kate-slide"} style={{}}>
         <div className={"kate-wrapper"}>
             <div className={"kate-container"}>
@@ -239,7 +277,8 @@ const KateSlide = ({}) => {
                                 <div className={"kate-weight-graph"}>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point kate-weight-graph-col-top-point_10"}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             1
@@ -247,7 +286,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point kate-weight-graph-col-top-point_10"}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             2
@@ -255,7 +295,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point kate-weight-graph-col-top-point_10"}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             3
@@ -263,7 +304,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 20 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             4
@@ -271,15 +313,17 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 20 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             5
                                         </div>
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
-                                        <div className={"kate-weight-graph-col-top"}>
-
+                                        <div className={"kate-weight-graph-col-top"} >
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 15 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             6
@@ -287,7 +331,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 15 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             7
@@ -295,7 +340,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 20 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             8
@@ -303,7 +349,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 5 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_first"}>
                                             9
@@ -311,7 +358,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 5 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             10
@@ -319,7 +367,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 5 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             11
@@ -327,7 +376,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 5 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             12
@@ -335,7 +385,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 20 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             13
@@ -343,7 +394,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 22 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             14
@@ -351,7 +403,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 24 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             15
@@ -359,7 +412,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 27 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             16
@@ -367,7 +421,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 29 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             17
@@ -375,7 +430,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 30 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             18
@@ -383,7 +439,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 30 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             19
@@ -391,7 +448,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 28 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             20
@@ -399,7 +457,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 32 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             21
@@ -407,7 +466,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 28 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             22
@@ -415,7 +475,8 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
-
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 34 + "px"}}>
+                                            </div>
                                         </div>
                                         <div className={"kate-weight-graph-col-bottom"}>
                                             23
@@ -423,9 +484,13 @@ const KateSlide = ({}) => {
                                     </div>
                                     <div className={"kate-weight-graph-col"}>
                                         <div className={"kate-weight-graph-col-top"}>
+                                            <div className={"kate-weight-graph-col-top-point"} style={{marginTop: 36 + "px"}}>
+                                            </div>
+                                        </div>
+                                        <div className={"kate-weight-graph-col-bottom_active"}>
 
                                         </div>
-                                        <div className={"kate-weight-graph-col-bottom"}>
+                                        <div className={"kate-weight-graph-col-bottom kate-weight-graph-col-bottom_text"}>
                                             24
                                         </div>
                                     </div>
@@ -485,6 +550,7 @@ const KateSlide = ({}) => {
                                             31
                                         </div>
                                     </div>
+
                                 </div>
                                 <div className={"kate-weight-graph-y"}>
                                     <div className={"kate-weight-graph-y-top"}>
@@ -511,6 +577,10 @@ const KateSlide = ({}) => {
 
                                     </div>
                                 </div>
+
+                                <canvas id={"kate-weight-graph-canvas"}></canvas>
+
+                                <div id={"kate-weight-graph-want-weight"}></div>
                             </div>
                         </div>
                         <div className={"kate-left-bottom"}>

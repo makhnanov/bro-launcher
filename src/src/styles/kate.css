@@ -554,3 +554,49 @@
     color: #949494;
     font-size: 15px;
 }
+
+#kate-weight-graph-canvas {
+    position: absolute;
+    left: 82px;
+    top: 381px;
+    width: 526px;
+    height: 120px;
+}
+
+.kate-weight-graph-col-top-point {
+    margin-left: -3px;
+    background-color: #949494;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.kate-weight-graph-col-top-point_10 {
+    margin-top: 10px;
+}
+
+.kate-weight-graph-col-bottom_active {
+    background-color: #7DADD9;
+    width: 19px;
+    height: 18px;
+    position: absolute;
+    margin-top: 6px;
+    margin-left: -8px;
+    border-radius: 9px;
+}
+
+.kate-weight-graph-col-bottom_text {
+    position: absolute;
+    font-weight: 600;
+    color: black;
+}
+
+#kate-weight-graph-want-weight {
+    position: absolute;
+    width: 530px;
+    height: 1px;
+    border-top: 2px solid #7DADD9;
+    margin-top: 62px;
+    margin-left: 20px;
+}
