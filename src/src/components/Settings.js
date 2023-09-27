@@ -183,17 +183,6 @@ const Settings = ({
 
                             <div>
                                 <input type="checkbox"
-                                       checked={settingsKate}
-                                       onChange={toggleSettingsKate}
-                                       id={"settings-kate"}
-                                />
-                                <label for={"settings-kate"} className={"settings__open-bookmark-label"}>
-                                    Kates's Style
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox"
                                        checked={settingsNotes}
                                        onChange={toggleSettingsNotes}
                                        id={"settings-notes"}

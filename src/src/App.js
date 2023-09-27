@@ -27,7 +27,6 @@ import GoogleLogo from './img/GoogleLogo.svg';
 import DuckDuckGo from './img/DuckDuckGo.svg';
 import YandexLogo from './img/YandexLogo.svg';
 import Lock from "./img/lock-round-svgrepo-com.svg";
-import KateBackend from "./img/KateBackground.webp";
 
 // Css
 import './App.css';
@@ -43,7 +42,6 @@ import Notes from "./components/Notes";
 import ItemContext from "./components/ItemContext";
 import Settings from "./components/Settings";
 import Tabex from "./widgets/Tabex";
-import KateSlide from "./components/KateSlide";
 
 // Vendor
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
@@ -58,7 +56,7 @@ import main from "./Main";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '1.9.7';
+const appVersion = '2.0.0';
 
 function App() {
 
@@ -457,11 +455,6 @@ function App() {
         localStorage.setItem("settingsDeveloperMode", (!settingsDeveloperMode).toString())
     }
 
-    // const thumbnail = [
-    //     require('./img/Jira.png'),
-    //     require('./img/16yo.jpeg'),
-    // ];
-
     const mainOptions = {
         type: 'loop',
         perPage: 1,
@@ -474,15 +467,7 @@ function App() {
     const mainRef = useRef(null);
 
     const handleThumbs = (id) => {
-        let allThumbnails = document.getElementsByClassName("thumbnail")
-        for (let i = 0; i < allThumbnails.length; i++) {
-            if (allThumbnails.item(i).classList.contains("thumbnail_active")) {
-                allThumbnails.item(i).classList.remove("thumbnail_active")
-            }
-            if (id === i) {
-                allThumbnails.item(i).classList.add("thumbnail_active")
-            }
-        }
+        id = "Default"
         localStorage.setItem('currentTab', tabs[id] ?? "Default");
         setCurrentTab(tabs[id] ?? "Default");
         mainRef.current.go(id);
@@ -492,7 +477,7 @@ function App() {
         localStorage.setItem("tabs", JSON.stringify(["Default"]));
     }
 
-    const [tabs, setTabs] = useState(JSON.parse(localStorage.getItem("tabs")))
+    const [tabs, setTabs] = useState(['Default'])
 
     const [settingsKate, setSettingsKate] = useState(getOrSetSetting("settingsKate", false))
     const toggleSettingsKate = () => {
@@ -522,7 +507,6 @@ function App() {
         style={{
             filter: !isActive ? 'none' : '',
             backgroundColor: !isActive ? 'rgba(0, 0, 0, 0)' : "",
-            backgroundImage: currentTab === "Kates's Style" ? `url(${KateBackend})` : "",
         }}
     >
         <div className="App-header" style={{opacity: !isActive ? '0' : '1'}}>
@@ -772,8 +756,6 @@ function App() {
                         toggleSettingsNotes={toggleSettingsNotes}
                         settingsDeveloperMode={settingsDeveloperMode}
                         toggleSettingsDeveloperMode={toggleSettingsDeveloperMode}
-                        settingsKate={settingsKate}
-                        toggleSettingsKate={toggleSettingsKate}
                     >
                     </Settings>
 
@@ -859,8 +841,7 @@ function App() {
                     </Modal>
                 </SplideSlide>
                 <SplideSlide>
-                    <KateSlide>
-                    </KateSlide>
+                    <div>This is test</div>
                 </SplideSlide>
             </Splide>
         </div>
