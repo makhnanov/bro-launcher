@@ -62,7 +62,7 @@ svg.notes__add-note-plus-svg {
 }
 
 .one-note textarea {
-    width: 166px;
+    width: 66px;
     outline: none;
     min-width: 44px;
     border-top-left-radius: 7px;
@@ -156,7 +156,7 @@ svg.notes__add-note-plus-svg {
     position: relative;
     top: -1px;
     overflow: hidden;
-    min-height: 18px;
+    min-height: 27px;
     white-space: pre;
     overflow-wrap: normal;
     overflow-x: scroll;
@@ -169,9 +169,9 @@ svg.notes__add-note-plus-svg {
 
 .where-note-container-wrapper {
     border-radius: 8px 8px 0 8px;
-    min-width: 100px;
-    max-width: 100px;
-    min-height: 42px;
+    /*min-width: 100px;*/
+    /*max-width: 100px;*/
+    min-height: 33px;
     text-wrap: wrap;
 }
 

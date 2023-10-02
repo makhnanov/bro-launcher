@@ -27,6 +27,13 @@ const Notes = ({menuHidden, settingsNotes}) => {
         localStorage.setItem("notes", JSON.stringify(newNotes))
     }
 
+    const setNoteMinHeight = (index, height) => {
+        let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
+        newNotes[index].minHeight = height;
+        setNotes(newNotes);
+        localStorage.setItem("notes", JSON.stringify(newNotes))
+    }
+
     const changeNoteHidden = (index) => {
         let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
         newNotes[index].hidden = !(newNotes[index]?.hidden ?? false);
@@ -63,6 +70,7 @@ const Notes = ({menuHidden, settingsNotes}) => {
                 changeNoteSize={changeNoteSize}
                 changeNoteHidden={changeNoteHidden}
                 changeNoteMode={changeNoteMode}
+                setNoteMinHeight={setNoteMinHeight}
             />
         </div>);
 };

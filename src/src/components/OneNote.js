@@ -20,7 +20,8 @@ const OneNote = ({
                      setActiveIndex,
                      changeNoteHidden,
                      changeNoteMode,
-                     type
+                     type,
+                     setNoteMinHeight
                  }) => {
     const ref = useRef(null);
 
@@ -30,14 +31,15 @@ const OneNote = ({
         if (ref.current) {
             let lastScrollHeight = e.target.scrollHeight;
             ref.current.style.removeProperty("min-height")
-            ref.current.style.height = 19 + "px";
+            ref.current.style.height = 27 + "px";
             ref.current.style.minHeight = (e.target.scrollHeight + 8) + "px";
+            note.minHeight = e.target.scrollHeight + 8;
+            setNoteMinHeight(index, note.minHeight)
             ref.current.style.height = parseInt(lastScrollHeight) + 8 + "px";
             if (e.target.scrollHeight > note.height) {
                 ref.current.style.height = (e.target.scrollHeight + 8) + "px";
                 note.height = (e.target.scrollHeight);
             }
-
             if (note.width) {
                 ref.current.style.width = note.width - magic + 'px';
             }
@@ -45,9 +47,8 @@ const OneNote = ({
     };
 
     useEffect(() => {
-        ref.current.style.height = 19 + "px";
-        ref.current.style.minHeight = ref.current.scrollHeight + magic + "px";
-
+        // ref.current.style.height = 19 + "px";
+        // ref.current.style.minHeight = ref.current.scrollHeight + magic + "px";
         const observer = new ResizeObserver(() => {
             if (ref.current) {
                 if (ref.current.offsetHeight > ref.current.scrollHeight) {
@@ -56,7 +57,9 @@ const OneNote = ({
                     note.height = ref.current.scrollHeight
                 }
                 note.width = ref.current.offsetWidth
-                changeNoteSize(index, note.width, note.height)
+                if (note.width) {
+                    changeNoteSize(index, note.width, note.height)
+                }
             }
         });
         observer.observe(ref.current);
@@ -66,6 +69,10 @@ const OneNote = ({
         }
         if (note.width) {
             ref.current.style.width = (note.width - magic) + 'px';
+        }
+        if (note?.minHeight) {
+            console.log(note.minHeight)
+            ref.current.style.minHeight = note.minHeight + 'px';
         }
 
     }, []);
@@ -89,30 +96,35 @@ const OneNote = ({
         </LinksColumn>
         <div
             className={"where-note-container-wrapper"}
-            onClick={(e) => {
-                changeNoteHidden(index);
-                // resizeRef();
+            onClick={() => {
+                if (note?.hidden) {
+                    changeNoteHidden(index);
+                }
             }}
             style={{
                 overflow: "hidden",
                 backgroundColor: "#ffc107",
-                border: '2px solid #ffc107',
-                maxWidth: !note?.hidden ? 'unset' : '',
-                minWidth: !note?.hidden ? 'unset' : '',
-                minHeight: !note?.hidden ? 'unset' : '',
+                border: "2px solid #ffc107",
+                minWidth: note?.hidden ? '100px' : '',
+                maxWidth: note?.hidden ? '100px' : '',
+                maxHeight: note?.hidden ? '41px' : '',
+                minHeight: note?.hidden ? '41px' : '',
             }}
         >
             <div
                 className={"where-note-container"}
-                style={{display: note?.hidden ? 'flex' : 'none'}}
+                style={{
+                    display: note?.hidden ? 'flex' : 'none',
+                }}
             >
-                <div className={"where-text"}>
-                    { note.content.length
+                <div
+                    className={"where-text"}
+                    style={{overflowWrap: 'anywhere'}}>
+                    {note.content.length
                         ? note.content.split("\n")[0]
                         : "Note " + (index + 1) + " hidden"
                     }
                 </div>
-                <img src={DontKnow} alt={"Where?"} className={'where-note'}/>
             </div>
             <textarea
                 style={{

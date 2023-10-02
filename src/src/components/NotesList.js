@@ -5,7 +5,7 @@ import React, {useState} from "react";
 import {ReactComponent as PlusImage} from '../img/Plus.svg';
 import {ReactComponent as SettingImage} from '../img/setting-svgrepo-com.svg';
 
-const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, changeNoteHidden, changeNoteMode}) => {
+const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, changeNoteHidden, changeNoteMode, setNoteMinHeight}) => {
 
     const [activeTarget, setActiveTarget] = useState(null);
     const [activeIndex, setActiveIndex] = useState(null);
@@ -27,6 +27,7 @@ const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, change
                          changeNoteHidden={changeNoteHidden}
                          changeNoteMode={changeNoteMode}
                          type={"hidden"}
+                         setNoteMinHeight={setNoteMinHeight}
                 />))
             }
         </div>
@@ -45,6 +46,7 @@ const NotesList = ({notes, changeNote, dropNote, addNote, changeNoteSize, change
                      changeNoteHidden={changeNoteHidden}
                      changeNoteMode={changeNoteMode}
                      type={"active"}
+                     setNoteMinHeight={setNoteMinHeight}
             />))
         }
         <div className={`notes__settings`} onClick={() => {
