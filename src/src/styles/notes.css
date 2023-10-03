@@ -222,7 +222,7 @@ svg.notes__add-note-plus-svg {
     border-radius: 10px;
 }
 .closed-notes {
-    max-width: 343px;
+    max-width: 350px;
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;

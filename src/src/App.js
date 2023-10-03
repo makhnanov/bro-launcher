@@ -56,7 +56,7 @@ import main from "./Main";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '2.0.2';
+const appVersion = '2.0.3';
 
 function App() {
 
