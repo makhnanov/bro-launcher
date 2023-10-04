@@ -1,6 +1,10 @@
 import React from "react";
 import LinkImg from "../img/link.svg"
 import Jira from "../img/Jira.png"
+import Figma from "../img/Figma.png"
+import GoogleDrive from "../img/icons8-google-drive-48.png"
+import GoogleSheets from "../img/icons8-google-sheets.svg"
+import GoogleDocs from "../img/icons8-google-docs.svg"
 
 const LinksColumn = ({links, noteHidden}) => {
     return (<div className={`links-column`} style={{
@@ -20,7 +24,15 @@ const LinksColumn = ({links, noteHidden}) => {
                     src={
                         link.url.toLowerCase().includes('jira')
                             ? Jira
-                            : LinkImg
+                            : link.url.toLowerCase().includes('figma')
+                                ? Figma
+                                : link.url.toLowerCase().startsWith('https://docs.google.com/spreadsheets')
+                                    ? GoogleSheets
+                                    : link.url.toLowerCase().startsWith('https://docs.google.com/document')
+                                        ? GoogleDocs
+                                        :  link.url.toLowerCase().startsWith('https://drive.google.com/drive')
+                                            ? GoogleDrive
+                                            : LinkImg
                     }
                     alt={'Link'}
                     className={`link-icon 
