@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.44436d9a.css",
-    "main.js": "./static/js/main.c2e31a1a.js",
+    "main.js": "./static/js/main.bc5d4570.js",
     "static/js/787.98651143.chunk.js": "./static/js/787.98651143.chunk.js",
     "static/media/BackgroundOfficeMountainsEpic.webp": "./static/media/BackgroundOfficeMountainsEpic.cb330544130ded945429.webp",
     "static/media/Jira.png": "./static/media/Jira.9a53935a35cb6eb110c6.png",
@@ -40,11 +40,11 @@
     "static/media/icons8-google-sheets.svg": "./static/media/icons8-google-sheets.96d2afb774e8f4c8d816a14e8aee3ce5.svg",
     "static/media/icons8-google-docs.svg": "./static/media/icons8-google-docs.761aeeb2accb3ec9efff0fd76394d936.svg",
     "main.44436d9a.css.map": "./static/css/main.44436d9a.css.map",
-    "main.c2e31a1a.js.map": "./static/js/main.c2e31a1a.js.map",
+    "main.bc5d4570.js.map": "./static/js/main.bc5d4570.js.map",
     "787.98651143.chunk.js.map": "./static/js/787.98651143.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.44436d9a.css",
-    "static/js/main.c2e31a1a.js"
+    "static/js/main.bc5d4570.js"
   ]
 }

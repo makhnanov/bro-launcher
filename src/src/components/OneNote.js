@@ -47,8 +47,6 @@ const OneNote = ({
     };
 
     useEffect(() => {
-        // ref.current.style.height = 19 + "px";
-        // ref.current.style.minHeight = ref.current.scrollHeight + magic + "px";
         const observer = new ResizeObserver(() => {
             if (ref.current) {
                 if (ref.current.offsetHeight > ref.current.scrollHeight) {
@@ -71,7 +69,7 @@ const OneNote = ({
             ref.current.style.width = (note.width - magic) + 'px';
         }
         if (note?.minHeight) {
-            console.log(note.minHeight)
+            // console.log(note.minHeight)
             ref.current.style.minHeight = note.minHeight + 'px';
         }
 
@@ -83,6 +81,8 @@ const OneNote = ({
             textChangedLinks.push({url: e, index: index})
         }
     })
+
+    console.log()
 
     const [links, setLinks] = useState(textChangedLinks);
 
@@ -104,11 +104,18 @@ const OneNote = ({
             style={{
                 overflow: "hidden",
                 backgroundColor: "#ffc107",
-                border: "2px solid #ffc107",
                 minWidth: note?.hidden ? '100px' : '',
                 maxWidth: note?.hidden ? '100px' : '',
-                maxHeight: note?.hidden ? '41px' : '',
                 minHeight: note?.hidden ? '41px' : '',
+                maxHeight: note?.hidden ? '41px' : '',
+                border:
+                    note?.hidden && note.content.split("\n").pop().match(/border: (#[0-9a-f]{3,6});/i)
+                        ? "2px solid " + note.content.split("\n").pop().match(/border: (#[0-9a-f]{3,6});/i)[1]
+                        : "2px solid #ffc107",
+                background:
+                    note?.hidden && note.content.split("\n").pop().match(/background: (#[0-9a-f]{3,6});/i)
+                        ? note.content.split("\n").pop().match(/background: (#[0-9a-f]{3,6});/i)[1]
+                        : "#ffc107",
             }}
         >
             <div
@@ -119,7 +126,13 @@ const OneNote = ({
             >
                 <div
                     className={"where-text"}
-                    style={{overflowWrap: 'anywhere'}}>
+                    style={{
+                        overflowWrap: 'anywhere',
+                        color:
+                            note?.hidden && note.content.split("\n").pop().match(/color: (#[0-9a-f]{3,6});/i)
+                                ? note.content.split("\n").pop().match(/color: (#[0-9a-f]{3,6});/i)[1]
+                                : "",
+                    }}>
                     {note.content.length
                         ? note.content.split("\n")[0]
                         : "Note " + (index + 1) + " hidden"
