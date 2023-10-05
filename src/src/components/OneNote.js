@@ -69,7 +69,6 @@ const OneNote = ({
             ref.current.style.width = (note.width - magic) + 'px';
         }
         if (note?.minHeight) {
-            // console.log(note.minHeight)
             ref.current.style.minHeight = note.minHeight + 'px';
         }
 
@@ -81,8 +80,6 @@ const OneNote = ({
             textChangedLinks.push({url: e, index: index})
         }
     })
-
-    console.log()
 
     const [links, setLinks] = useState(textChangedLinks);
 
@@ -157,7 +154,6 @@ const OneNote = ({
                     let textChangedLinks = [];
                     e.target.value.split('\n').forEach((e, index) => {
                         if (e.startsWith('http://') || e.startsWith('https://')) {
-                            // console.log(index)
                             textChangedLinks.push({url: e, index: index})
                         }
                     });
