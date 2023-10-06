@@ -152,9 +152,14 @@ const OneNote = ({
                 }}
                 onChange={(e) => {
                     let textChangedLinks = [];
-                    e.target.value.split('\n').forEach((e, index) => {
-                        if (e.startsWith('http://') || e.startsWith('https://')) {
-                            textChangedLinks.push({url: e, index: index})
+                    e.target.value.split('\n').forEach((line, lineIndex) => {
+                        e.split(' ').forEach((entity, lineIndex) => {
+                            if (entity === "//#") {
+                                
+                            }
+                        })
+                        if (line.includes('http://') || line.includes('https://')) {
+                            textChangedLinks.push({url: line, index: lineIndex})
                         }
                     });
                     setLinks(textChangedLinks);

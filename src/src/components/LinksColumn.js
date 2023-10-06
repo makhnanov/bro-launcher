@@ -26,24 +26,24 @@ const LinksColumn = ({links, noteHidden}) => {
                             ? Jira
                             : link.url.toLowerCase().includes('figma')
                                 ? Figma
-                                : link.url.toLowerCase().startsWith('https://docs.google.com/spreadsheets')
+                                : link.url.toLowerCase().includes('https://docs.google.com/spreadsheets')
                                     ? GoogleSheets
-                                    : link.url.toLowerCase().startsWith('https://docs.google.com/document')
+                                    : link.url.toLowerCase().includes('https://docs.google.com/document')
                                         ? GoogleDocs
-                                        :  link.url.toLowerCase().startsWith('https://drive.google.com/drive')
+                                        :  link.url.toLowerCase().includes('https://drive.google.com/drive')
                                             ? GoogleDrive
                                             : LinkImg
                     }
                     alt={'Link'}
                     className={`link-icon 
                     ${
-                        link.url.endsWith('red') ?
+                        link.url.includes(' red ') ?
                             'link-icon_red'
-                               : link.url.endsWith('green')
+                               : link.url.includes(' green ')
                                    ? "link-icon_green"
-                                        : link.url.endsWith('blue')
+                                        : link.url.includes(' blue ')
                                             ? "link-icon_blue"
-                                                : link.url.endsWith('yellow')
+                                                : link.url.includes(' yellow ')
                                                     ? "link-icon_yellow"
                                                     : ""
                     }`}
@@ -54,5 +54,3 @@ const LinksColumn = ({links, noteHidden}) => {
 }
 
 export default LinksColumn;
-
-
