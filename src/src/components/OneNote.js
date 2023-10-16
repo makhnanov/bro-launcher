@@ -107,7 +107,7 @@ const OneNote = ({
             textChangedLinks.push({url: url, index: index, color: color})
             return
         }
-        words = note?.contentReal?.split('\n')[index].split(' ') || [];
+        words = note?.contentReal?.split('\n')[index]?.split(' ') || [];
         for (let i = 0; i < words.length; i++) {
             if (isLink(words[i])) {
                 url = words[i];
@@ -115,6 +115,9 @@ const OneNote = ({
             if (isColor(words[i])) {
                 color = words[i];
             }
+        }
+        if (url) {
+            textChangedLinks.push({url: url, index: index, color: color})
         }
     })
 
