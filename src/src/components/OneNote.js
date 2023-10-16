@@ -90,7 +90,7 @@ const OneNote = ({
             str === 'yellow' ||
             str === 'blue';
     }
-    note?.contentReal?.split('\n').forEach((line, index) => {
+    note?.content?.split('\n').forEach((line, index) => {
         let words = line.split(' ');
         let color = null;
         let url = null;
@@ -99,17 +99,22 @@ const OneNote = ({
             if (isLink(words[i])) {
                 url = words[i];
             }
-            if (
-                words[i] === 'red' ||
-                words[i] === 'green' ||
-                words[i] === 'blue' ||
-                words[i] === 'yellow'
-            ) {
+            if (isColor(words[i])) {
                 color = words[i];
             }
         }
         if (url) {
             textChangedLinks.push({url: url, index: index, color: color})
+            return
+        }
+        words = note?.contentReal?.split('\n')[index].split(' ') || [];
+        for (let i = 0; i < words.length; i++) {
+            if (isLink(words[i])) {
+                url = words[i];
+            }
+            if (isColor(words[i])) {
+                color = words[i];
+            }
         }
     })
 
