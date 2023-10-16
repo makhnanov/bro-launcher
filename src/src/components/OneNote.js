@@ -6,7 +6,6 @@ import LinksColumn from './LinksColumn';
 import Sun from '../img/sun-svgrepo-com.svg';
 import Moon from '../img/moon-svgrepo-com.svg';
 
-
 const OneNote = ({
                      note,
                      index,
@@ -75,9 +74,42 @@ const OneNote = ({
     }, []);
 
     let textChangedLinks = [];
-    note.content.split('\n').forEach((e, index) => {
-        if (e.startsWith('http://') || e.startsWith('https://')) {
-            textChangedLinks.push({url: e, index: index})
+
+    const isLink = (str) => {
+        return str.startsWith('tg://') ||
+            str.startsWith('http://') ||
+            str.startsWith('https://') ||
+            str.startsWith('phpstorm://') ||
+            str.startsWith('webstorm://') ||
+            str.startsWith('rocketchat://') ||
+            str.startsWith('anyprogram://');
+    }
+    const isColor = (str) => {
+        return str === 'red' ||
+            str === 'green' ||
+            str === 'yellow' ||
+            str === 'blue';
+    }
+    note?.contentReal?.split('\n').forEach((line, index) => {
+        let words = line.split(' ');
+        let color = null;
+        let url = null;
+
+        for (let i = 0; i < words.length; i++) {
+            if (isLink(words[i])) {
+                url = words[i];
+            }
+            if (
+                words[i] === 'red' ||
+                words[i] === 'green' ||
+                words[i] === 'blue' ||
+                words[i] === 'yellow'
+            ) {
+                color = words[i];
+            }
+        }
+        if (url) {
+            textChangedLinks.push({url: url, index: index, color: color})
         }
     })
 
@@ -151,19 +183,88 @@ const OneNote = ({
                     e.stopPropagation();
                 }}
                 onChange={(e) => {
-                    let textChangedLinks = [];
-                    e.target.value.split('\n').forEach((line, lineIndex) => {
-                        e.split(' ').forEach((entity, lineIndex) => {
-                            if (entity === "//#") {
-                                
+
+                    let newVisible = [];
+                    let newHidden = [];
+
+                    let save = (visible, hidden) => {
+                        newVisible.push(visible)
+                        newHidden.push(hidden)
+                    }
+
+                    e.target.value.split('\n').forEach((line, i) => {
+                        let latestHidden = (note?.contentReal || '').split('\n')[i] || '';
+                        let latestVisible = (note?.content || '').split('\n')[i] || '';
+
+                        let split = line.split('///')
+                        let visible = split[0] + '///';
+                        let invisible = split.slice(1).join('///');
+
+                        if (invisible) {
+                            if (
+                                latestVisible.endsWith('///') &&
+                                line !== latestVisible.slice(0, -1)
+                            ) {
+                                save(latestVisible, latestHidden)
+                            } else {
+                                save(visible, invisible)
                             }
-                        })
-                        if (line.includes('http://') || line.includes('https://')) {
-                            textChangedLinks.push({url: line, index: lineIndex})
+                        } else {
+                            if (
+                                latestVisible.endsWith('///')
+                                && line === latestVisible.slice(0, -1)
+                            ) {
+                                save(line + latestHidden, '')
+                                return;
+                            }
+                            save(line, latestHidden)
                         }
-                    });
+                    })
+
+                    newVisible.forEach((visible, i) => {
+                        let url = null;
+                        let color = null;
+
+                        let word = visible.split(' ');
+                        for (let j = 0; j < word.length; j++) {
+                            if (isLink(word[j])) {
+                                url = word[j];
+                                break;
+                            }
+                        }
+                        for (let j = 0; j < word.length; j++) {
+                            if (isColor(word[j])) {
+                                color = word[j];
+                                break;
+                            }
+                        }
+                        if (url) {
+                            textChangedLinks.push({url: url, index: i, color: color})
+                            return;
+                        }
+
+                        word = newHidden[i].split(' ');
+                        for (let j = 0; j < word.length; j++) {
+                            if (isLink(word[j])) {
+                                url = word[j];
+                                break;
+                            }
+                        }
+                        for (let j = 0; j < word.length; j++) {
+                            if (isColor(word[j])) {
+                                color = word[j];
+                                break;
+                            }
+                        }
+                        if (url) {
+                            textChangedLinks.push({url: url, index: i, color: color})
+                        }
+                    })
+
+                    // ToDo: detect new line drop and drop it from real
+
                     setLinks(textChangedLinks);
-                    changeNote(index, e.target.value)
+                    changeNote(index, newVisible.join('\n'), newHidden.join('\n'))
                 }}
             />
         </div>

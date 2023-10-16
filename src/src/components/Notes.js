@@ -12,9 +12,10 @@ const Notes = ({menuHidden, settingsNotes}) => {
         localStorage.setItem("notes", JSON.stringify(newNotes))
     }
 
-    const changeNoteContent = (index, value) => {
+    const changeNoteContent = (index, value, real) => {
         let newNotes = JSON.parse(localStorage.getItem('notes') ?? '[]');
         newNotes[index].content = value;
+        newNotes[index].contentReal = real;
         setNotes(newNotes);
         localStorage.setItem("notes", JSON.stringify(newNotes))
     }

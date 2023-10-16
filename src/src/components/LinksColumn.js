@@ -35,18 +35,7 @@ const LinksColumn = ({links, noteHidden}) => {
                                             : LinkImg
                     }
                     alt={'Link'}
-                    className={`link-icon 
-                    ${
-                        link.url.includes(' red ') ?
-                            'link-icon_red'
-                               : link.url.includes(' green ')
-                                   ? "link-icon_green"
-                                        : link.url.includes(' blue ')
-                                            ? "link-icon_blue"
-                                                : link.url.includes(' yellow ')
-                                                    ? "link-icon_yellow"
-                                                    : ""
-                    }`}
+                    className={`link-icon ${link.color ? ('link-icon_' + link.color) : ''}`}
                 />
             </div>
         ))}
