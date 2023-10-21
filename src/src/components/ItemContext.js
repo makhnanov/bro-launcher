@@ -111,7 +111,7 @@ const ItemContext = ({
                 </div>
 
                 {clicked && (
-                    <ContextMenu top={points.y} left={points.x}>
+                    <ContextMenu top={points.y - 110} left={points.x - 10}>
                         <ul className={'context-menu'}>
                             <li onClick={editItem}>Edit</li>
                             <li onClick={() => copy(bookmarks[contextMenuItemIndex].onClick)}>Copy Link</li>
