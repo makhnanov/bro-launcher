@@ -56,7 +56,7 @@ import main from "./Main";
 
 document.title = 'BRO Launcher';
 
-const appVersion = '2.0.11';
+const appVersion = '2.0.13';
 
 function App() {
 
@@ -92,6 +92,7 @@ function App() {
     const publicRepo = "https://github.com/makhnanov/bro-launcher";
 
     const renderBackdrop = (props) => <div className="backdrop" {...props} />;
+
 
     let handleClose = () => {
         setIndexForEdit(null);
