@@ -1,8 +1,10 @@
-up-detach:
+up:
 	docker compose up --build --remove-orphans --force-recreate --detach
+ci:
+	docker compose run node npm ci
 start:
 	docker compose run node npm run start
-up:
+log:
 	docker compose up --build --remove-orphans --force-recreate
 shell:
 	docker compose run node bash

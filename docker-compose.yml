@@ -1,11 +1,16 @@
-version: "3.8"
+networks:
+    bro-launcher-network:
+        driver: bridge
 
 services:
     node:
         build: ./docker/node
         volumes:
-            - ./src:/application
+            - ./frontend:/application
         working_dir: /application
         ports:
             - "3389:3389"
         restart: always
+        command: sleep inf
+        networks:
+            - bro-launcher-network
