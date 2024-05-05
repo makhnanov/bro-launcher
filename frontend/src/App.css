@@ -121,11 +121,16 @@ code {
 }
 
 .menu-item {
-    transition: all 500ms ease-in-out;
+    transition: all 100ms ease-in-out;
     user-select: none;
     font-family: ahganirya;
     font-size: 20px;
     letter-spacing: 1.2px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #ffffff38;
 }
 
 .simple-notes-wrapper {
